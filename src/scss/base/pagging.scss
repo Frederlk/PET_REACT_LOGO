@@ -28,10 +28,10 @@
         height: 25px;
         cursor: pointer;
         transition: all 0.3s ease 0s;
-        background: url("../img/catalog/icons/arrow_nav.png") 0 0 no-repeat;
-        @media (min-width: $md2+px) {
+        // background: url("../img/catalog/icons/arrow_nav.png") 0 0 no-repeat;
+        @media (min-width: $tablet) {
             &:hover {
-                background: url("../img/catalog/icons/arrow_nav_hv.png") 0 0 no-repeat;
+                // background: url("../img/catalog/icons/arrow_nav_hv.png") 0 0 no-repeat;
             }
         }
         &:last-child {
@@ -42,7 +42,7 @@
     &__list {
         margin: 0px 35px;
         display: flex;
-        @media (max-width: $md4+px) {
+        @media (max-width: $mobileSmall) {
             margin: 0px 7px;
         }
         li {

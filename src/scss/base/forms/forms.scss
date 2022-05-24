@@ -70,7 +70,7 @@
     &_grey {
         background-color: #e6e6e6;
         color: #666666;
-        @media (min-width: $md2+px) {
+        @media (min-width: $tablet) {
             &:hover {
                 background-color: #666666 !important;
                 color: #fff;
@@ -121,7 +121,7 @@
             width: 11px;
             height: 7px;
             margin: 0px 0px 0px 5px;
-            background: url("../img/catalog/icons/icon_triangle.png") center / 100% no-repeat;
+            // background: url("../img/catalog/icons/icon_triangle.png") center / 100% no-repeat;
         }
     }
     &__input {
@@ -143,7 +143,7 @@
         border-top: 0;
         font-size: 14px;
         padding: 10px 0px 5px 0px;
-        @media (max-width: $md2+px) {
+        @media (max-width: $tablet) {
             font-size: 18px;
         }
     }
@@ -194,7 +194,7 @@ textarea {
     appearance: none;
 }
 .input {
-    @media (max-width: $md3+px) {
+    @media (max-width: $mobile) {
         padding: 0px 10px;
     }
 
@@ -374,7 +374,7 @@ textarea.input {
     height: 14px;
     top: 0;
     left: 0;
-    background: url("../img/icons/bg_rating.svg") 0 0 no-repeat;
+    // background: url("../img/icons/bg_rating.svg") 0 0 no-repeat;
     z-index: 1;
     background-size: 85px 100%;
 }
@@ -384,7 +384,7 @@ textarea.input {
     height: 14px;
     top: 0;
     left: 0;
-    background: url("../img/icons/bg_rating_active.svg") 0 0 no-repeat;
+    // background: url("../img/icons/bg_rating_active.svg") 0 0 no-repeat;
     z-index: 2;
     background-size: 85px 100%;
 }
@@ -408,13 +408,13 @@ textarea.input {
         flex: 0 0 20px;
         position: relative;
         cursor: pointer;
-        background: url("../img/catalog/icons/arrow_nav.png") 0 0/100% no-repeat;
+        // background: url("../img/catalog/icons/arrow_nav.png") 0 0/100% no-repeat;
         transition: all 0.3s ease 0s;
         width: 20px;
         height: 17px;
-        @media (min-width: $md2+px) {
+        @media (min-width: $tablet) {
             &:hover {
-                background: url("../img/catalog/icons/arrow_nav_hv.png") 0 0/100% no-repeat;
+                // background: url("../img/catalog/icons/arrow_nav_hv.png") 0 0/100% no-repeat;
             }
         }
         // .quantity__button_plus
@@ -441,8 +441,3 @@ textarea.input {
         }
     }
 }
-//</QUANTITY>====================================================================================================
-
-//<RANGE>====================================================================================================
-
-//</RANGE>====================================================================================================

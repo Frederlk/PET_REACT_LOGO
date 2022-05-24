@@ -1,25 +1,25 @@
 ._arrow {
-    background: url("../img/icons/sl_arrow.svg") 0 0 no-repeat;
+    // background: url("../img/icons/sl_arrow.svg") 0 0 no-repeat;
     width: 35px;
     height: 30px;
     cursor: pointer;
     transition: opacity 1s ease 0s;
-    @media (min-width: $md2+px) {
+    @media (min-width: $tablet) {
         &:hover {
-            background: url("../img/icons/sl_arrow_h.svg") 0 0 no-repeat;
+            // background: url("../img/icons/sl_arrow_h.svg") 0 0 no-repeat;
         }
     }
 }
 ._arrow_prev {
     transform: rotate(-180deg);
-    @media (min-width: $md2+px) {
+    @media (min-width: $tablet) {
         &:hover {
             transform: rotate(0deg) translate(1.5px, 0.5px);
         }
     }
 }
 ._arrow_next {
-    @media (min-width: $md2+px) {
+    @media (min-width: $tablet) {
         &:hover {
             transform: rotate(-180deg) translate(1.5px, 0.5px);
         }
