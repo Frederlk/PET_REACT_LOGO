@@ -83,7 +83,7 @@ import payCard02 from "./../img/payCards/02.png";
 import payCard03 from "./../img/payCards/03.png";
 import payCard04 from "./../img/payCards/04.png";
 import payCard05 from "./../img/payCards/05.png";
-const payCardsimages = {
+const payCardsImages = {
     payCard01,
     payCard02,
     payCard03,
@@ -176,7 +176,7 @@ const defaultImages = {
 export default {
     icons,
     catalogImages,
-    payCardsimages,
+    payCardsImages,
     socialIcons,
     deliveryImages,
     mainSlidesImages,

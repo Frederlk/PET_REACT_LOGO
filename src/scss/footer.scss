@@ -1,29 +1,18 @@
 .footer {
-    &__content {
-        padding: 0;
-        @media (max-width: 1200px) {
-            padding: 0 10px;
-        }
+    position: relative;
+    &__container {
     }
 
     &__body {
-        @media (max-width: 1200px) {
-            margin: 0px -15px;
-        }
         @media (min-width: $tablet) {
             display: flex;
             justify-content: center;
-            margin: 0px -30px;
         }
     }
 
     &__column {
-        padding: 0px 30px;
-        margin: 0px 0px 25px 0px;
         flex: 0 1 50%;
-        @media (max-width: 1200px) {
-            padding: 0px 15px;
-        }
+        margin-bottom: rem(25);
         &:first-child {
             display: flex;
             flex-direction: column;
@@ -34,54 +23,39 @@
     }
 
     &__cards {
-        display: flex;
+        display: inline-flex;
+        gap: rem(25);
+        align-items: center;
         @media (max-width: $tablet) {
             justify-content: center;
-            align-items: center;
+            margin-top: rem(25);
         }
     }
 
     &__icon {
-        margin: 0px 25px 0px 0px;
-        &:last-child {
-            margin: 0px 0px 0px 0px;
-        }
     }
 
     &__widgets {
         display: flex;
         justify-content: center;
+        gap: rem(25);
         @media (min-width: $tablet) {
             justify-content: flex-end;
         }
-        @media (max-width: 560px) {
-            display: block;
+        @media (max-width: $mobileSmall) {
+            flex-wrap: wrap;
         }
     }
 
     &__widget-item {
-        margin: 0px 0px 0px 35px;
-        &:first-child {
-            margin: 0px 0px 0px 0px;
-        }
-        @media (max-width: 1200px) {
-            margin: 0px 0px 0px 15px;
-        }
-        @media (max-width: $tablet) {
-            margin: 0px 0px 0px 35px;
-        }
-        @media (max-width: 560px) {
-            margin: 0px 0 20px 0;
-            text-align: center;
-            &:first-child {
-                margin: 0px 0 20px 0;
-            }
+        img {
+            max-width: 100%;
         }
     }
 
     &__bottom {
-        border-top: 1px solid #dadada;
-        padding: 10px 0px;
+        border-top: rem(1) solid $gray_04;
+        padding: rem(10) 0px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -94,48 +68,42 @@
     &__copy {
         display: inline-block;
         flex: 1 1 auto;
-        font-size: 12px;
-        line-height: 18px;
+        font-size: rem(12);
+        line-height: math.div(18, 12);
         font-weight: 300;
-        color: #999999;
+        color: $gray_03;
         @media (max-width: $mobileSmall) {
-            margin: 0px 0px 10px 0px;
+            margin-bottom: rem(10);
         }
     }
 
     &__socials {
     }
 }
+
 .block-footer {
     display: flex;
     flex: 1 1 auto;
-    @media (max-width: 560px) {
+    @media (max-width: em(560)) {
         display: block;
     }
     &__column {
         &:first-child {
-            flex: 0 0 165px;
-            @media (max-width: 560px) {
+            flex: 0 0 rem(165);
+            @media (max-width: em(560)) {
                 display: flex;
                 justify-content: center;
                 align-items: center;
             }
         }
         &:last-child {
-            padding: 0px 0px 0px 45px;
             flex: 1 1 auto;
-            @media (max-width: $pc) {
-                padding: 0px 0px 0px 25px;
-            }
-            @media (max-width: $tablet) {
-                padding: 0px 0px 0px 45px;
+            @media (min-width: em(560)) {
+                @include adaptiveValue("padding-left", 45, 25, 1170, 991.98, 1);
             }
         }
-        @media (max-width: 560px) {
+        @media (max-width: em(560)) {
             text-align: center;
-            &:last-child {
-                padding: 0px 20px;
-            }
         }
     }
     &__contact {
@@ -144,39 +112,47 @@
     &__delivery {
     }
 }
+
 .contact-footer {
     &__logo {
-        // background: url("../img/main/about/bg_logo.png") 0 0 no-repeat;
-        display: inline-block;
-        margin: 0px 0px 25px 0px;
-        @media (max-width: 560px) {
-            margin: 0px 0px 15px 0px;
+        display: inline-flex;
+        margin-bottom: rem(25);
+        img {
+            max-width: 100%;
+        }
+        @media (max-width: em(560)) {
+            margin-bottom: rem(15);
         }
     }
 
     &__phones {
-        // background: url("../img/icons/phone.png") left no-repeat;
-
-        margin: 0px 0px 50px 0px;
-        padding: 0px 0px 0px 35px;
-        p {
-            margin: 0px 0px 10px 0px;
-            &:last-child {
-                margin: 0px 0px 0px 0px;
-            }
-        }
-        @media (max-width: 560px) {
-            padding: 0px 0px 0px 15px;
-        }
-        @media (max-width: $tablet) {
-            margin: 0px 0px 30px 0px;
+        display: flex;
+        align-items: center;
+        gap: rem(10);
+        @media (max-width: em(560)) {
+            margin-bottom: rem(25);
         }
     }
 
+    &__icon {
+        margin-top: rem(-3);
+        flex: 0 0 rem(20);
+    }
+
     &__phone {
+        display: block;
         font-weight: 900;
         text-transform: uppercase;
-        color: #333333;
+        color: $gray_01;
+        &:not(:last-child) {
+            margin-bottom: rem(10);
+        }
+        transition: all 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $gray_03;
+            }
+        }
     }
 }
 
@@ -186,37 +162,39 @@
         line-height: 1.2;
         text-transform: uppercase;
         letter-spacing: 0.025em;
-        color: #999999;
-        margin: 0px 0px 15px 0px;
-        @media (max-width: 560px) {
-            margin: 0px 0px 5px 0px;
-        }
+        color: $gray_03;
+        margin-bottom: rem(15);
     }
 
     &__items {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        margin: 0px -15px;
-        @media (max-width: 560px) {
+        @include adaptiveValue("gap", 30, 15, 1170, 767.98, 1);
+        @media (max-width: em(560)) {
             justify-content: center;
             align-items: center;
-            margin: 0px -15px 10px -15px;
+            &:not(:last-child) {
+                margin-bottom: rem(10);
+            }
         }
     }
 
     &__item {
-        padding: 15px;
         img {
+            max-width: 100%;
             @extend %grayfilter;
         }
     }
 }
+
 .social-footer {
+    display: flex;
+    align-items: center;
+    gap: rem(15);
+    @media (max-width: $mobileSmall) {
+        justify-content: center;
+    }
     &__item {
-        margin: 0px 15px 0px 0px;
-        &:last-child {
-            margin: 0px 0px 0px 0px;
-        }
     }
 }

@@ -17,16 +17,8 @@
         transform: translate(-50%, 0px);
         z-index: -1;
         @media (max-width: $mobile) {
-            top: rem(-20);
-            &::after {
-                content: "";
-                position: absolute;
-                width: 100%;
-                height: rem(39);
-                bottom: 0;
-                left: 0;
-                background-color: $white;
-            }
+            height: rem(70);
+            overflow: hidden;
         }
     }
 }
