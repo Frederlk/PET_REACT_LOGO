@@ -1,9 +1,28 @@
 import { format } from "date-fns";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { images, data } from "../constants";
+import useVkInfo from "../services/useVkInfo";
 
 const Footer = () => {
-    const { icons, defaultImages, payCardsImages } = images;
+    const { icons, defaultImages } = images;
+    const { process, setProcess, getGroup, getMembers, clearError } = useVkInfo();
+
+    const [char, setChar] = useState(null);
+
+    useEffect(() => {
+        updateChar();
+    }, []);
+
+    const updateChar = () => {
+        clearError();
+        const charID = 31480508;
+        if (!charID) {
+            return;
+        }
+        getMembers(charID)
+            // .then(onCharLoaded)
+            .then((res) => console.log(res));
+    };
 
     return (
         <footer className="footer">
@@ -55,14 +74,7 @@ const Footer = () => {
                         </div>
                     </div>
                     <div className="footer__column">
-                        <div className="footer__widgets">
-                            <div className="footer__widget-item">
-                                <img src={defaultImages.vidget} alt="" />
-                            </div>
-                            <div className="footer__widget-item">
-                                <img src={defaultImages.vidget} alt="" />
-                            </div>
-                        </div>
+                        <div id="vk_groups" className="footer__widgets"></div>
                     </div>
                 </div>
                 <div className="footer__bottom">

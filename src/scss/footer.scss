@@ -36,21 +36,6 @@
     }
 
     &__widgets {
-        display: flex;
-        justify-content: center;
-        gap: rem(25);
-        @media (min-width: $tablet) {
-            justify-content: flex-end;
-        }
-        @media (max-width: $mobileSmall) {
-            flex-wrap: wrap;
-        }
-    }
-
-    &__widget-item {
-        img {
-            max-width: 100%;
-        }
     }
 
     &__bottom {
@@ -120,18 +105,13 @@
         img {
             max-width: 100%;
         }
-        @media (max-width: em(560)) {
-            margin-bottom: rem(15);
-        }
     }
 
     &__phones {
         display: flex;
         align-items: center;
         gap: rem(10);
-        @media (max-width: em(560)) {
-            margin-bottom: rem(25);
-        }
+        margin-bottom: rem(25);
     }
 
     &__icon {
