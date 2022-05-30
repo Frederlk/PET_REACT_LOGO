@@ -36,6 +36,16 @@
     }
 
     &__widgets {
+        display: flex;
+        @include adaptiveValue("gap", 25, 15, 1170, 991.98, 1);
+        justify-content: flex-end;
+        @media (max-width: $tablet) {
+            justify-content: center;
+            gap: rem(25);
+        }
+        @media (max-width: em(540)) {
+            flex-wrap: wrap;
+        }
     }
 
     &__bottom {
@@ -176,5 +186,65 @@
         justify-content: center;
     }
     &__item {
+    }
+}
+
+//========================================================================================================================================================
+
+.vk-widget {
+    flex: 0 1 rem(260);
+    color: $primary_01;
+    @media (max-width: $tablet) {
+        flex: 0 1 rem(290);
+    }
+    @media (max-width: em(540)) {
+        flex: 0 0 rem(290);
+    }
+    &__top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $primary_01;
+        width: 100%;
+        padding: rem(5);
+        margin-bottom: rem(15);
+    }
+
+    &__title,
+    &__icon {
+        flex: 0 0 rem(30);
+        img {
+            max-width: 100%;
+        }
+    }
+
+    &__count {
+        font-weight: 700;
+        line-height: math.div(18, 14);
+        margin-bottom: rem(20);
+        text-align: center;
+    }
+
+    &__body {
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: rem(20);
+        margin: 0px rem(-5);
+        text-align: center;
+    }
+
+    &__person {
+        flex: 0 1 25%;
+        padding: 0px rem(5);
+    }
+
+    &__img-ibg {
+        padding-bottom: rem(55);
+    }
+
+    &__name {
+        font-size: rem(10);
+        line-height: math.div(18, 12);
+        font-weight: 500;
     }
 }

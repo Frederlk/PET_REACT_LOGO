@@ -92,11 +92,13 @@ const payCardsImages = {
 };
 
 import vkSoclial from "./../img/social/01.png";
+import vkSoclial2 from "./../img/social/vk.png";
 import fbSocial from "./../img/social/02.png";
 import instSocial from "./../img/social/03.png";
 import okSocial from "./../img/social/04.png";
 const socialIcons = {
     vkSoclial,
+    vkSoclial2,
     fbSocial,
     instSocial,
     okSocial,
@@ -163,6 +165,7 @@ import logo from "./../img/logo.png";
 import logo_footer from "./../img/logo_footer.png";
 import woman from "./../img/woman.png";
 import vidget from "./../img/vidget.png";
+import error from "./../img/error.gif";
 const defaultImages = {
     bg,
     bg_side,
@@ -171,6 +174,7 @@ const defaultImages = {
     logo_footer,
     woman,
     vidget,
+    error,
 };
 
 export default {

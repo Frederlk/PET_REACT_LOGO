@@ -25,3 +25,13 @@
         }
     }
 }
+
+.spinner {
+    text-align: center;
+    margin: 0px auto;
+    width: rem(150);
+    height: rem(150);
+    svg {
+        max-width: 100%;
+    }
+}
