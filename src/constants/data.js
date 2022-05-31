@@ -77,4 +77,85 @@ const socialItems = [
     },
 ];
 
-export default { deliveryItems, payCardsItems, socialItems };
+const sideMenu = [
+    {
+        title: "Беговые дорожки",
+        link: "Treadmills",
+        submenu: [
+            {
+                subtitle: "Всепогодный",
+                sublink: "All-weather",
+            },
+            {
+                subtitle: "Для помещений",
+                sublink: "For-premises",
+            },
+            {
+                subtitle: "Профессиональный",
+                sublink: "Professional",
+            },
+            {
+                subtitle: "Любительский",
+                sublink: "Amateur",
+            },
+        ],
+    },
+    {
+        title: "Эллиптические тренажеры",
+        link: "Elliptical simulators",
+    },
+    {
+        title: "Велотренажеры",
+        link: "Велотренажеры",
+    },
+    {
+        title: "Гребные тренажеры",
+        link: "Rowing-simulators",
+    },
+    {
+        title: "Вибромассажеры",
+        link: "Vibration-massagers",
+    },
+    {
+        title: "Теннисные столы",
+        link: "Tennis-tables",
+    },
+    {
+        title: "Баскетбол",
+        link: "Basketball",
+    },
+    {
+        title: "Массажные кресла",
+        link: "Massage-chairs",
+    },
+    {
+        title: "Массажные столы",
+        link: "Massage-tables",
+    },
+    {
+        title: "Силовые тренажеры",
+        link: "Power-simulators",
+    },
+    {
+        title: "Батуты",
+        link: "Stopper",
+    },
+    {
+        title: "Детские городки",
+        link: "Children's-towns",
+    },
+    {
+        title: "Дачная мебель",
+        link: "Country-furniture",
+    },
+    {
+        title: "Уличные спортивные комплексы",
+        link: "Street-sports-complexes",
+    },
+    {
+        title: "Аксессуары",
+        link: "Accessories",
+    },
+];
+
+export default { deliveryItems, payCardsItems, socialItems, sideMenu };

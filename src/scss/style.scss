@@ -26,6 +26,7 @@ $secondary: #f68038;
 $primary_01: #36949f;
 $primary_02: #068292;
 $primary_03: #1ab9ce;
+$primary_04: #098494;
 $gray_01: #333;
 $gray_02: #666;
 $gray_03: #999999;
@@ -151,14 +152,15 @@ body {
 //========================================================================================================================================================
 
 .page {
-    padding: 160px 0px 0px 0px;
+    padding-top: rem(160);
     flex: 1 1 auto;
     @media (max-width: $mobile) {
-        padding: 135px 0px 0px 0px;
+        padding-top: rem(135);
     }
-    @media (max-width: 640px) {
-        padding: 90px 0px 0px 0px;
+    @media (max-width: em(640)) {
+        padding-top: rem(90);
     }
+
     &__container {
         @media (min-width: $tablet) {
             display: flex;
@@ -166,37 +168,35 @@ body {
     }
 
     &__side {
-        flex: 0 0 260px;
+        flex: 0 0 rem(260);
         position: relative;
         z-index: 10;
-        margin: 0px 0px 30px 0px;
-        @media (max-width: 640px) {
-            margin: 0px 0px 20px 0px;
+        margin-bottom: rem(30);
+        @media (max-width: $mobile) {
+            margin-bottom: rem(20);
         }
     }
 
     &__menu {
-        margin: 0px 0px 44px 0px;
-        @media (max-width: $tablet) {
-            margin: 0px 0px 0px 0px;
+        @media (min-width: $tablet) {
+            margin-bottom: rem(44);
         }
     }
     &__news-side {
-        margin: 0px 0px 30px 0px;
+        margin-bottom: rem(30);
     }
     &__rewiews-side {
-        margin: 0px 0px 50px 0px;
-        &:last-child {
-            margin: 0px 0px 0px 0px;
+        &:not(:last-child) {
+            margin-bottom: rem(50);
         }
     }
 
     &__content {
-        margin: 0px 0px 20px 0px;
+        margin-bottom: rem(20);
         @media (min-width: $tablet) {
             flex: 1 1 auto;
             min-width: 0;
-            padding: 0px 0px 0px 30px;
+            padding-left: rem(30);
         }
     }
     &__info {
@@ -272,212 +272,6 @@ body {
     }
 }
 
-//========================================================================================================================================================
-
-.menu-page {
-    // background: url("../img/main/offer/bg_side.jpg") top repeat;
-    position: relative;
-    &__header {
-        padding: 20px;
-        display: flex;
-        align-items: center;
-    }
-
-    &__title {
-        flex: 1 1 auto;
-        font-family: UniSans;
-        font-size: 30px;
-        line-height: 1.2;
-        text-transform: uppercase;
-        letter-spacing: 0.025em;
-        color: #ffffff;
-        @media (max-width: 450px) {
-            font-size: 22px;
-        }
-    }
-
-    &__burger {
-        flex: 0 0 36px;
-        width: 36px;
-        height: 36px;
-        background-color: #068292;
-        position: relative;
-        cursor: pointer;
-        z-index: 5;
-        padding: 10px 6px;
-        span {
-            transition: all 0.3s ease 0s;
-            top: calc(50% - 1px);
-            left: 0px;
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            background-color: #fff;
-            &:first-child {
-                top: 0px;
-            }
-            &:last-child {
-                top: auto;
-                bottom: 0px;
-            }
-        }
-        &._active {
-            span {
-                transform: scale(0);
-                &:first-child {
-                    transform: rotate(-45deg);
-                    top: calc(50% - 1px);
-                }
-                &:last-child {
-                    transform: rotate(45deg);
-                    bottom: calc(50% - 1px);
-                }
-            }
-        }
-    }
-
-    &__lines {
-        height: 16px;
-        position: relative;
-    }
-
-    &__body {
-        display: none;
-        &._active {
-            display: block;
-        }
-    }
-
-    &__list {
-        > li {
-            border-bottom: 1px solid #1aa7b9;
-        }
-    }
-
-    &__parent {
-        .menu-page__link {
-            &::after {
-                content: "";
-                position: absolute;
-                right: 10px;
-                top: 50%;
-                transform: translate(0px, -50%);
-                width: 14px;
-                height: 14px;
-                transition: all 0.3s ease 0s;
-                // background: url("../img/icons/menu_arrow.png") 0 0 no-repeat;
-                @media (max-width: $tablet) {
-                    transform: translate(0px, -50%) rotate(90deg);
-                }
-            }
-        }
-        &._active {
-            .menu-page__submenu {
-                pointer-events: all;
-            }
-            .submenu-page__item {
-                display: block;
-                @media (min-width: $tablet) {
-                    z-index: 3;
-                    transform: translate(0px, 0px);
-                }
-            }
-            .menu-page__link {
-                background-color: #098494;
-                &::after {
-                    transform: translate(0px, -50%) rotate(180deg);
-                    @media (max-width: $tablet) {
-                        transform: translate(0px, -50%) rotate(-90deg);
-                    }
-                }
-            }
-        }
-    }
-
-    &__link {
-        font-size: 12px;
-        font-weight: 300;
-        letter-spacing: 0.025em;
-        color: #ffffff;
-        display: block;
-        padding: 12px 20px;
-        position: relative;
-        transition: all 0.3s ease 0s;
-        @media (max-width: $tablet) {
-            font-size: 14px;
-        }
-    }
-
-    &__submenu {
-        @media (min-width: $tablet) {
-            width: 100%;
-            position: absolute;
-            top: 0;
-            left: 100%;
-            height: 100%;
-            overflow: hidden;
-            pointer-events: none;
-        }
-    }
-}
-.submenu-page {
-    @media (max-width: $tablet) {
-        background-color: #fff;
-    }
-    &__item {
-        display: none;
-        @media (min-width: $tablet) {
-            display: block;
-            width: 280px;
-            border: 2px solid #098494;
-            background-color: #fff;
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0%;
-            transition: all 0.3s ease 0s;
-            transform: translate(-100%, 0px);
-        }
-    }
-
-    &__menu {
-        padding: 20px 0;
-        border-bottom: 1px solid #dedede;
-        @media (max-width: $tablet) {
-            padding: 10px 0;
-        }
-    }
-
-    &__link {
-        font-size: 12px;
-        font-weight: 300;
-        letter-spacing: 0.025em;
-        color: #1ab9ce;
-        display: block;
-        padding: 10px 40px;
-        @media (min-width: $tablet) {
-            &:hover {
-                color: #ffffff;
-                background-color: #71c7d3;
-            }
-        }
-        @media (max-width: $tablet) {
-            padding: 10px 20px;
-            font-size: 14px;
-        }
-    }
-
-    &__product {
-        padding: 0 15px;
-        @media (max-width: $tablet) {
-            display: none;
-        }
-        .item-product {
-            border: 0;
-        }
-    }
-}
 //========================================================================================================================================================
 
 .items-products {
