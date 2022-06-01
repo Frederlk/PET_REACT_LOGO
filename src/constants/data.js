@@ -103,6 +103,20 @@ const sideMenu = [
     {
         title: "Эллиптические тренажеры",
         link: "Elliptical simulators",
+        submenu: [
+            {
+                subtitle: "Всепогодный",
+                sublink: "All-weatherы",
+            },
+            {
+                subtitle: "Профессиональный",
+                sublink: "Professionals",
+            },
+            {
+                subtitle: "Любительский",
+                sublink: "Amateusr",
+            },
+        ],
     },
     {
         title: "Велотренажеры",
@@ -111,6 +125,20 @@ const sideMenu = [
     {
         title: "Гребные тренажеры",
         link: "Rowing-simulators",
+        submenu: [
+            {
+                subtitle: "Для помещений",
+                sublink: "For-premisess",
+            },
+            {
+                subtitle: "Профессиональный",
+                sublink: "Professionals",
+            },
+            {
+                subtitle: "Любительский",
+                sublink: "Amateusr",
+            },
+        ],
     },
     {
         title: "Вибромассажеры",
@@ -158,4 +186,34 @@ const sideMenu = [
     },
 ];
 
-export default { deliveryItems, payCardsItems, socialItems, sideMenu };
+const newsItems = [
+    {
+        title: "Снижение цен на игровые площадки Jungle Gym",
+        text: ` Уважаемые покупатели! <br />
+                Мы рады сообщить вам о снижении цены с 27 июля на детский игровой комплекс`,
+        date: new Date(2021, 7, 12),
+        link: "news/jungle-gym",
+    },
+    {
+        title: "Поступление батутов Eclipse!",
+        text: ` Уважаемые покупатели! <br />
+                Мы рады сообщить вам о снижении цены с 27 июля на детский игровой комплекс`,
+        date: new Date(2021, 7, 19),
+        link: "news/eclipse",
+    },
+];
+
+const lastReviewsItems = [
+    {
+        name: "Павел Никифоров",
+        text: "Ради экономии места в тренажерном зале приобрел многофункциональный силовой тренажер Life Gear. За такую небольшую стоимость и с такими возможностями, он просто не заменим.",
+        date: new Date(2021, 9, 12),
+    },
+    {
+        name: "Степан Николаевич",
+        text: "Спасибо за прекрасный совет, велосипед всей семье понравился и цену за него достойную запросили.",
+        date: new Date(2021, 9, 15),
+    },
+];
+
+export default { deliveryItems, payCardsItems, socialItems, sideMenu, newsItems, lastReviewsItems };

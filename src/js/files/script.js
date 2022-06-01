@@ -3,35 +3,6 @@ import { isMobile } from "./functions.js";
 // Подключение списка активных модулей
 import { flsModules } from "./modules.js";
 
-if (isMobile.any()) {
-    let menuParents = document.querySelectorAll(".menu-page__parent>a");
-    for (let index = 0; index < menuParents.length; index++) {
-        const menuParent = menuParents[index];
-        menuParent.addEventListener("click", function (e) {
-            menuParent.parentElement.classList.toggle("_active");
-            e.preventDefault();
-        });
-    }
-} else {
-    let menuParents = document.querySelectorAll(".menu-page__parent");
-    for (let index = 0; index < menuParents.length; index++) {
-        const menuParent = menuParents[index];
-        menuParent.addEventListener("mouseenter", function (e) {
-            menuParent.classList.add("_active");
-        });
-        menuParent.addEventListener("mouseleave", function (e) {
-            menuParent.classList.remove("_active");
-        });
-    }
-}
-
-let menuPageBurger = document.querySelector(".menu-page__burger");
-let menuPageBody = document.querySelector(".menu-page__body");
-menuPageBurger.addEventListener("click", function (e) {
-    menuPageBurger.classList.toggle("_active");
-    _slideToggle(menuPageBody);
-});
-
 let searchTitle = document.querySelector(".search-page__title");
 let categoriesSearch = document.querySelector(".categories-search");
 searchTitle.addEventListener("click", function (e) {
