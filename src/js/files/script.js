@@ -3,32 +3,6 @@ import { isMobile } from "./functions.js";
 // Подключение списка активных модулей
 import { flsModules } from "./modules.js";
 
-let searchTitle = document.querySelector(".search-page__title");
-let categoriesSearch = document.querySelector(".categories-search");
-searchTitle.addEventListener("click", function (e) {
-    searchTitle.classList.toggle("_active");
-    _slideToggle(categoriesSearch);
-});
-
-let checkboxCategories = document.querySelectorAll(".categories-search__checkbox");
-
-for (let index = 0; index < checkboxCategories.length; index++) {
-    const checkboxCategory = checkboxCategories[index];
-    checkboxCategory.addEventListener("change", function (e) {
-        checkboxCategory.classList.toggle("_active");
-
-        let checkboxActiveCategories = document.querySelectorAll(".categories-search__checkbox._active");
-
-        if (checkboxActiveCategories.length > 0) {
-            searchTitle.classList.add("_categories");
-            let searchQuantity = document.querySelector(".search-page__quantity");
-            searchQuantity.innerHTML = searchQuantity.getAttribute("data-text") + " " + checkboxActiveCategories.length;
-        } else {
-            searchTitle.classList.remove("_categories");
-        }
-    });
-}
-
 var startSlider = document.getElementById("slider-start");
 if (startSlider) {
     noUiSlider.create(startSlider, {

@@ -31,6 +31,7 @@ $gray_01: #333;
 $gray_02: #666;
 $gray_03: #999999;
 $gray_04: #dadada;
+$gray_05: #f2f2f2;
 
 $mainColor: $white; // Цвет шрифта по умолчанию
 
@@ -148,6 +149,7 @@ body {
 
 // Подключение стилей отдельных страниц
 @import "home";
+@import "side";
 
 //========================================================================================================================================================
 
@@ -194,6 +196,7 @@ body {
             padding-left: rem(30);
         }
     }
+
     &__info {
         display: flex;
     }
@@ -221,7 +224,7 @@ body {
     &__search {
         position: relative;
         z-index: 5;
-        margin: 0px 0px 22px 0px;
+        margin-bottom: rem(22);
     }
 
     &__slider {
@@ -536,149 +539,3 @@ body {
 }
 
 //========================================================================================================================================================
-
-.search-page {
-    display: flex;
-    position: relative;
-    &__title {
-        cursor: pointer;
-        background-color: #f3f3f3;
-        display: flex;
-        align-items: center;
-        font-weight: 300;
-        color: #666666;
-        height: 39px;
-        padding: 0px 14px;
-        justify-content: center;
-        @media (max-width: $mobile) {
-            display: none;
-        }
-        span {
-            margin: 0px 13px;
-            border-bottom: 1px dotted;
-            &:last-child {
-                display: none;
-            }
-        }
-        &::before {
-            content: "";
-            width: 17px;
-            height: 17px;
-            // background: url("../img/main/header/09.png") 0 0 no-repeat;
-        }
-        &::after {
-            content: "";
-            transition: all 0.4s ease 0s;
-            width: 10px;
-            height: 10px;
-            // background: url("../img/main/offer/arrow_search.png") 0 0 no-repeat;
-        }
-        &._active {
-            &::after {
-                transform: rotate(-180deg);
-            }
-        }
-        &._categories {
-            span {
-                display: none;
-                &:last-child {
-                    display: block;
-                }
-            }
-        }
-    }
-
-    &__categories {
-        position: absolute;
-        width: 100%;
-        top: 100%;
-        left: 0;
-    }
-
-    &__input {
-        flex: 1 1 0;
-        border-top: 2px solid #f2f2f2;
-        border-bottom: 2px solid #f2f2f2;
-        .input {
-            height: 100%;
-        }
-        @media (max-width: $mobile) {
-            border-left: 2px solid #f2f2f2;
-        }
-    }
-
-    &__btn {
-    }
-}
-.categories-search {
-    display: none;
-    background-color: #fff;
-    border: 1px solid #f3f3f3;
-    &::after {
-        content: "";
-        background-color: #f68038;
-        height: 4px;
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        left: 0;
-    }
-
-    &__row {
-        @media (min-width: $mobile) {
-            display: flex;
-        }
-        @media (max-width: $mobile) {
-            margin: 20px 0px;
-        }
-    }
-    &__column {
-        flex: 0 1 33.333%;
-        padding: 27px 40px;
-        border-right: 1px solid #f3f3f3;
-        &:last-child {
-            border: 0;
-        }
-        @media (max-width: $tablet) {
-            padding: 15px 20px;
-        }
-        @media (max-width: $mobile) {
-            padding: 0px 20px 15px 20px;
-        }
-    }
-
-    &__list {
-        li {
-            margin: 0px 0px 24px 0px;
-            &:last-child {
-                margin: 0px 0px 0px 0px;
-            }
-            @media (max-width: $mobile) {
-                margin: 0px 0px 15px 0px;
-                &:last-child {
-                    margin: 0px 0px 0px 0px;
-                }
-            }
-        }
-    }
-
-    &__checkbox {
-        .checkbox__text {
-            font-size: 12px;
-            font-weight: 300;
-            letter-spacing: 0.025em;
-            color: #999999;
-            &::before {
-                display: none;
-            }
-            @media (max-width: $tablet) {
-                font-size: 14px;
-            }
-        }
-        .checkbox__input {
-            &:checked + .checkbox__text {
-                color: #f68038;
-            }
-        }
-    }
-}

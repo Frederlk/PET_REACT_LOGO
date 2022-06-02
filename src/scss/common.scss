@@ -35,3 +35,133 @@
         max-width: 100%;
     }
 }
+
+//========================================================================================================================================================
+
+.searchbar {
+    display: flex;
+    position: relative;
+    &__title {
+        cursor: pointer;
+        background-color: $gray_05;
+        display: flex;
+        gap: rem(13);
+        align-items: center;
+        font-weight: 300;
+        color: $gray_02;
+        height: rem(40);
+        padding: 0px rem(14);
+        justify-content: center;
+        @media (max-width: $mobile) {
+            display: none;
+        }
+    }
+
+    &__icon {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        flex: 0 0 rem(17);
+    }
+
+    &__text {
+        border-bottom: rem(1) dotted;
+    }
+
+    &__arrow {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        flex: 0 0 rem(10);
+        transition: all 0.5s ease 0s;
+        ._spoller-active & {
+            transform: rotate(-180deg);
+        }
+    }
+
+    &__categories {
+        position: absolute;
+        width: 100%;
+        top: 100%;
+        left: 0;
+        @media (max-width: $mobile) {
+            display: none;
+        }
+    }
+
+    &__input {
+        position: relative;
+        flex: 1 1 auto;
+        border-top: rem(2) solid $gray_05;
+        border-bottom: rem(2) solid $gray_05;
+        .input {
+            height: 100%;
+        }
+        &._error {
+            border-top: rem(2) solid red;
+        }
+        @media (max-width: $mobile) {
+            border-left: rem(2) solid $gray_05;
+        }
+    }
+
+    &__error {
+        position: absolute;
+        top: 50%;
+        right: rem(10);
+        z-index: 8;
+        color: red;
+        transform: translate(0px, -50%);
+        font-size: rem(12);
+        line-height: math.div(18, 12);
+    }
+
+    &__btn {
+    }
+}
+
+.categories-search {
+    background-color: $white;
+    border: rem(1) solid $gray_05;
+    &::after {
+        content: "";
+        background-color: $secondary;
+        position: absolute;
+        width: 100%;
+        height: rem(4);
+        bottom: 0;
+        left: 0;
+    }
+
+    &__row {
+        @media (min-width: $mobile) {
+            display: flex;
+        }
+        @media (max-width: $mobile) {
+            margin: rem(20) 0px;
+        }
+    }
+    &__column {
+        flex: 0 1 33.333%;
+        padding: rem(30);
+        border-right: rem(1) solid $gray_05;
+        &:last-child {
+            border: 0;
+        }
+        @media (max-width: $tablet) {
+            padding: rem(15) rem(20);
+        }
+        @media (max-width: $mobile) {
+            padding: 0px rem(20) rem(15) rem(20);
+        }
+    }
+
+    &__list {
+    }
+
+    &__checkbox {
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 24, 15, 1170, 767.98, 1);
+        }
+    }
+}

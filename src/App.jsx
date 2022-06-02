@@ -1,5 +1,6 @@
 import { lazy, Suspense, useEffect } from "react";
 import * as flsFunctions from "./js/files/functions";
+import * as flsForms from "./js/files/forms/forms";
 import dynamicAdaptive from "./js/libs/dynamic_adapt";
 // import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 

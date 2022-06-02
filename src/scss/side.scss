@@ -20,6 +20,8 @@
 }
 
 .side {
+    position: relative;
+    z-index: 10;
     @media (min-width: $tablet) {
         max-width: rem(260);
     }

@@ -102,7 +102,7 @@ const sideMenu = [
     },
     {
         title: "Эллиптические тренажеры",
-        link: "Elliptical simulators",
+        link: "Elliptical-simulators",
         submenu: [
             {
                 subtitle: "Всепогодный",
