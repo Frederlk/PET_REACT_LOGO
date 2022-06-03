@@ -35,7 +35,6 @@
             width: rem(15);
             height: rem(15);
             border: rem(1) solid #a7a9ac;
-            transition: all 0.2s ease 0s;
         }
         &::after {
             content: "";
@@ -44,7 +43,6 @@
             top: rem(3);
             width: rem(9);
             height: rem(9);
-            transition: all 0.2s ease 0s;
             background-color: transparent;
         }
     }

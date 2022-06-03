@@ -307,75 +307,7 @@ function initSliders() {
 
             // Добавление класса видимым слайдам
             watchSlidesVisibility: false,
-            /*
-        
-            // Зум картинки
-            zoom: {
-                // Макимальное увеличение
-                maxRatio: 5,
-                // Минимальное увеличение
-                minRatio: 1,
-            },
-            */
 
-            // Миниатюры (превью)
-            /*
-            
-            */
-
-            /*
-            // Передача управления
-            controller: {
-                control: myTextSlider
-            },
-            */
-
-            /*
-                // Обновить свайпер
-                // при изменении элементов слайдера
-                observer: true,
-                // Обновить свайпер
-                // при изменении родительских
-                // элементов слайдера
-                observeParents: true,
-                // Обновить свайпер
-                // при изменении дочерних
-                // элементов слайда
-                observeSlideChildren: true,
-            */
-
-            /*
-                // Управление колесом мыши
-                mousewheel: {
-                    // Чувствительность колеса мыши
-                    sensitivity: 0,
-                    // Класс объекта на котором
-                    // будет срабатывать прокрутка мышью.
-                    //eventsTarget: ".image-slider"
-                },
-            */
-
-            /*
-            breakpoints: {
-                320: {
-                    slidesPerView: 1,
-                    spaceBetween: 0,
-                    autoHeight: true,
-                },
-                768: {
-                    slidesPerView: 2,
-                    spaceBetween: 20,
-                },
-                992: {
-                    slidesPerView: 3,
-                    spaceBetween: 20,
-                },
-                1268: {
-                    slidesPerView: 4,
-                    spaceBetween: 30,
-                },
-            },
-            */
             on: {
                 lazyImageReady: function () {},
             },

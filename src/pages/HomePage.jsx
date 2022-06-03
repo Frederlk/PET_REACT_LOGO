@@ -1,6 +1,6 @@
 import React from "react";
 import { SearchBar } from "../_components";
-import { Side } from "../_containers";
+import { HomeMainSlider, Side } from "../_containers";
 
 const HomePage = () => {
     return (
@@ -9,165 +9,10 @@ const HomePage = () => {
                 <Side />
                 <div className="page__content">
                     <SearchBar />
+                    <HomeMainSlider />
                 </div>
             </div>
             {/* <div className="page__content">
-                  
-                    <div className="page__slider mainslider">
-                        <div className="mainslider__body _swiper">
-                            <div className="mainslider__slide">
-                                <div className="mainslider__image _ibg">
-                                    <img src="img/main/offer/bg.jpg" alt="" />
-                                </div>
-                                <div className="mainslider__transparent _ibg">
-                                    <img src="img/main/offer/bg_transparent.png" alt="" />
-                                </div>
-                                <div className="mainslider__content content-mainslider">
-                                    <div className="content-mainslider__title">
-                                        <span>Мега</span>распродажа
-                                    </div>
-                                    <div className="content-mainslider__text text-mainslider">
-                                        <p>
-                                            <span className="text-mainslider__text-1">Успей купить </span>тренажеры
-                                        </p>
-                                        <p>
-                                            <span className="text-mainslider__text-2">по старой цене</span>
-                                        </p>
-                                        <p>
-                                            до их<span className="text-mainslider__text-3"> повышения</span>
-                                        </p>
-                                    </div>
-                                    <div className="content-mainslider__footer">
-                                        <div className="content-mainslider__price rub">от 45 000 </div>
-                                        <a className="content-mainslider__button">
-                                            <span>Подробнее</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="mainslider__slide">
-                                <div className="mainslider__image _ibg">
-                                    <img src="img/main/offer/bg02.jpg" alt="" />
-                                </div>
-                                <div className="mainslider__transparent _ibg">
-                                    <img src="img/main/offer/bg_transparent.png" alt="" />
-                                </div>
-                                <div className="mainslider__content content-mainslider">
-                                    <div className="content-mainslider__title">
-                                        <span>Мега</span>распродажа
-                                    </div>
-                                    <div className="content-mainslider__text text-mainslider">
-                                        <p>
-                                            <span className="text-mainslider__text-1">Успей купить </span>тренажеры
-                                        </p>
-                                        <p>
-                                            <span className="text-mainslider__text-2">по старой цене</span>
-                                        </p>
-                                        <p>
-                                            до их<span className="text-mainslider__text-3"> повышения</span>
-                                        </p>
-                                    </div>
-                                    <div className="content-mainslider__footer">
-                                        <div className="content-mainslider__price rub">от 45 000 </div>
-                                        <a className="content-mainslider__button">
-                                            <span>Подробнее</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="mainslider__slide">
-                                <div className="mainslider__image _ibg">
-                                    <img src="img/main/offer/bg03.jpg" alt="" />
-                                </div>
-                                <div className="mainslider__transparent _ibg">
-                                    <img src="img/main/offer/bg_transparent.png" alt="" />
-                                </div>
-                                <div className="mainslider__content content-mainslider">
-                                    <div className="content-mainslider__title">
-                                        <span>Мега</span>распродажа
-                                    </div>
-                                    <div className="content-mainslider__text text-mainslider">
-                                        <p>
-                                            <span className="text-mainslider__text-1">Успей купить </span>тренажеры
-                                        </p>
-                                        <p>
-                                            <span className="text-mainslider__text-2">по старой цене</span>
-                                        </p>
-                                        <p>
-                                            до их<span className="text-mainslider__text-3"> повышения</span>
-                                        </p>
-                                    </div>
-                                    <div className="content-mainslider__footer">
-                                        <div className="content-mainslider__price rub">от 45 000 </div>
-                                        <a className="content-mainslider__button">
-                                            <span>Подробнее</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="mainslider__slide">
-                                <div className="mainslider__image _ibg">
-                                    <img src="img/main/offer/bg04.jpg" alt="" />
-                                </div>
-                                <div className="mainslider__transparent _ibg">
-                                    <img src="img/main/offer/bg_transparent.png" alt="" />
-                                </div>
-                                <div className="mainslider__content content-mainslider">
-                                    <div className="content-mainslider__title">
-                                        <span>Мега</span>распродажа
-                                    </div>
-                                    <div className="content-mainslider__text text-mainslider">
-                                        <p>
-                                            <span className="text-mainslider__text-1">Успей купить </span>тренажеры
-                                        </p>
-                                        <p>
-                                            <span className="text-mainslider__text-2">по старой цене</span>
-                                        </p>
-                                        <p>
-                                            до их<span className="text-mainslider__text-3"> повышения</span>
-                                        </p>
-                                    </div>
-                                    <div className="content-mainslider__footer">
-                                        <div className="content-mainslider__price rub">от 45 000 </div>
-                                        <a className="content-mainslider__button">
-                                            <span>Подробнее</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="mainslider__slide">
-                                <div className="mainslider__image _ibg">
-                                    <img src="img/main/offer/bg05.jpg" alt="" />
-                                </div>
-                                <div className="mainslider__transparent _ibg">
-                                    <img src="img/main/offer/bg_transparent.png" alt="" />
-                                </div>
-                                <div className="mainslider__content content-mainslider">
-                                    <div className="content-mainslider__title">
-                                        <span>Мега</span>распродажа
-                                    </div>
-                                    <div className="content-mainslider__text text-mainslider">
-                                        <p>
-                                            <span className="text-mainslider__text-1">Успей купить </span>тренажеры
-                                        </p>
-                                        <p>
-                                            <span className="text-mainslider__text-2">по старой цене</span>
-                                        </p>
-                                        <p>
-                                            до их<span className="text-mainslider__text-3"> повышения</span>
-                                        </p>
-                                    </div>
-                                    <div className="content-mainslider__footer">
-                                        <div className="content-mainslider__price rub">от 45 000 </div>
-                                        <a className="content-mainslider__button">
-                                            <span>Подробнее</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="mainslider__dotts"></div>
-                    </div>
                     <div className="page__products products-slider">
                         <div className="products-slider__header">
                             <div className="products-slider__title">Популярные товары</div>

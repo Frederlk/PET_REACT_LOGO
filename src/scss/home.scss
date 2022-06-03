@@ -1,75 +1,49 @@
 //====================================================================================================
-
 .mainslider {
-    &__body {
-    }
-
     &__slide {
         position: relative;
-    }
-
-    &__image {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-    }
-    &__transparent {
-        position: absolute;
-        width: 50%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        @media (max-width: $pc) {
+        &::after {
+            content: "";
+            position: absolute;
             width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 50%);
+            pointer-events: none;
+            z-index: 1;
+            @media (max-width: $mobile) {
+                background: $black;
+                opacity: 0.5;
+            }
         }
     }
 
-    &__content {
-        padding: 20px 35px 65px 35px;
-        position: relative;
-        z-index: 2;
-        @media (max-width: $mobile) {
-            padding: 20px 15px 25px 15px;
+    &__body {
+        @media (max-width: $mobileSmall) {
+            margin: 0px rem(-15);
         }
     }
 
     &__dotts {
         position: relative;
         z-index: 2;
-        margin: -27.5px 0px 0px 0px;
         display: flex;
         justify-content: center;
         counter-reset: item;
-        @media (max-width: $tablet) {
-            margin: -22.5px 0px 0px 0px;
-        }
-        @media (max-width: $mobile) {
-            margin: -20px 0px 0px 0px;
-        }
+        @include adaptiveValue("gap", 50, 15, 1170, 767.98, 1);
+        transform: translate(0px, -50%);
         .swiper-pagination-bullet {
             cursor: pointer;
-            margin: 0px 25px;
-            width: 55px;
-            height: 55px;
+            @include adaptiveValue("height", 55, 40, 1170, 767.98, 1);
+            @include adaptiveValue("width", 55, 40, 1170, 767.98, 1);
             border-radius: 50%;
-            border: 2px solid #fff;
+            border: rem(2) solid $white;
             position: relative;
             overflow: hidden;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            @media (max-width: $tablet) {
-                width: 45px;
-                height: 45px;
-                margin: 0px 15px;
-            }
-            @media (max-width: $mobile) {
-                width: 40px;
-                height: 40px;
-                margin: 0px 7px;
-            }
             &::after {
                 opacity: 0;
                 transition: all 0.3s ease 0s;
@@ -81,10 +55,10 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                background-color: #f68038;
-                font-size: 16px;
+                background-color: $secondary;
+                font-size: rem(16);
                 font-weight: 900;
-                color: #fffefe;
+                color: $white;
                 counter-increment: item;
                 content: counter(item);
             }
@@ -96,27 +70,57 @@
         }
     }
 }
-.content-mainslider {
+
+.slide-mainslider {
+    opacity: 0;
+    visibility: hidden;
+    &.swiper-slide-visible {
+        visibility: visible;
+        opacity: 1;
+    }
+    &__image-ibg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: rem(20) rem(35) rem(65) rem(35);
+        position: relative;
+        z-index: 5;
+        @media (max-width: $mobile) {
+            padding: rem(20) rem(15) rem(40) rem(15);
+        }
+    }
+
     &__title {
-        color: #333333;
-        font-size: 48px;
-        line-height: 44px;
+        color: $gray_01;
+        @include adaptiveValue("font-size", 48, 35, 1170, 767.98, 1);
+        line-height: math.div(44, 48);
         font-weight: 900;
         text-transform: uppercase;
-        margin: 0px 0px 50px 0px;
-        @media (max-width: $mobile) {
-            font-size: 35px;
-            line-height: 30px;
-            margin: 0px 0px 30px 0px;
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 50, 30, 1170, 767.98, 1);
         }
         span {
             display: block;
-            color: #f68038;
+            color: $secondary;
+        }
+        @media (max-width: $mobile) {
+            color: $white;
         }
     }
 
     &__text {
-        margin: 0px 0px 14px 0px;
+        flex: 1 1 auto;
+        &:not(:last-child) {
+            margin-bottom: rem(14);
+        }
     }
 
     &__footer {
@@ -124,68 +128,77 @@
     }
 
     &__price {
-        font-size: 36px;
+        @include adaptiveValue("font-size", 36, 30, 1170, 767.98, 1);
         font-weight: 900;
-        color: #ffffff;
-        margin: 0px 0px 25px 0px;
-        @media (max-width: $mobile) {
-            font-size: 30px;
-            margin: 0px 0px 20px 0px;
-        }
-        &::after {
-            font-size: 30px;
-            @media (max-width: $mobile) {
-                font-size: 25px;
-            }
+        color: $white;
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 25, 20, 170, 767.98, 1);
         }
     }
 
     &__button {
-        height: 33px;
-        cursor: pointer;
+        height: rem(34);
         display: inline-flex;
         justify-content: center;
+        gap: rem(10);
         align-items: center;
-        padding: 0px 18px;
-        margin: 0px 0px 25px 0px;
-        border: 3px solid #fff;
-        border-radius: 15px;
+        padding: 0px rem(18);
+        border: rem(3) solid $white;
+        border-radius: rem(15);
         transition: all 0.3s ease 0s;
         span {
             font-weight: 900;
             text-transform: uppercase;
-            color: #ffffff;
-            padding: 0px 25px 0px 0px;
-            // background: url("../img/main/offer/arrow_btn.png") right no-repeat;
+            color: $white;
         }
-        @media (min-width: $tablet) {
+        @media (any-hover: hover) {
             &:hover {
                 background-color: rgba(0, 0, 0, 0.5);
             }
         }
+        img {
+            max-width: rem(14);
+        }
     }
 }
+
 .text-mainslider {
-    color: #333333;
-    line-height: 24px;
+    color: $gray_01;
+    line-height: math.div(24, 14);
     font-weight: 900;
     text-transform: uppercase;
-    &__text-1 {
+    p:first-child {
         font-family: Roboto;
-        font-size: 18px;
-        color: #f68038;
+        font-size: rem(18);
+        color: $black;
+        span {
+            color: $secondary;
+        }
+        @media (max-width: $mobile) {
+            color: $white;
+        }
     }
-
-    &__text-2 {
+    p:nth-child(2) {
         line-height: 1;
-        padding: 7px 10px;
+        padding: rem(7) rem(10);
         display: inline-block;
         background-color: #909090;
-        color: #fff;
+        color: $white;
+        @media (max-width: $mobile) {
+            background-color: $black;
+        }
     }
-
-    &__text-3 {
-        color: #979797;
+    p:nth-child(3) {
+        color: $black;
+        span {
+            color: #979797;
+        }
+        @media (max-width: $mobile) {
+            color: $white;
+            span {
+                color: $secondary;
+            }
+        }
     }
 }
 
@@ -236,7 +249,7 @@
         color: #999999;
         .swiper-pagination-current {
             font-size: 30px;
-            color: #333333;
+            color: $gray_01;
             line-height: 1.2;
             font-weight: 900;
         }
@@ -332,7 +345,7 @@
     }
 
     &__body {
-        color: #ffffff;
+        color: $white;
     }
 
     &__title {
@@ -471,7 +484,7 @@
     &__label {
         font-weight: 900;
         letter-spacing: 0.025em;
-        color: #333333;
+        color: $gray_01;
         @media (max-width: 500px) {
             display: flex;
             justify-content: center;
@@ -502,7 +515,7 @@
         }
         @media (min-width: $tablet) {
             &:hover {
-                color: #333333;
+                color: $gray_01;
             }
         }
         @media (max-width: 500px) {

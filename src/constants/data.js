@@ -216,4 +216,72 @@ const lastReviewsItems = [
     },
 ];
 
-export default { deliveryItems, payCardsItems, socialItems, sideMenu, newsItems, lastReviewsItems };
+const { mainSlidesImages } = images;
+const homeMainSlides = [
+    {
+        title: `<span>Мега</span>распродажа`,
+        text: ` <p>
+                    <span>Успей купить </span>тренажеры
+                </p>
+                <p>
+                    <span>по старой цене</span>
+                </p>
+                <p>
+                    до их<span> повышения</span>
+                </p>`,
+        img: mainSlidesImages.mainSlide01,
+        price: "от 45 000 ₽",
+        buttonText: "Подробнее",
+        buttonLink: "More_Mega-Sales",
+    },
+    {
+        title: `<span>Мы</span>перезжаем`,
+        text: ` <p>
+                    <span>Успей раскупить </span>товары
+                </p>
+                <p>
+                    <span>по сниженной цене</span>
+                </p>`,
+        img: mainSlidesImages.mainSlide02,
+        price: "Скидки до 60%",
+        buttonText: "Подробнее",
+        buttonLink: "More_Mega-Sales",
+    },
+    {
+        title: `<span>Мега</span>распродажа`,
+        text: ` <p>
+                    <span>Самые новые </span>тренажеры
+                </p>
+                <p>
+                    <span>по самым приятным</span>
+                </p>
+                <p>
+                    ценам
+                </p>`,
+        img: mainSlidesImages.mainSlide03,
+        buttonText: "Подробнее",
+        buttonLink: "More_Mega-Sales",
+    },
+    {
+        title: `Распродажа`,
+        text: ` <p>
+                    <span>По старой цене</span>
+                </p>`,
+        img: mainSlidesImages.mainSlide04,
+        price: "от 25 000 ₽",
+        buttonText: "Подробнее",
+        buttonLink: "More_Mega-Sales",
+    },
+    {
+        title: `<span>Супер</span>скидки`,
+        text: ` <p>
+                    <span>Успей купить </span>тренажеры
+                </p>`,
+        img: mainSlidesImages.mainSlide05,
+        price: "от 105 000 ₽",
+        buttonText: "Подробнее",
+        buttonLink: "More_Mega-Sales",
+    },
+];
+
+export default { deliveryItems, payCardsItems, socialItems, sideMenu, newsItems, lastReviewsItems, homeMainSlides };
