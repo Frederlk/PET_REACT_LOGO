@@ -20,12 +20,6 @@
 }
 
 .side {
-    position: relative;
-    z-index: 10;
-    @media (min-width: $tablet) {
-        max-width: rem(260);
-    }
-
     &__menu {
         position: relative;
         z-index: 2;
@@ -266,7 +260,6 @@
     }
 
     &__product {
-        padding: 0 rem(15);
         @media (max-width: $tablet) {
             display: none;
         }

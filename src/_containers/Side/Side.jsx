@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { images, data } from "../../constants";
 import { isMobile, _slideDown, _slideToggle, _slideUp } from "../../js/files/functions";
+import { ProductItem } from "../../_components";
 import SideNews from "./SideNews";
 import SideReviews from "./SideReviews";
 
-const SideMenuItem = ({ data }) => {
+const SideMenuItem = ({ dataLi }) => {
     const [openedLi, setOpenedLi] = useState(false);
-    const { submenu, link, title } = data;
+    const { submenu, link, title } = dataLi;
 
     return (
         <li
@@ -33,24 +34,7 @@ const SideMenuItem = ({ data }) => {
                                 ))}
                             </ul>
                             <div className="submenu-side__product">
-                                <div className="item-product">
-                                    <div className="item-product__labels">
-                                        <div className="item-product__label">Товар Дня</div>
-                                    </div>
-                                    <a href="#" className="item-product__image item-product__image_side">
-                                        <img src="img/main/offer/01_side.jpg" alt="Тенисный стол" />
-                                    </a>
-                                    <div className="item-product__body">
-                                        <a href="" className="item-product__title">
-                                            Домашний теннисный стол Donic Indoor Roller 800 Green
-                                        </a>
-                                        <div className="item-product__footer">
-                                            <div className="item-product__old-price rub">64 990</div>
-                                            <a href="#" className="item-product__add"></a>
-                                            <div className="item-product__price rub">64 990</div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <ProductItem data={data.productsItems[0]} />
                             </div>
                         </div>
                     </div>
@@ -64,7 +48,7 @@ const Side = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [disabled, setDisabled] = useState(false);
 
-    const sideMenuItems = data.sideMenu.map((item, i) => <SideMenuItem key={item.title + i} data={item} />);
+    const sideMenuItems = data.sideMenu.map((item, i) => <SideMenuItem key={item.title + i} dataLi={item} />);
 
     const onHandleCick = () => {
         setDisabled(true);
@@ -77,7 +61,7 @@ const Side = () => {
     };
 
     return (
-        <aside className="side">
+        <aside className="page__side side">
             <nav className={`side__menu side-menu ${menuOpen ? "_side-menu-open" : ""}`}>
                 <div className="side-menu__header">
                     <h2 className="side-menu__title">Каталог товаров</h2>

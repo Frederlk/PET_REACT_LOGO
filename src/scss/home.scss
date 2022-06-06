@@ -32,11 +32,14 @@
         justify-content: center;
         counter-reset: item;
         @include adaptiveValue("gap", 50, 15, 1170, 767.98, 1);
-        transform: translate(0px, -50%);
+        margin-top: rem(-27.5);
+        @media (max-width: $mobile) {
+            margin-top: rem(-20);
+        }
         .swiper-pagination-bullet {
             cursor: pointer;
-            @include adaptiveValue("height", 55, 40, 1170, 767.98, 1);
-            @include adaptiveValue("width", 55, 40, 1170, 767.98, 1);
+            width: rem(55);
+            height: rem(55);
             border-radius: 50%;
             border: rem(2) solid $white;
             position: relative;
@@ -44,6 +47,10 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            @media (max-width: $mobile) {
+                width: rem(40);
+                height: rem(40);
+            }
             &::after {
                 opacity: 0;
                 transition: all 0.3s ease 0s;
@@ -206,13 +213,13 @@
 
 .products-slider {
     &__header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin: 0px 0px 30px 0px;
+        @include adaptiveValue("margin-bottom", 30, 20, 1170, 767.98, 1);
+        @media (min-width: $mobile) {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
         @media (max-width: $mobile) {
-            margin: 0px 0px 20px 0px;
-            display: block;
             text-align: center;
         }
     }
@@ -220,19 +227,19 @@
     &__title {
         flex: 1 1 auto;
         font-family: UniSans;
-        font-size: 36px;
+        font-size: rem(36);
         font-weight: 900;
         text-transform: uppercase;
         letter-spacing: 0.025em;
-        color: #dadada;
+        color: $gray_04;
         @media (max-width: $mobile) {
-            margin: 0px 0px 20px 0px;
+            margin-bottom: rem(20);
         }
     }
 
-    &__control {
-        height: 30px;
-        flex: 0 0 160px;
+    &__controll {
+        height: rem(30);
+        flex: 0 0 rem(160);
         display: flex;
         align-items: center;
         justify-content: flex-end;
@@ -242,28 +249,18 @@
         }
     }
 
-    &__info {
-        padding: 0px 20px;
-        letter-spacing: 0.025em;
-        font-weight: 500;
-        color: #999999;
-        .swiper-pagination-current {
-            font-size: 30px;
-            color: $gray_01;
-            line-height: 1.2;
-            font-weight: 900;
-        }
-    }
-
-    &__items {
+    &__slide {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(rem(260), 1fr));
+        @include adaptiveValue("gap", 30, 20, 1170, 767.98, 1);
     }
 }
 
 //========================================================================================================================================================
 
 .brands-slider {
-    border-top: 3px dashed #dadada;
-    border-bottom: 3px dashed #dadada;
+    border-top: 3px dashed $gray_04;
+    border-bottom: 3px dashed $gray_04;
     padding: 25px 0px;
     @media (max-width: $mobile) {
         padding: 15px 0px;
@@ -446,8 +443,8 @@
 //========================================================================================================================================================
 
 .info-menu {
-    border-top: 3px dashed #dadada;
-    border-bottom: 3px dashed #dadada;
+    border-top: 3px dashed $gray_04;
+    border-bottom: 3px dashed $gray_04;
 
     &__container {
         padding: 24px 0px;

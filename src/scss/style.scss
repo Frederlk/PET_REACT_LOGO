@@ -164,8 +164,12 @@ body {
     }
 
     &__container {
+    }
+
+    &__body {
         @media (min-width: $tablet) {
             display: flex;
+            gap: rem(30);
         }
     }
 
@@ -174,9 +178,6 @@ body {
         position: relative;
         z-index: 10;
         margin-bottom: rem(30);
-        @media (max-width: $mobile) {
-            margin-bottom: rem(20);
-        }
     }
 
     &__news-side {
@@ -189,11 +190,10 @@ body {
     }
 
     &__content {
-        margin-bottom: rem(20);
+        margin-bottom: rem(50);
         @media (min-width: $tablet) {
             flex: 1 1 auto;
             min-width: 0;
-            padding-left: rem(30);
         }
     }
 
@@ -267,274 +267,6 @@ body {
     &__item {
         font-weight: 300;
         color: #999999;
-    }
-}
-
-//========================================================================================================================================================
-
-.items-products {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0px -15px;
-    @media (max-width: $tablet) {
-        margin: 0px -10px;
-    }
-    &__column {
-        margin: 0px 0px 30px 0px;
-        flex: 0 1 33.333%;
-        padding: 0px 15px;
-        @media (max-width: 1200px) {
-            flex: 0 1 50%;
-        }
-        @media (max-width: $tablet) {
-            margin: 0px 0px 20px 0px;
-            padding: 0px 10px;
-            flex: 0 1 33.333%;
-        }
-        @media (max-width: 840px) {
-            flex: 0 1 50%;
-        }
-        @media (max-width: 600px) {
-            flex: 1 1 100%;
-        }
-    }
-}
-.item-product {
-    position: relative;
-    padding: 15px 0;
-    height: 100%;
-    border: 1px solid #f5f5f5;
-    display: flex;
-    flex-direction: column;
-    @media (min-width: $tablet) {
-        &:hover {
-            .item-product__labels {
-                opacity: 0;
-            }
-            .item-product__body {
-                opacity: 0;
-            }
-        }
-    }
-    &__labels {
-        transition: all 0.5s ease 0s;
-        position: absolute;
-        top: 15px;
-        left: 15px;
-    }
-
-    &__label {
-        font-weight: 900;
-        color: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 15px;
-        text-transform: uppercase;
-        margin: 0px 0px 10px 0px;
-        height: 21px;
-        padding: 0px 15px;
-        background-color: #fd8424;
-    }
-
-    &__image {
-        height: 260px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 10px 0px;
-        &_side {
-            height: 195px;
-        }
-        img {
-            max-width: 100%;
-            max-height: 240px;
-        }
-    }
-
-    &__body {
-        flex: 1 1 auto;
-        display: flex;
-        flex-direction: column;
-        transition: all 0.5s ease 0s;
-        padding: 0px 25px;
-    }
-
-    &__title {
-        flex: 1 1 auto;
-        font-size: 16px;
-        line-height: 24px;
-        font-weight: 300;
-        color: #36949f;
-        display: inline-block;
-        margin: 0px 0px 5px 0px;
-        span {
-            display: block;
-            font-weight: 900;
-        }
-        @media (min-width: $tablet) {
-            &:hover {
-                text-decoration: underline;
-            }
-        }
-    }
-
-    &__footer {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    &__old-price {
-        flex: 1 1 100%;
-        text-align: right;
-        font-size: 18px;
-        font-weight: 300;
-        text-decoration: line-through;
-        color: #999999;
-        &::after {
-            font-size: 14px;
-        }
-    }
-
-    &__add {
-        width: 40px;
-        height: 40px;
-        // background: url("../img/main/offer/icon01.png") 0 0 no-repeat;
-        transition: all 0.3s ease 0s;
-        @media (min-width: $tablet) {
-            &:hover {
-                // background: url("../img/main/offer/icon02.png") 0 0 no-repeat;
-            }
-        }
-    }
-
-    &__price {
-        font-size: 24px;
-        font-weight: 900;
-        color: #333333;
-        &::after {
-            font-size: 20px;
-        }
-    }
-    &__hover {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        transition: all 0.5s ease 0s;
-        opacity: 0;
-        @media (min-width: $tablet) {
-            &:hover {
-                opacity: 1;
-            }
-        }
-    }
-}
-.hover-item-product {
-    background-color: rgba(0, 0, 0, 0.84);
-    border: 5px solid #f68038;
-    padding: 17px 20px;
-    display: flex;
-    flex-direction: column;
-    color: #fff;
-    &__title {
-        font-size: 16px;
-        line-height: 24px;
-        font-weight: 300;
-        color: #c2c2c2;
-        margin: 0px 0px 25px 0px;
-        span {
-            color: #fff;
-            font-weight: 900;
-        }
-    }
-
-    &__options {
-        flex: 1 1 auto;
-    }
-
-    &__cart {
-        width: 57px;
-        height: 57px;
-        margin: 0px auto 25px auto;
-        // background: url("../img/main/catalog/03.png") 0 0 no-repeat;
-        &_catalog {
-            margin: 0px 0px 0px 0px;
-        }
-    }
-
-    &__footer {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    &__old-price {
-        margin-bottom: 7px;
-        flex: 1 1 100%;
-        text-align: right;
-        font-size: 18px;
-        font-weight: 300;
-        text-decoration: line-through;
-        color: #999999;
-        &::after {
-            font-size: 14px;
-        }
-    }
-
-    &__compare {
-        // background: url("../img/catalog/icons/compare.png") left no-repeat;
-        margin: 20px 0px 0px 0px;
-        padding: 2px 0px 2px 30px;
-        span {
-            display: inline-block;
-            line-height: 14px;
-            font-weight: 300;
-            color: #ffffff;
-            transition: all 0.3s ease 0s;
-            border-bottom: 1px dashed;
-            @media (min-width: $tablet) {
-                &:hover {
-                    color: #f68038;
-                }
-            }
-        }
-    }
-
-    &__stock {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #fff;
-        padding: 6px 12px;
-        border-radius: 20px;
-        color: #f68038;
-    }
-
-    &__price {
-        font-size: 24px;
-        font-weight: 900;
-        &::after {
-            font-size: 20px;
-        }
-    }
-}
-.options-item-product {
-    &__item {
-        margin: 0px 0px 10px 0px;
-    }
-
-    &__label {
-        margin: 0px 0px 5px 0px;
-    }
-
-    &__value {
-        font-weight: 900;
-        color: #f68038;
     }
 }
 

@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Thumbs, Autoplay, EffectFade, Pagination } from "swiper";
-import parse from "html-react-parser";
+import { Autoplay, EffectFade, Pagination } from "swiper";
 import { data, images } from "../../constants";
+import parse from "html-react-parser";
 
 const HomeMainSlider = () => {
     const slides = data.homeMainSlides.map(({ title, img, text, price, buttonText, buttonLink }, i) => (
@@ -29,7 +29,7 @@ const HomeMainSlider = () => {
         <div className="page__slider mainslider">
             <Swiper
                 className="mainslider__body"
-                modules={[Thumbs, Pagination, EffectFade, Autoplay]}
+                modules={[Pagination, EffectFade, Autoplay]}
                 autoplay={{
                     delay: 4000,
                     disableOnInteraction: false,
