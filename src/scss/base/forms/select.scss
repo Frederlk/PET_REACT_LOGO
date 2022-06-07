@@ -11,7 +11,7 @@
         color: inherit;
         text-align: left;
         border: 1px solid #d9d9d9;
-        background-color: #fff;
+        background-color: $white;
         cursor: pointer;
         width: 100%;
         border-radius: 4px;
@@ -56,13 +56,13 @@
     }
     // .select__options
     &__options {
-        color: #000;
+        color: $black;
         position: absolute;
         top: 29px;
         border-radius: 0 0 4px 4px;
         min-width: 100%;
         left: 0;
-        background-color: #fff;
+        background-color: $white;
         border-top: 0;
         border: 1px solid #d9d9d9;
         border-top: 0;
@@ -137,21 +137,21 @@
     // .select__item
     &__item {
         position: relative;
-        min-width: 166px;
+        min-width: rem(170);
     }
     // .select__title
     &__title {
-        color: #000;
-        background-color: #fff;
+        color: $black;
+        background-color: $white;
         cursor: pointer;
     }
     // .select__value
     &__value {
         line-height: 1.2;
-        color: #0097ac;
+        color: $primary_03;
         display: flex;
-        height: 30px;
-        padding: 0px 15px;
+        height: rem(30);
+        padding: 0px rem(15);
         align-items: center;
         justify-content: space-between;
         flex-direction: row-reverse;
@@ -166,10 +166,9 @@
             content: "";
             display: inline-block;
             transition: all 0.3s ease 0s;
-            width: 11px;
-            height: 7px;
-            margin: 0px 0px 0px 5px;
-            // background: url("../img/catalog/icons/icon_triangle.png") center / 100% no-repeat;
+            width: rem(11);
+            height: rem(7);
+            margin-left: rem(5);
         }
     }
     &__input {
@@ -182,25 +181,26 @@
         display: none;
         position: absolute;
         line-height: 1.2;
-        color: #999999;
-        top: 29px;
-        box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
+        color: $gray_03;
+        top: rem(29);
+        box-shadow: 0 0 rem(7) rgba(0, 0, 0, 0.2);
         min-width: 100%;
         left: 0;
-        background-color: #fff;
+        background-color: $white;
         border-top: 0;
-        font-size: 14px;
-        padding: 10px 0px 5px 0px;
+        font-size: rem(14);
+        padding-top: rem(10);
+        padding-bottom: rem(5);
         @media (max-width: $tablet) {
-            font-size: 18px;
+            font-size: rem(18);
         }
     }
     // .select__option
     &__option {
         cursor: pointer;
-        padding: 5px 15px;
-        margin: 0px 0px 0px 0px;
-        @media (min-width: 992px) {
+        padding: rem(5) rem(15);
+        margin: 0px;
+        @media (any-hover: hover) {
             &:hover {
                 background: #d9d9d9;
             }
@@ -210,10 +210,10 @@
     &__show {
         .select__item {
             min-width: 0;
-            border: 2px solid #f3f3f3;
+            border: rem(2) solid #f3f3f3;
         }
         .select__value {
-            color: #999999;
+            color: $gray_03;
             font-weight: 900;
         }
     }
@@ -276,7 +276,7 @@
             border-radius: 50%;
             width: 20px;
             height: 18px;
-            background: #fff;
+            background: $white;
             border: 1px solid #a7a9ac;
         }
         &:after {

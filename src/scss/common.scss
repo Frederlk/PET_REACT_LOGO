@@ -341,6 +341,9 @@
     &__add {
         width: rem(40);
         height: rem(40);
+        img {
+            max-width: 100%;
+        }
     }
 
     &__price {
@@ -392,6 +395,9 @@
 
     &__options {
         flex: 1 1 auto;
+        .item-product_catalog & {
+            flex: 0 0 auto;
+        }
     }
 
     &__cart {
@@ -402,9 +408,6 @@
         img {
             max-width: 100%;
         }
-        &_catalog {
-            margin: 0;
-        }
     }
 
     &__footer {
@@ -413,6 +416,9 @@
         justify-content: space-between;
         align-items: center;
         gap: rem(7);
+        .item-product_catalog & {
+            margin-bottom: rem(-7);
+        }
     }
 
     &__old-price {
@@ -422,25 +428,41 @@
         font-weight: 300;
         text-decoration: line-through;
         color: $gray_03;
+        .item-product_catalog & {
+            margin-bottom: rem(-7);
+        }
         &::after {
             font-size: rem(14);
         }
     }
 
     &__compare {
-        margin-top: rem(20);
-        padding: rem(2) 0px rem(2) rem(30);
-        span {
-            display: inline-block;
-            font-weight: 300;
-            color: $mainColor;
-            transition: all 0.3s ease 0s;
+        background-color: transparent;
+        display: inline-flex;
+        align-items: flex-start;
+        gap: rem(10);
+        color: $mainColor;
+        font-weight: 300;
+        flex: 1 1 auto;
+        img {
+            max-width: 100%;
+        }
+        button {
             border-bottom: rem(1) dashed;
+            transition: all 0.3s ease 0s;
             @media (any-hover: hover) {
                 &:hover {
                     color: $secondary;
                 }
             }
+        }
+    }
+
+    &__add {
+        width: rem(40);
+        height: rem(40);
+        img {
+            max-width: 100%;
         }
     }
 

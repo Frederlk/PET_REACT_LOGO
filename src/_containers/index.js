@@ -7,3 +7,6 @@ export { default as MainSlider } from "./HomePage/MainSlider";
 export { default as AboutText } from "./HomePage/AboutText";
 export { default as ProductSlider } from "./HomePage/ProductSlider";
 export { default as BrandsSlider } from "./HomePage/BrandsSlider";
+
+export { default as Catalog } from "./CatalogPage/Catalog";
+export { default as ActionsCatalog } from "./CatalogPage/ActionsCatalog";

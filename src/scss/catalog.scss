@@ -46,6 +46,7 @@
         text-transform: none;
     }
 }
+
 .section-filter {
     padding: 15px;
     border-bottom: 1px solid #72c9d4;
@@ -72,7 +73,7 @@
                 border: 1px solid #72c9d4;
             }
             &._active {
-                color: #333333;
+                color: $gray_01;
                 &::after {
                     border: 1px solid #cbcbcb;
                     // background: url("../img/catalog/icons/arrow_spoller_hv.png") center no-repeat;
@@ -95,6 +96,7 @@
         }
     }
 }
+
 .values-price-filter {
     display: flex;
     margin: 0px -15px;
@@ -124,6 +126,7 @@
         }
     }
 }
+
 .compare-filter {
     &__items {
         margin: 0px 0px 20px 0px;
@@ -214,23 +217,34 @@
         }
     }
 }
+
 //========================================================================================================================================================
 
 .catalog {
+    margin-bottom: rem(170);
     &__title {
         font-family: UniSans;
-        font-size: 30px;
+        font-size: rem(30);
         line-height: 1.2;
         font-weight: 900;
         text-transform: uppercase;
         letter-spacing: 0.025em;
-        color: #dadada;
-        margin: 0px 0px 20px 0px;
+        color: $gray_04;
+        &:not(:last-child) {
+            margin-bottom: rem(20);
+        }
     }
 
     &__actions {
     }
+
     &__navi {
+    }
+
+    &__products {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(rem(260), 1fr));
+        @include adaptiveValue("gap", 30, 20, 1170, 767.98, 1);
     }
 }
 
@@ -238,55 +252,78 @@
 
 .actions-catalog {
     align-items: center;
-    background-color: #f3f3f3;
-    margin: 0px 0px 15px 0px;
-    padding: 10px 20px;
+    background-color: $gray_05;
+    margin-bottom: rem(15);
+    padding: rem(10) rem(20);
     @media (min-width: $mobileSmall) {
         display: flex;
     }
     &__order {
+        @media (min-width: $mobileSmall) {
+            display: flex;
+            flex: 1 1 auto;
+            align-items: center;
+        }
         @media (max-width: $mobileSmall) {
-            margin: 0px 0px 20px 0px;
+            margin-bottom: rem(10);
+        }
+    }
+
+    &__label {
+        font-weight: 900;
+        color: $gray_01;
+        @media (min-width: $mobileSmall) {
+            margin-right: rem(20);
+        }
+        @media (max-width: $mobileSmall) {
+            margin-bottom: rem(10);
+            text-align: center;
+        }
+    }
+
+    &__select {
+        @media (max-width: $mobileSmall) {
+            margin: 0px auto;
+            text-align: center;
+        }
+        select {
+            min-width: rem(160);
+            font-size: rem(14);
+            padding: rem(10);
+            line-height: 1.2;
+            font-weight: 300;
+            color: $gray_02;
+            letter-spacing: 0.025em;
         }
     }
 
     &__view {
-    }
-}
-.order-catalog {
-    @media (min-width: $mobileSmall) {
         display: flex;
-        flex: 1 1 auto;
         align-items: center;
-    }
-    &__label {
-        margin: 0px 20px 0px 0px;
-        font-weight: 900;
-        color: #333333;
         @media (max-width: $mobileSmall) {
-            margin: 0px 0px 10px 0px;
-            text-align: center;
+            justify-content: center;
         }
     }
-    &__select {
-    }
-}
-.view-catalog {
-    display: flex;
-    &__item {
-        width: 36px;
-        height: 36px;
-        cursor: pointer;
-        margin: 0px 0px 0px 7px;
-        &_grid {
-            // background: #fff url("../img/catalog/icons/grid_icon.png") center no-repeat;
-        }
 
-        &_list {
-            // background: #4da0b9 url("../img/catalog/icons/list_icon.png") center no-repeat;
+    &__item {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: rem(36);
+        height: rem(36);
+        margin-left: rem(7);
+        transition: all 0.3s ease 0s;
+        background-color: $gray_03;
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: $primary_03;
+            }
         }
         @media (max-width: $mobileSmall) {
-            margin: 0px 10px 0px 0px;
+            margin-right: rem(10);
+        }
+        img {
+            max-width: 100%;
         }
     }
 }
@@ -323,6 +360,7 @@
     &__pages {
     }
 }
+
 .show-catalog {
     display: flex;
     align-items: center;
@@ -333,7 +371,7 @@
 
     &__label {
         font-weight: 900;
-        color: #333333;
+        color: $gray_01;
         margin: 0px 20px 0px 0px;
     }
     &__select {
