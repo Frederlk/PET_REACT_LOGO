@@ -1,6 +1,6 @@
 import React from "react";
 import { SearchBar } from "../_components";
-import { HomeMainSlider, ProductSlider, Side } from "../_containers";
+import { BrandsSlider, HomeMainSlider, ProductSlider, Side } from "../_containers";
 
 const HomePage = () => {
     return (
@@ -12,53 +12,13 @@ const HomePage = () => {
                         <SearchBar />
                         <HomeMainSlider />
                         <ProductSlider />
+                        <div className="page__info"></div>
                     </div>
                 </div>
+                <BrandsSlider />
             </div>
 
-            <div className="page__info"></div>
-
-            {/* <div className="page__brands brands-slider">
-                <div className="brands-slider__container _container">
-                    <div className="brands-slider__body _swiper">
-                        <div className="brands-slider__slide">
-                            <img src="img/main/partners/04.png" alt="" />
-                        </div>
-                        <div className="brands-slider__slide">
-                            <img src="img/main/partners/01.png" alt="" />
-                        </div>
-                        <div className="brands-slider__slide">
-                            <img src="img/main/partners/02.png" alt="" />
-                        </div>
-                        <div className="brands-slider__slide">
-                            <img src="img/main/partners/03.png" alt="" />
-                        </div>
-                        <div className="brands-slider__slide">
-                            <img src="img/main/partners/05.png" alt="" />
-                        </div>
-                        <div className="brands-slider__slide">
-                            <img src="img/main/partners/02.png" alt="" />
-                        </div>
-                        <div className="brands-slider__slide">
-                            <img src="img/main/partners/03.png" alt="" />
-                        </div>
-                        <div className="brands-slider__slide">
-                            <img src="img/main/partners/05.png" alt="" />
-                        </div>
-                        <div className="brands-slider__slide">
-                            <img src="img/main/partners/04.png" alt="" />
-                        </div>
-                        <div className="brands-slider__slide">
-                            <img src="img/main/partners/01.png" alt="" />
-                        </div>
-                    </div>
-                    <div className="brands-slider__arrows">
-                        <div className="brands-slider__arrow brands-slider__arrow_prev _arrow _arrow_prev"></div>
-                        <div className="brands-slider__arrow brands-slider__arrow_next _arrow _arrow_next"></div>
-                    </div>
-                </div>
-            </div>
-            <section className="page__text text-block">
+            {/* <section className="page__text text-block">
                 <div className="text-block__container _container">
                     <div className="text-block__body">
                         <h1 className="text-block__title">О компании</h1>

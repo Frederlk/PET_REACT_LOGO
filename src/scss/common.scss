@@ -425,6 +425,7 @@
         }
     }
 }
+
 .options-item-product {
     &__item {
         margin-bottom: rem(10);
@@ -437,5 +438,40 @@
     &__value {
         font-weight: 900;
         color: $secondary;
+    }
+}
+
+//========================================================================================================================================================
+
+.breadcrumbs {
+    overflow: auto;
+    margin-top: rem(30);
+    margin-bottom: rem(25);
+    height: rem(16);
+    &__list {
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+        li {
+            padding-right: rem(20);
+            &:not(:last-child) {
+                margin-right: rem(10);
+            }
+            // background: url("../img/catalog/icons/arrow_spoller.png") right / 10px no-repeat;
+            &:last-child {
+                margin: 0;
+                background: none !important;
+            }
+        }
+    }
+
+    &__link {
+        font-weight: 300;
+        text-decoration: underline;
+        color: $primary_03;
+    }
+    &__item {
+        font-weight: 300;
+        color: $gray_03;
     }
 }

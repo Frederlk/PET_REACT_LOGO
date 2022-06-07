@@ -259,26 +259,18 @@
 //========================================================================================================================================================
 
 .brands-slider {
-    border-top: 3px dashed $gray_04;
-    border-bottom: 3px dashed $gray_04;
-    padding: 25px 0px;
-    @media (max-width: $mobile) {
-        padding: 15px 0px;
-    }
-    @media (max-width: $mobileSmall) {
-        padding: 10px 0px;
-    }
+    border-top: rem(3) dashed $gray_04;
+    border-bottom: rem(3) dashed $gray_04;
+    @include adaptiveValue("padding-top", 25, 10, 991.98, 479.98, 1);
+    @include adaptiveValue("padding-bottom", 25, 10, 991.98, 479.98, 1);
     &__container {
         position: relative;
     }
 
     &__body {
-        margin: 0px 45px;
-        @media (max-width: $tablet) {
-            margin: 0px 60px;
-        }
+        margin: 0px rem(60);
         @media (max-width: $mobileSmall) {
-            margin: 0px 45px;
+            margin: 0px rem(45);
         }
     }
 
@@ -286,7 +278,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 0px 10px;
+        padding: 0px rem(10);
         img {
             @extend %grayfilter;
             max-width: 100%;
@@ -295,31 +287,26 @@
         }
     }
 
-    &__arrows {
-    }
-
-    &__arrow {
+    &__controll {
         position: absolute;
+        display: flex;
+        justify-content: space-between;
+        pointer-events: none;
         top: 50%;
-        margin: -15px 0px 0px 0px;
-        &_prev {
-            left: 25px;
-            @media (max-width: $tablet) {
-                left: 15px;
-            }
-            @media (max-width: $mobile) {
-                left: 10px;
-            }
+        left: 0;
+        margin-top: rem(-15);
+        width: 100%;
+        .slider-controll__arrow_prev {
+            pointer-events: all;
+            position: absolute;
+            top: 0;
+            @include adaptiveValue("left", 25, 10, 1170, 767.98, 1);
         }
-
-        &_next {
-            right: 25px;
-            @media (max-width: $tablet) {
-                right: 15px;
-            }
-            @media (max-width: $mobile) {
-                right: 10px;
-            }
+        .slider-controll__arrow_next {
+            pointer-events: all;
+            position: absolute;
+            top: 0;
+            @include adaptiveValue("right", 25, 10, 1170, 767.98, 1);
         }
     }
 }

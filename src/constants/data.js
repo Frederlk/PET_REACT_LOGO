@@ -757,6 +757,30 @@ const productsItems = [
     },
 ];
 
+const { partnersLogoImages } = images;
+const brandsSlidesLogos = [
+    {
+        img: partnersLogoImages.partnerLogo01,
+        alt: "Clear Fit",
+    },
+    {
+        img: partnersLogoImages.partnerLogo02,
+        alt: "Carbon",
+    },
+    {
+        img: partnersLogoImages.partnerLogo03,
+        alt: "Oxygen",
+    },
+    {
+        img: partnersLogoImages.partnerLogo04,
+        alt: "HasTTings",
+    },
+    {
+        img: partnersLogoImages.partnerLogo05,
+        alt: "Nordic Track",
+    },
+];
+
 export default {
     deliveryItems,
     payCardsItems,
@@ -766,4 +790,5 @@ export default {
     lastReviewsItems,
     homeMainSlides,
     productsItems,
+    brandsSlidesLogos,
 };

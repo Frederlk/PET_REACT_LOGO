@@ -163,9 +163,6 @@ body {
         padding-top: rem(90);
     }
 
-    &__container {
-    }
-
     &__body {
         @media (min-width: $tablet) {
             display: flex;
@@ -180,15 +177,6 @@ body {
         margin-bottom: rem(30);
     }
 
-    &__news-side {
-        margin-bottom: rem(30);
-    }
-    &__rewiews-side {
-        &:not(:last-child) {
-            margin-bottom: rem(50);
-        }
-    }
-
     &__content {
         margin-bottom: rem(50);
         @media (min-width: $tablet) {
@@ -200,25 +188,17 @@ body {
     &__info {
         display: flex;
     }
+
     &__brands {
-        margin: 0px 0px 30px 0px;
-        @media (max-width: $mobile) {
-            margin: 0px 0px 20px 0px;
-        }
+        margin-bottom: rem(30);
     }
 
     &__text {
-        margin: 0px 0px 40px 0px;
-        @media (max-width: $mobile) {
-            margin: 0px 0px 20px 0px;
-        }
+        margin-bottom: rem(40);
     }
 
     &__info-menu {
-        margin: 0px 0px 40px 0px;
-        @media (max-width: $mobile) {
-            margin: 0px 0px 20px 0px;
-        }
+        margin-bottom: rem(40);
     }
 
     &__search {
@@ -228,46 +208,9 @@ body {
     }
 
     &__slider {
-        margin: 0px 0px 65px 0px;
-        @media (max-width: $tablet) {
-            margin: 0px 0px 25px 0px;
-        }
+        margin-bottom: rem(65);
     }
 
     &__products {
     }
 }
-
-//========================================================================================================================================================
-
-.breadcrumbs {
-    overflow: auto;
-    margin: 30px 0px 25px 0px;
-    height: 16px;
-    &__list {
-        display: flex;
-        align-items: center;
-        white-space: nowrap;
-        li {
-            padding: 0px 20px 0px 0px;
-            margin: 0px 10px 0px 0px;
-            // background: url("../img/catalog/icons/arrow_spoller.png") right / 10px no-repeat;
-            &:last-child {
-                margin: 0;
-                background: none !important;
-            }
-        }
-    }
-
-    &__link {
-        font-weight: 300;
-        text-decoration: underline;
-        color: #1ab9ce;
-    }
-    &__item {
-        font-weight: 300;
-        color: #999999;
-    }
-}
-
-//========================================================================================================================================================
