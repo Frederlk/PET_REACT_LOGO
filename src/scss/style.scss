@@ -174,11 +174,9 @@ body {
         flex: 0 0 rem(260);
         position: relative;
         z-index: 10;
-        margin-bottom: rem(30);
     }
 
     &__content {
-        margin-bottom: rem(50);
         @media (min-width: $tablet) {
             flex: 1 1 auto;
             min-width: 0;
@@ -186,7 +184,6 @@ body {
     }
 
     &__info {
-        display: flex;
     }
 
     &__brands {

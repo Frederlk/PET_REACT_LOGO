@@ -212,6 +212,9 @@
 //====================================================================================================
 
 .products-slider {
+    &:not(:last-child) {
+        @include adaptiveValue("margin-bottom", 50, 30, 1170, 767.98, 1);
+    }
     &__header {
         @include adaptiveValue("margin-bottom", 30, 20, 1170, 767.98, 1);
         @media (min-width: $mobile) {
@@ -314,6 +317,16 @@
 //========================================================================================================================================================
 
 .text-block {
+    &:last-child {
+        .text-block__image {
+            display: none;
+        }
+        .text-block__list li {
+            br {
+                display: none;
+            }
+        }
+    }
     &__container {
     }
 
@@ -409,8 +422,8 @@
 
     &__image {
         position: absolute;
-        bottom: rem(-150);
-        right: rem(-20);
+        bottom: rem(-180);
+        right: rem(-30);
         @media (max-width: $pc) {
             display: none;
         }
@@ -420,14 +433,12 @@
 //========================================================================================================================================================
 
 .info-menu {
-    border-top: 3px dashed $gray_04;
-    border-bottom: 3px dashed $gray_04;
+    border-top: rem(2) dashed $gray_04;
+    border-bottom: rem(2) dashed $gray_04;
 
     &__container {
-        padding: 24px 0px;
-        @media (max-width: $mobile) {
-            padding: 15px 0px;
-        }
+        @include adaptiveValue("padding-top", 25, 15, 991.98, 479.98, 1);
+        @include adaptiveValue("padding-bottom", 25, 15, 991.98, 479.98, 1);
     }
 
     &__body {
@@ -439,19 +450,19 @@
 
     &__line {
         display: flex;
-        border-bottom: 1px solid #efefef;
-        padding: 0px 10px 13px 10px;
         align-items: center;
+        padding: rem(15) rem(10) 0px 0px;
+        &:not(:last-child) {
+            padding: 0 rem(10) rem(15) 0px;
+            border-bottom: rem(1) solid $gray_04;
+        }
         @media (max-width: $tablet) {
             justify-content: center;
         }
 
-        @media (max-width: 500px) {
+        @media (max-width: em(500)) {
             display: block;
-        }
-        &:last-child {
-            border: 0;
-            padding: 13px 10px 0px 10px;
+            padding-right: 0 !important;
         }
     }
 
@@ -459,43 +470,49 @@
         font-weight: 900;
         letter-spacing: 0.025em;
         color: $gray_01;
-        @media (max-width: 500px) {
+        @include adaptiveValue("margin-right", 30, 10, 1170, 479.98, 1);
+        @media (max-width: em(500)) {
+            font-size: rem(16);
+            margin-bottom: rem(10);
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 0px 0px 10px 0px;
-            font-size: 16px;
+            margin-right: 0;
         }
     }
 
     &__list {
         display: flex;
         align-items: center;
-        @media (max-width: 500px) {
+        @include adaptiveValue("gap", 30, 10, 1170, 479.98, 1);
+        @media (max-width: em(500)) {
             display: block;
             text-align: center;
         }
     }
 
+    &__item {
+        @media (max-width: em(500)) {
+            &:not(:last-child) {
+                margin-bottom: rem(10);
+            }
+        }
+    }
+
     &__link {
         display: inline-flex;
-        font-size: 12px;
+        font-size: rem(12);
         font-weight: 300;
         transition: all 0.3s ease 0s;
-        color: #1ab9ce;
-        margin: 0px 0px 0px 30px;
-        @media (max-width: $tablet) {
-            margin: 0px 0px 0px 15px;
-        }
-        @media (min-width: $tablet) {
+        color: $primary_03;
+        @media (any-hover: hover) {
             &:hover {
                 color: $gray_01;
             }
         }
-        @media (max-width: 500px) {
-            font-size: 16px;
+        @media (max-width: em(500)) {
+            font-size: rem(16);
             justify-content: center;
-            margin: 0px 0px 5px 0px;
         }
     }
 }

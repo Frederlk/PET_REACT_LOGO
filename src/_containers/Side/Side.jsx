@@ -80,7 +80,7 @@ const Side = () => {
                     <img src={images.defaultImages.bg_side} alt="Задний Фон" />
                 </div>
             </nav>
-            <div className="side__bottom">
+            <div data-da=".page__info,991.98,last" className="side__bottom">
                 <SideNews />
                 <SideReviews />
             </div>
