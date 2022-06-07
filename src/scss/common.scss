@@ -489,29 +489,27 @@
     margin-bottom: rem(25);
     height: rem(16);
     &__list {
+        font-weight: 300;
         display: flex;
         align-items: center;
+        gap: rem(10);
         white-space: nowrap;
-        li {
-            padding-right: rem(20);
-            &:not(:last-child) {
-                margin-right: rem(10);
-            }
-            // background: url("../img/catalog/icons/arrow_spoller.png") right / 10px no-repeat;
-            &:last-child {
-                margin: 0;
-                background: none !important;
-            }
-        }
     }
 
-    &__link {
-        font-weight: 300;
-        text-decoration: underline;
-        color: $primary_03;
-    }
     &__item {
-        font-weight: 300;
-        color: $gray_03;
+        a.breadcrumbs__link {
+            color: $primary_03;
+            text-decoration: underline;
+            margin-right: rem(10);
+            transition: all 0.3s ease 0s;
+            @media (any-hover: hover) {
+                &:hover {
+                    color: $primary_01;
+                }
+            }
+        }
+        span.breadcrumbs__link {
+            color: $gray_03;
+        }
     }
 }

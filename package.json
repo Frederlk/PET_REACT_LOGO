@@ -26,6 +26,7 @@
     "smooth-scroll": "latest",
     "swiper": "latest",
     "tippy.js": "latest",
+    "use-react-router-breadcrumbs": "^3.2.1",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
   },
