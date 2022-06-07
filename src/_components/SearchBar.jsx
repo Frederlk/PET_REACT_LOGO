@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { images, data } from "../constants";
 import { Formik, Form as FormikForm, useField, Field } from "formik";
 import * as Yup from "yup";
+import * as flsFunctions from "./js/files/functions";
 
 const FormSearchItem = ({ label, ...props }) => {
     const [field, meta] = useField(props);
@@ -16,6 +17,8 @@ const FormSearchItem = ({ label, ...props }) => {
 const SearchBar = () => {
     let [activeCategories, setActiveCategories] = useState([]);
     const [categoriesMenu, setCategoriesMenu] = useState([]);
+
+    flsFunctions.spollers();
 
     useEffect(() => {
         setCategoriesMenu(data.sideMenu.slice());

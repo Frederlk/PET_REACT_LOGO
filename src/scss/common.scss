@@ -36,11 +36,51 @@
 
 .spinner {
     text-align: center;
-    margin: 0px auto;
+    margin: rem(50) auto;
     width: rem(150);
     height: rem(150);
+    .vk-widget & {
+        margin: rem(5) auto;
+    }
     svg {
         max-width: 100%;
+    }
+}
+
+.page404 {
+    @include adaptiveValue("padding-top", 120, 120, 1110, 767.98, 1);
+    @include adaptiveValue("padding-bottom", 120, 100, 1110, 767.98, 1);
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__title {
+        font-family: UniSans;
+        font-size: rem(36);
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.025em;
+        color: $gray_02;
+        &:not(:last-child) {
+            margin-bottom: rem(16);
+        }
+    }
+
+    &__label {
+        color: $gray_03;
+        line-height: math.div(24, 14);
+        font-weight: 900;
+        text-transform: uppercase;
+        &:not(:last-child) {
+            margin-bottom: rem(16);
+        }
+    }
+
+    &__button {
+        margin: 0px auto;
+        text-align: center;
     }
 }
 
