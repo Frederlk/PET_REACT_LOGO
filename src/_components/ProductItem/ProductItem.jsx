@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { images } from "../../constants";
 
 const ProductItem = ({ data }) => {
@@ -13,14 +14,14 @@ const ProductItem = ({ data }) => {
                     <div className="item-product__label">{label}</div>
                 </div>
             )}
-            <a href={link} className="item-product__image">
+            <Link to={link} className="item-product__image">
                 <img src={previewImg} alt={title} />
-            </a>
+            </Link>
             <div className="item-product__body">
-                <a href={link} className="item-product__title">
+                <Link to={link} className="item-product__title">
                     <h4>{title}</h4>
                     {category && category}
-                </a>
+                </Link>
                 <div className="item-product__footer">
                     {discount && <div className="item-product__old-price rub">{formatNum(price)}</div>}
                     <button type="button" className="item-product__add">
@@ -32,10 +33,10 @@ const ProductItem = ({ data }) => {
                 </div>
             </div>
             <div className="item-product__hover hover-item-product">
-                <a href={title} className="hover-item-product__title">
+                <Link to={link} className="hover-item-product__title">
                     <h4>{title}</h4>
                     {category && category}
-                </a>
+                </Link>
                 {options && (
                     <div className="hover-item-product__options options-item-product">
                         {options.map(({ label, value }, i) => {

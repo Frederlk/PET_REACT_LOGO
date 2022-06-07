@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const InfoArr = ({ title, arr }) => {
     return (
@@ -7,9 +8,9 @@ const InfoArr = ({ title, arr }) => {
             <ul className="info-menu__list">
                 {arr.map(({ name, link }, i) => (
                     <li key={name + i} className="info-menu__item">
-                        <a href={link} className="info-menu__link">
+                        <Link to={link} className="info-menu__link">
                             {name}
-                        </a>
+                        </Link>
                     </li>
                 ))}
             </ul>
@@ -21,23 +22,23 @@ const HelpInfo = () => {
     const infoArr = [
         {
             name: "Бренды",
-            link: "info/brands",
+            link: "/brands",
         },
         {
             name: "Доставка",
-            link: "info/delivery",
+            link: "/delivery",
         },
         {
             name: "Распродажа",
-            link: "info/sale",
+            link: "/sale",
         },
         {
             name: "Контакты",
-            link: "info/contacts",
+            link: "/contacts",
         },
         {
             name: "Отзывы",
-            link: "info/reviews",
+            link: "/reviews",
         },
     ];
 

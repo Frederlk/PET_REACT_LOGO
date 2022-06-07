@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { images, data } from "../../constants";
-import { isMobile, _slideDown, _slideToggle, _slideUp } from "../../js/files/functions";
+import { isMobile, _slideDown, _slideToggle, _slideUp, spollers } from "../../js/files/functions";
 import { ProductItem } from "../../_components";
-import SideNews from "./SideNews";
+import dynamicAdaptive from "../../js/libs/dynamic_adapt";
+
 import SideReviews from "./SideReviews";
+import SideNews from "./SideNews";
+import SideForm from "./SideForm";
+import { Link } from "react-router-dom";
 
 const SideMenuItem = ({ dataLi }) => {
     const [openedLi, setOpenedLi] = useState(false);
@@ -14,9 +18,9 @@ const SideMenuItem = ({ dataLi }) => {
             onMouseEnter={!isMobile.any() && submenu ? () => setOpenedLi(true) : null}
             onMouseLeave={!isMobile.any() && submenu ? () => setOpenedLi(false) : null}
             className={`side-menu__item ${openedLi && submenu ? "_active" : ""}`}>
-            <a href={link} className="side-menu__link">
+            <Link to={link} className="side-menu__link">
                 {title}
-            </a>
+            </Link>
             {submenu && (
                 <>
                     <button data-spoller type="button" className="side-menu__arrow">
@@ -27,9 +31,9 @@ const SideMenuItem = ({ dataLi }) => {
                             <ul className="submenu-side__menu">
                                 {submenu.map(({ subtitle, sublink }, i) => (
                                     <li key={subtitle + sublink + i} className="submenu-side__item">
-                                        <a href={sublink} className="submenu-side__link">
+                                        <Link to={sublink} className="submenu-side__link">
                                             {subtitle}
-                                        </a>
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>
@@ -44,11 +48,16 @@ const SideMenuItem = ({ dataLi }) => {
     );
 };
 
-const Side = () => {
+const Side = ({ catalog }) => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [disabled, setDisabled] = useState(false);
 
     const sideMenuItems = data.sideMenu.map((item, i) => <SideMenuItem key={item.title + i} dataLi={item} />);
+
+    useEffect(() => {
+        dynamicAdaptive();
+        spollers();
+    }, []);
 
     const onHandleCick = () => {
         setDisabled(true);
@@ -64,7 +73,9 @@ const Side = () => {
         <aside className="page__side side">
             <nav className={`side__menu side-menu ${menuOpen ? "_side-menu-open" : ""}`}>
                 <div className="side-menu__header">
-                    <h2 className="side-menu__title">Каталог товаров</h2>
+                    <h2 className="side-menu__title">
+                        <Link to="/catalog"> Каталог товаров</Link>
+                    </h2>
                     <button disabled={disabled} onClick={(e) => onHandleCick(e)} type="button" className="side-menu__burger">
                         <div className="side-menu__lines">
                             <span></span>
@@ -81,8 +92,14 @@ const Side = () => {
                 </div>
             </nav>
             <div data-da=".page__info,991.98,last" className="side__bottom">
-                <SideNews />
-                <SideReviews />
+                {catalog ? (
+                    <SideForm />
+                ) : (
+                    <>
+                        <SideNews />
+                        <SideReviews />
+                    </>
+                )}
             </div>
         </aside>
     );

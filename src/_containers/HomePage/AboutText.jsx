@@ -1,7 +1,7 @@
 import React from "react";
 import { images } from "../../constants";
 
-const HomeText = () => {
+const AboutText = () => {
     return (
         <section className="page__text text-block">
             <div className="text-block__container">
@@ -101,4 +101,4 @@ const HomeText = () => {
     );
 };
 
-export default HomeText;
+export default AboutText;

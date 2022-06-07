@@ -1,12 +1,13 @@
 import React from "react";
 import { images } from "../constants";
+import { Link } from "react-router-dom";
 
 const MenuItem = ({ title, link }) => {
     return (
         <li className="menu__item">
-            <a href={link} className="menu__link">
+            <Link to={link} className="menu__link">
                 {title}
-            </a>
+            </Link>
         </li>
     );
 };
@@ -14,12 +15,12 @@ const MenuItem = ({ title, link }) => {
 const ActionsHeaderItem = ({ title, link, img, alt }) => {
     return (
         <li className="actions-header__item">
-            <a href={link} className="actions-header__link">
+            <Link to={link} className="actions-header__link">
                 <div className="actions-header__icon">
                     <img src={img} alt={alt} />
                 </div>
                 <span>{title}</span>
-            </a>
+            </Link>
         </li>
     );
 };
@@ -38,20 +39,20 @@ const Header = () => {
                             </button>
                             <nav className="menu__body">
                                 <ul className="menu__list">
-                                    <MenuItem title="Бренды" link="#" />
-                                    <MenuItem title="Распродажа" link="#" />
-                                    <MenuItem title="Доставка и Сборка" link="#" />
-                                    <MenuItem title="Гарантия" link="#" />
-                                    <MenuItem title="Оплата" link="#" />
-                                    <MenuItem title="Контакты" link="#" />
+                                    <MenuItem title="Бренды" link="/brands" />
+                                    <MenuItem title="Распродажа" link="/sale" />
+                                    <MenuItem title="Доставка и Сборка" link="/delivery" />
+                                    <MenuItem title="Гарантия" link="/garanty" />
+                                    <MenuItem title="Оплата" link="/payment" />
+                                    <MenuItem title="Контакты" link="/contacts" />
                                 </ul>
                             </nav>
                         </div>
                     </div>
                     <div className="top-header__column">
-                        <a href="#" className="top-header__logo">
+                        <Link to="/" className="top-header__logo">
                             <img src={defaultImages.logo} alt="Логотип" />
-                        </a>
+                        </Link>
                     </div>
                     <div className="top-header__column ">
                         <div className="top-header__contacts contacts-header">
@@ -82,8 +83,8 @@ const Header = () => {
                     <div className="bottom-header__row">
                         <div className="bottom-header__column">
                             <ul data-da=".menu__body,640,last" className="bottom-header__actions actions-header">
-                                <ActionsHeaderItem title="Вход" link="#" img={icons.key} alt="Вход" />
-                                <ActionsHeaderItem title="Регистрация" link="#" img={icons.head} alt="Регистрация" />
+                                <ActionsHeaderItem title="Вход" link="/log-in" img={icons.key} alt="Вход" />
+                                <ActionsHeaderItem title="Регистрация" link="/sign-up" img={icons.head} alt="Регистрация" />
                                 <ActionsHeaderItem
                                     title="sport@gmail.com"
                                     link="mailto:sport@gmail.com"
@@ -95,12 +96,12 @@ const Header = () => {
                         <div className="bottom-header__column">
                             <div className="bottom-header__info info-header">
                                 <div className="info-header__column">
-                                    <a href="#" data-da=".menu__body,640,last" className="info-header__callback">
+                                    <Link to="/callback" data-da=".menu__body,640,last" className="info-header__callback">
                                         <div className="info-header__icon">
                                             <img src={icons.phone_3} alt="Обратный звонок" />
                                         </div>
                                         <span>Обратный звонок</span>
-                                    </a>
+                                    </Link>
                                 </div>
                                 <div className="info-header__column info-header__column_phone">
                                     <div className="info-header__icon">
@@ -116,12 +117,15 @@ const Header = () => {
                                     </div>
                                 </div>
                                 <div className="info-header__column">
-                                    <a data-da=".contacts-header__column_forcart,640,last" href="#" className="info-header__cart">
+                                    <Link
+                                        to="/cart"
+                                        data-da=".contacts-header__column_forcart,640,last"
+                                        className="info-header__cart">
                                         <div className="info-header__cart-icon">
                                             <img src={icons.cart_2} alt="Корзина" />
                                         </div>
                                         <span>12</span>
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

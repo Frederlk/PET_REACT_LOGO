@@ -2,13 +2,13 @@ import { lazy, Suspense, useEffect } from "react";
 import * as flsFunctions from "./js/files/functions";
 import dynamicAdaptive from "./js/libs/dynamic_adapt";
 import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
-import HomePage from "./_pages/HomePage";
 
 import { Header, Footer } from "./_containers";
 import { Spinner } from "./_components";
 
 const Page404 = lazy(() => import("./_pages/Page404")),
-    Home = lazy(() => import("./_pages/HomePage"));
+    Home = lazy(() => import("./_pages/HomePage")),
+    Catalog = lazy(() => import("./_pages/CatalogPage"));
 
 const ScrollToTop = () => {
     const { pathname } = useLocation();
@@ -22,7 +22,6 @@ const ScrollToTop = () => {
 const App = () => {
     useEffect(() => {
         flsFunctions.menuInit();
-        flsFunctions.spollers();
         dynamicAdaptive();
     }, []);
 
@@ -33,7 +32,8 @@ const App = () => {
             <main className="page">
                 <Suspense fallback={<Spinner />}>
                     <Routes>
-                        <Route path="/" element={<HomePage />} />
+                        <Route path="/" element={<Home />} />
+                        <Route path="/catalog" element={<Catalog />} />
                         <Route path="*" element={<Page404 />} />
                     </Routes>
                 </Suspense>

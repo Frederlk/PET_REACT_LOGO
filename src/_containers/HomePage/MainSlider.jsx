@@ -3,8 +3,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, Pagination } from "swiper";
 import { data, images } from "../../constants";
 import parse from "html-react-parser";
+import { Link } from "react-router-dom";
 
-const HomeMainSlider = () => {
+const MainSlider = () => {
     const slides = data.homeMainSlides.map(({ title, img, text, price, buttonText, buttonLink }, i) => (
         <SwiperSlide className="mainslider__slide  slide-mainslider" key={title + i}>
             <div className="slide-mainslider__image-ibg">
@@ -16,9 +17,9 @@ const HomeMainSlider = () => {
                 {buttonLink && price && (
                     <div className="slide-mainslider__footer">
                         <div className="slide-mainslider__price">{parse(price)}</div>
-                        <a href={buttonLink} className="slide-mainslider__button">
+                        <Link to={buttonLink} className="slide-mainslider__button">
                             <span>{buttonText}</span> <img src={images.icons.arrow} alt="Стрелка" />
-                        </a>
+                        </Link>
                     </div>
                 )}
             </div>
@@ -57,4 +58,4 @@ const HomeMainSlider = () => {
     );
 };
 
-export default HomeMainSlider;
+export default MainSlider;
