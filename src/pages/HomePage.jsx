@@ -1,6 +1,6 @@
 import React from "react";
 import { SearchBar } from "../_components";
-import { BrandsSlider, HomeMainSlider, ProductSlider, Side } from "../_containers";
+import { BrandsSlider, HomeMainSlider, HomeText, ProductSlider, Side } from "../_containers";
 
 const HomePage = () => {
     return (
@@ -15,154 +15,76 @@ const HomePage = () => {
                         <div className="page__info"></div>
                     </div>
                 </div>
-                <BrandsSlider />
             </div>
+            <BrandsSlider />
+            <HomeText />
 
-            {/* <section className="page__text text-block">
-                <div className="text-block__container _container">
-                    <div className="text-block__body">
-                        <h1 className="text-block__title">О компании</h1>
-                        <div className="text-block__row">
-                            <div className="text-block__column">
-                                <p>
-                                    Компания «CLEAR FIT» была организована для создания и реализации качественного и надежного
-                                    спортивного оборудования для домашнего и легкого коммерческого использования. Дефицит
-                                    качественных тренажеров в среднем ценовом сегменте повлек за собой не мотивированный рост цен
-                                    на надежное оборудование, создав дополнительный сегмент &quot;полукоммерческих&quot;
-                                    тренажеров, что приблизило их стоимость к профессиональному оборудованию. А заполнение
-                                    среднего ценового сегмента сложилось из роста количества брендов и производителей недорогих
-                                    тренажеров с невысокими техническими характеристиками, за счет увеличения количества
-                                    дополнительных опций. Главными критериями для выпуска продукции с маркой «CLEAR FIT» являются:
-                                    высокое качество, разумная цена и комфорт тренировок. Осуществить эту непростую задачу
-                                    позволил тандем европейских разработок и размещение основного производства на Тайване. Узкая
-                                    специализация на кардио-тренажеры для дома позволяет поддерживать высокий контроль качества на
-                                    всех ступенях производства.
-                                </p>
-
-                                <p>
-                                    Разумный показатель «цена/качество» среди предлагаемых разными компаниями спортивных
-                                    тренажеров в последние годы – довольно редкое явление. Мы достаточно кропотливо потрудились
-                                    над тренажерами CLEAR FIT, чтобы продемонстрировать новый подход к выпуску доступной, красивой
-                                    и надежной продукции. Современные технологии обеспечивают комфорт и легкость управления
-                                    тренажерами CLEAR FIT.Многочисленные отзывы от наших покупателей поступили и продолжают
-                                    поступать feedbacks от конечных потребителей. И теперь мы с гордостью можем заявить, что учли
-                                    многие Ваши пожелания предложения в обновленных версиях тренажеров CLEAR FIT. Мы рады
-                                    представить Вам новое поколение наших тренажеров. Теперь оборудование стало не только «умнее»,
-                                    удобнее, комфортнее, но и сохранило прежние показатели цены, оставаясь доступным спортивным
-                                    оборудованием для тех, кто ценит качество.
-                                </p>
-                            </div>
-                            <div className="text-block__column">
-                                <h2 className="text-block__label">Концепция CLEAR FIT строится на следующих тезисах:</h2>
-                                <ul className="text-block__list">
-                                    <li>
-                                        Спортивное оборудование для дома не отличается по эффективности и безопасности от
-                                        профессионального оборудования - от пользователя не требуется специальная подготовка и
-                                        первичные навыки, наличие индивидуального профессионального тренера, соответственно
-                                        требует более тщательного контроля.
-                                    </li>
-                                    <li>
-                                        Тренажеры CLEAR FIT просты в управлении, легко адаптируются под индивидуальные особенности
-                                        пользователя, эффективны и безопасны, рассчитаны на самостоятельные тренировки. Основное
-                                        требование к тренажерам под маркой «CLEAR FIT» высокое качество по разумной стоимости -
-                                        сохранить это равновесие основная задача профессионалов из всех областей производства
-                                        CLEAR FIT.
-                                    </li>
-                                    <li>
-                                        Мир не стоит на месте - каждое поколение оборудования соответствует современным
-                                        технологиям. Продукция CLEAR FIT производится с учетом новейших разработок по современной
-                                        технологии, совершенствуя и улучшая популярные серии оборудования и создавая принципиально
-                                        новые актуальные модели.
-                                    </li>
-                                    <li>
-                                        Прежде всего оборудование CLEAR FIT ориентировано на конечного пользователя - компания
-                                        открыта для диалога, мы рады всем вашим отзывам и замечаниям, это основной фактор создания
-                                        комфортной и удобной продукции.
-                                    </li>
-                                    <li>
-                                        Качественный продукт не мыслим без качественного <br />
-                                        сервисного обслуживания - официальный сервисный <br />
-                                        центр CLEAR FIT обеспечивает техническую поддержку <br />
-                                        в течение всего времени эксплуатации тренажера, <br />
-                                        качественные услуги сервисного обслуживания <br />
-                                        как в течение гарантийного срока, так и в <br />
-                                        постгарантийный период. <br />
-                                    </li>
-                                </ul>
-                                <div className="text-block__image">
-                                    <img src="img/main/about/01.png" alt="" />
-                                </div>
-                            </div>
-                        </div>
+            {/* <div className="page__info-menu info-menu">
+            <div className="info-menu__container _container">
+                <div className="info-menu__body">
+                    <div className="info-menu__line">
+                        <div className="info-menu__label">Информация:</div>
+                        <ul className="info-menu__list">
+                            <li>
+                                <a href="" className="info-menu__link">
+                                    Бренды
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" className="info-menu__link">
+                                    Доставка
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" className="info-menu__link">
+                                    Распродажа
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" className="info-menu__link">
+                                    Контакты
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" className="info-menu__link">
+                                    Отзывы
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="info-menu__line">
+                        <div className="info-menu__label">Помощь:</div>
+                        <ul className="info-menu__list">
+                            <li>
+                                <a href="" className="info-menu__link">
+                                    Как заказать
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" className="info-menu__link">
+                                    Доставка
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" className="info-menu__link">
+                                    Оплата
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" className="info-menu__link">
+                                    Гарантия и сборка
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" className="info-menu__link">
+                                    Возврат
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-            </section>
-            <div className="page__info-menu info-menu">
-                <div className="info-menu__container _container">
-                    <div className="info-menu__body">
-                        <div className="info-menu__line">
-                            <div className="info-menu__label">Информация:</div>
-                            <ul className="info-menu__list">
-                                <li>
-                                    <a href="" className="info-menu__link">
-                                        Бренды
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" className="info-menu__link">
-                                        Доставка
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" className="info-menu__link">
-                                        Распродажа
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" className="info-menu__link">
-                                        Контакты
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" className="info-menu__link">
-                                        Отзывы
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="info-menu__line">
-                            <div className="info-menu__label">Помощь:</div>
-                            <ul className="info-menu__list">
-                                <li>
-                                    <a href="" className="info-menu__link">
-                                        Как заказать
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" className="info-menu__link">
-                                        Доставка
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" className="info-menu__link">
-                                        Оплата
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" className="info-menu__link">
-                                        Гарантия и сборка
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" className="info-menu__link">
-                                        Возврат
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
+            </div>
+        </div> */}
         </>
     );
 };
