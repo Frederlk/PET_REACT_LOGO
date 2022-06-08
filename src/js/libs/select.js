@@ -44,7 +44,7 @@ data-href-blank - откроет ссылку в новом окне
 */
 
 // Класс построения Select
-class SelectConstructor {
+export default class SelectConstructor {
     constructor(props, data = null) {
         let defaultConfig = {
             init: true,
@@ -183,6 +183,7 @@ class SelectConstructor {
             _this.selectChange(e);
         });
     }
+
     // Конструктор псевдоселекта
     selectBuild(originalSelect) {
         const selectItem = originalSelect.parentElement;
@@ -277,6 +278,7 @@ class SelectConstructor {
             _slideUp(selectOptions, originalSelect.dataset.speed);
         }
     }
+
     // Функция открытия/закрытия конкретного селекта
     selectAction(selectItem) {
         const originalSelect = this.getSelectElement(selectItem).originalSelect;

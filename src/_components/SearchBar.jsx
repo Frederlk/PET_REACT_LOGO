@@ -65,17 +65,24 @@ const SearchBar = () => {
         );
     };
 
+    const [sortType, setSortType] = useState("");
+
+    const handleChange = (e) => {
+        setSortType(e.target.value);
+    };
+
     return (
         <Formik
             initialValues={{
                 search: "",
+                sort: "",
+                form: "",
                 activeCategories: [],
             }}
             validationSchema={Yup.object({
                 search: Yup.string().min(2, "Минимум 2 символа").required("Обязательное поле!"),
             })}
             onSubmit={(values, { resetForm }) => {
-                // const searchValue = values.search;
                 values = {
                     ...values,
                 };
