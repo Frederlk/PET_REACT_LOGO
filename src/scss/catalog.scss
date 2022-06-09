@@ -242,9 +242,49 @@
     }
 
     &__products {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(rem(260), 1fr));
-        @include adaptiveValue("gap", 30, 20, 1170, 767.98, 1);
+        &_grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(rem(260), 1fr));
+            @include adaptiveValue("gap", 30, 20, 1170, 767.98, 1);
+        }
+        &_list {
+            .item-product {
+                display: flex;
+                flex-direction: row;
+                &:not(:last-child) {
+                    margin-bottom: rem(30);
+                }
+                transition: all 0s ease 0s;
+
+                @media (any-hover: hover) {
+                    &:hover {
+                        .item-product__labels {
+                            opacity: 1;
+                            transition: all 0s ease 0s;
+                        }
+                        .item-product__body {
+                            opacity: 1;
+                            transition: all 0s ease 0s;
+                        }
+                    }
+                }
+                &__title {
+                }
+
+                &__image {
+                    flex: 0 0 rem(260);
+                    transition: all 0s ease 0s !important;
+                }
+
+                &__hover {
+                    width: 100%;
+                }
+            }
+
+            .hover-item-product {
+                display: none;
+            }
+        }
     }
 }
 

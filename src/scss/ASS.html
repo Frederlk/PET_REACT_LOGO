@@ -1,0 +1,183 @@
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <style>
+            * {
+                padding: 0px;
+                margin: 0px;
+                border: 0px;
+            }
+            *,
+            *:before,
+            *:after {
+                box-sizing: border-box;
+            }
+            .btn {
+                width: 21.875rem;
+                min-height: 3rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: #5d1ef0;
+                color: #fff;
+                font-size: 1.25rem;
+                padding: 0 1.6rem;
+                text-decoration: none;
+                text-align: center;
+                transition: background-color 1s linear, color 1s linear;
+                border: 0.188rem solid transparent;
+                font-family: "Arial";
+                font-weight: 900;
+            }
+
+            .btn:hover {
+                background-color: #ec4700;
+                color: #fff;
+                border: 0.188rem solid #fff;
+            }
+
+            .btn:not(:last-child) {
+                margin-bottom: 3.125rem;
+            }
+
+            .wrapper {
+                position: relative;
+                background-color: #0a0e0b;
+            }
+            .inner {
+                display: flex;
+                justify-content: space-between;
+            }
+            .container {
+                flex: 0 1 45%;
+                padding: 1em 1rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                min-height: 100vh;
+            }
+            .content {
+                flex: 1 1 auto;
+            }
+            .logo {
+                margin-top: 2.5em;
+                margin-bottom: 4em;
+            }
+            .bottom-logo {
+                margin-top: 2.5em;
+                margin-bottom: 2em;
+            }
+            .logo img,
+            .bottom-logo,
+            .image {
+                max-width: 100%;
+            }
+            .image {
+                position: relative;
+                overflow: hidden;
+                flex: 0 1 55%;
+            }
+            .image img {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                object-fit: cover;
+            }
+            @media (max-width: 767.98px) {
+                .image,
+                .container {
+                    flex: 0 1 50%;
+                }
+            }
+            @media (max-width: 670px) {
+                .container {
+                    position: relative;
+                    z-index: 2;
+                    flex: 1 1 100%;
+                }
+                .image {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                }
+                .image::after {
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    background-color: #000;
+                    opacity: 0.7;
+                }
+                .logo {
+                    margin-top: 2em;
+                }
+            }
+            @media (max-width: 479.98px) {
+                .btn {
+                    width: 100%;
+                    font-size: 1rem;
+                }
+            }
+            @media (max-width: 479.98px) {
+                .content {
+                    width: 100%;
+                }
+            }
+        </style>
+    </head>
+
+    <body onfocusout="parent.setEmailRange();" style="overflow-wrap: break-word">
+        <div class="wrapper">
+            <div class="inner">
+                <div class="container">
+                    <img
+                        class="logo"
+                        src="https://lh3.googleusercontent.com/X0Fly2bSRAHb3Zr466sQL6QSjqW98fMFqHIsnCb-j9ye7UoAEDIXhc4YF0vyMX8f40mpM5EnHz-v45DP9d8P3e3Rz6JniVZWhJZefPj4ytATJZ5BL54c2xFVuyLjVnht0JRA9xmNTahGHckD4V9MjsQqHcvEDT3UAWum9dUUrVfK4djk-SULxXsbrlseMDskVxTb7kMC5wcUVYUzKX54t4OIEqWIh39MK0wg4In4LcolbKFSv6Fv-rAOpdKrXGp2NOJfT5jTcKlnSaFY2x4ZdymuPdMkvcVv-09kIN8aEbDoC-rom66wPFTKmESXamCRNHwVWPm-2M3xNNF9reypIttdESn4J6ZymMPGEdB8AYoN8j4bEq0t-2r2q00NoRyQPFDaHB87ZZ7LwBFjtPDLqaIiD7KOG1M6cXZsoVZo_jQ6U9NuSN_2BIAQUWk2vTtrYTSJNlbGgptvr57DGyNAeU0RT6uDnNVON178h84Cuz36fyz_CT9iXOvgTynmU2KWFozZclwJCYyRVMhgn4ywB9NsYg99G3nQXLzIdTZGv3kKWRFI4DigkLYxVEJoBupeSuDMSB7sUXQjfi7FncOHsjlqhXxEmDfPyPnW7Gn4-Nh7-7I7gopn-Aiof7eIqD_FkYRuBPyw1iY7jlUgjNGoC3wmm05aq245LVJRJCG3bySizERrqNeerA5zHkjlqogB343MCI-zgQjQsb6MUeMGa1_mBkcSqu19BABT66UEiC-8shSkvSNTwgluFKMRdn-xZxioACWwHW9qMPOrPJ7XEjb2rWLCweACxfHOAV0dy3InZwTnMzS0iIkTTYICDRxaFGs22w=w264-h39-no?authuser=0"
+                        alt=""
+                    />
+                    <div class="content" id="menuContainer">
+                        <a href="../webresources/new_enforcment_report" id="btn1" class="btn">RAILWAYNET</a>
+
+                        <a href="../webresources/new_iron_reports_1000" id="btn2" class="btn">RAILWAYNET GEO</a>
+
+                        <a href="../webresources/new_aim_rail" id="btn3" class="btn">AIM Rail OTP</a>
+
+                        <a href="../webresources/new_aim_rail_hours" id="btn4" class="btn">AIM Rail Hours &amp; Mileage</a>
+
+                        <a href="../webresources/new_aim_cis" id="btn5" class="btn">AIM CIS</a>
+
+                        <!--<a href="../webresources/new_reports_draft" id="btn6" class="btn">PTC</a> -->
+
+                        <a
+                            href="https://keycloak.datasages.com/auth/realms/RailwayNet/protocol/openid-connect/auth?client_id=strolr&amp;redirect_uri=https://strolr3.railwaynet.datasages.com/&amp;state=c221a1ad-d53a-4adb-bed1-afd448ea0304&amp;response_mode=fragment&amp;response_type=code&amp;scope=openid&amp;nonce=f0e46c05-b355-448b-b5da-b61b505a9f29"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            id="btn6"
+                            class="btn"
+                            >STROLR</a
+                        >
+                    </div>
+                    <img
+                        src="https://lh3.googleusercontent.com/vvZ73T4GQ9IJRiM2rIbsRNl15-NFULDoHQ46IBJh9_SAaHHmRWQ7KaR_Ec4ITae8nk3L2-aLAai-pk7PQTi8ExwQ8fRUIwB6KV1z37Z3y0vdwh70FCxYEq2sztcSR0Xcorvj5fgaw2NK_yYPEKh2-TQL5XFAjJ0IVevAPEpsDPkkXBzPhe472ae_TbTI701J5sBr3xf_qczgPayi6NMFlBx2xqZgsaxN1EWiLhi3pLXeCzIH3CasgoPo_lUdRZsot6oQe03DhbI3qIFvmieN-ImO-ykz1rSYy2nYGJS8HY1llU8KWwWgyDDYKLmwIf2PnwVL8cxvHf5jo-eIjtcwWlsanXKr8EokUfQTFSUuYGa3cDDViPhZuxQFxykT5-33T_ymaKcaSHehh4ZwaoUCLkaQigH77fUeuMkS9jI2rh4FbKuB6HfHef8W8r1u97OfMksNB92PEJ0RInH5bekyCtb3f84FO6R1wiFgRDDdgjK-P2rTm5YY7W7ImE5MKp6_YKc9j_qbdG7DVTnGLUi7gyhveXrmTPlWcYNgpdulh1HulHhlzK0r7cnLIxmoyldAewZrxvHt9UaudnIVfAcjtxTfY3WvSMWOfRbf7ZlnE6_xbEbMBI6agCvqv7LbJhmZCmx6lVJKahbF-Eq8dGPaEodXuNHDmGU3nCYejYwvQno5DUy35csJ9giTZq5y2Q4PDTk4Ah9pbMy7SL7Wu03QOKaSPJTSQUCKetw23S-tgYUP8To--TmdWqGYjcz4gaetykdgdLPUWUpZHkfFZMN5hKaZlfHFfUXUiY4Fjd-WXyuPtzHn7oAzPVG8FCjLzRS-27Xvyw=w173-h43-no?authuser=0"
+                        alt=""
+                        class="bottom-logo"
+                    />
+                </div>
+                <div class="image">
+                    <img
+                        src="https://lh3.googleusercontent.com/Xr-QyaS5sppIIxS4Eg3lQWxC-WqkfNh1NKRJl8AB3v4nsSKUHiUwc8OSBWOIpu3U9z28Ht_qkFo4bRkZNxWeXh5d2lhntvYizLXamhfJwvC4nK5qz-Uyx34oSSQxHCza_WdirtnotUScoXN6_90BwUdJOVaCWmDGE8S-tcBYJoNbabBuPXYdl4dalTl3BbnW-Uc1uk8bDKiC5i9ufZu_jnSkfoMFM5u1-R8AHhOKNnzkeg2IIU_TJMW6o-QJ5-npqH7LgDrqQHDXawqYobq6FKS2CQ0b1D1413aV_fAFvkSTRox4WFYQOU40v-XrhvwjL7ympyNw4Qbw_dNWurHUb4qFSgC2lwE41b6GBisd8sSCnYo1u3Oav3hOhCFcwjTQMDmmWdmEwV67Jt8SU71I36meGbGkiglZr23h_KjxMxNRwE5wvtPjCuryuUJI-Wyqh1jjIk2dEB9NajFolj3UjUn8_uNa5Tma_bABs5r40CGkvlnJtFrHTbMVKF2RVyGzh4Tzs5DSpdCdF3_0yvOQpYNWRG2MjSE3SO68jY-QJgppi4S8NR8pTSZO_a9G2XyUwHaHlyhgvqOm3hUyT0uzE-R0iItD5L3hqPWzyl9s0ZMlxNxlm0XOUetXJwARkyL4FDnoaXozHnT7vFMx5Xvy4UTuU-9NMudfJepczpXA08yMsksXdZ9ffE9LCFoy-yIF_y7b12wmpxmBTegKsIZVOE8GedcJ9b5OaIpjkb3e-4rLtAw3-wkjItVjjTBYhirAZMLMl1KtvjqLWgjSB6D2Zw9X-03keuEIlYU-cEuxRlp4xqoZRp2FJ-jA0P-p4EvDSQvgsQ=w824-h851-no?authuser=0"
+                        alt=""
+                    />
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

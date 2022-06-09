@@ -22,6 +22,27 @@ const ProductItem = ({ data, catalog }) => {
                     <h4>{title}</h4>
                     {category && category}
                 </Link>
+                {catalog && options && (
+                    <>
+                        <div className="hover-item-product__options options-item-product_catalog">
+                            {options.map(({ label, value }, i) => {
+                                if (i > 2) return;
+                                return (
+                                    <div key={label + value + i} className="options-item-product__item">
+                                        <div className="options-item-product__label">{label}</div>
+                                        <div className="options-item-product__value">{value}</div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                        <div className="hover-item-product__compare hover-item-product__compare_catalog">
+                            <span>
+                                <img src={images.icons.compare_1} alt="Сравнить" />
+                            </span>
+                            <button type="button">Сравнить</button>
+                        </div>
+                    </>
+                )}
                 <div className="item-product__footer">
                     {discount && <div className="item-product__old-price rub">{formatNum(price)}</div>}
                     <button type="button" className="item-product__add">

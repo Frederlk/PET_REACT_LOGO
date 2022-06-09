@@ -19,14 +19,14 @@ const ActionsCatalog = ({ viewType, setViewType }) => {
             <div className="actions-catalog__view">
                 <button
                     type="button"
-                    onClick={() => setViewType("list")}
-                    className={`actions-catalog__item ${viewType === "list" ? "_active" : ""}`}>
+                    onClick={() => setViewType("grid")}
+                    className={`actions-catalog__item ${viewType === "grid" ? "_active" : ""}`}>
                     <img src={images.icons.items_grid} alt="Отображение сеткой" />
                 </button>
                 <button
                     type="button"
-                    onClick={() => setViewType("grid")}
-                    className={`actions-catalog__item ${viewType === "grid" ? "_active" : ""}`}>
+                    onClick={() => setViewType("list")}
+                    className={`actions-catalog__item ${viewType === "list" ? "_active" : ""}`}>
                     <img src={images.icons.items_list} alt="Отображение списком" />
                 </button>
             </div>
