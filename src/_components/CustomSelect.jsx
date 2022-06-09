@@ -1,26 +1,41 @@
 import React, { useEffect, useState } from "react";
+import { useEvent } from "../hooks/useEvent";
 import { images } from "../constants";
 import { _slideDown, _slideToggle, _slideUp } from "../js/files/functions";
 
-const CustomSelect = ({ children, className, speed = 200, name }) => {
+const CustomSelect = ({ sortType, setSortType, children, className, speed = 200, name }) => {
     const [activeOption, setActiveOption] = useState("");
-    const [activeValue, setActiveValue] = useState("");
-    const [selectOpen, setSelectOpen] = useState(true);
+    const [selectOpen, setSelectOpen] = useState(false);
     const [disabled, setDisabled] = useState(false);
 
     useEffect(() => {
         setActiveOption(children[0].props.children);
-        setActiveValue(children[0].props.value);
+        setSortType(children[0].props.value);
     }, []);
 
-    useEffect(() => {
-        console.log(document.querySelector("select").value);
-    }, [activeValue]);
+    const onUserMenuClick = (e) => {
+        const target = e.target;
+        const selectBodies = document.querySelectorAll(".select__options");
+        if (target.closest(".select__title")) {
+            _slideToggle(target.nextSibling, speed);
+        } else if (!target.closest(".select__options") && selectOpen) {
+            setSelectOpen(false);
+            selectBodies.forEach((body, i) => {
+                _slideUp(body, speed);
+            });
+        }
+    };
 
-    const onOptionClicked = (value, content) => () => {
-        setActiveValue(value);
+    useEvent("click", onUserMenuClick);
+
+    const onOptionClicked = (e, value, content) => {
+        const target = e.target;
+        setSortType(value);
         setActiveOption(content);
         setSelectOpen(false);
+        if (target.classList.contains("select__option")) {
+            _slideUp(target.parentElement, speed);
+        }
     };
 
     const handleOpenOptions = (e) => {
@@ -35,9 +50,11 @@ const CustomSelect = ({ children, className, speed = 200, name }) => {
         }
     };
 
+    const handeChange = () => {};
+
     return (
         <div className={`${className} select`}>
-            <select value={activeValue} name={name} defaultValue hidden>
+            <select value={sortType} name={name} onChange={() => handeChange()} hidden>
                 {children}
             </select>
             <div className={`select__body ${selectOpen ? "_select-active" : ""}`}>
@@ -56,7 +73,7 @@ const CustomSelect = ({ children, className, speed = 200, name }) => {
                                 type="button"
                                 key={value + i}
                                 className="select__option"
-                                onClick={onOptionClicked(value, content)}>
+                                onClick={(e) => onOptionClicked(e, value, content)}>
                                 {content}
                             </button>
                         );

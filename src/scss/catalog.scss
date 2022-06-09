@@ -314,6 +314,9 @@
         margin-left: rem(7);
         transition: all 0.3s ease 0s;
         background-color: $gray_03;
+        &._active {
+            background-color: $primary_03;
+        }
         @media (any-hover: hover) {
             &:hover {
                 background-color: $primary_03;

@@ -84,9 +84,6 @@ export default class SelectConstructor {
             const selectItems = data ? document.querySelectorAll(data) : document.querySelectorAll("select");
             if (selectItems.length) {
                 this.selectsInit(selectItems);
-                this.setLogging(`Проснулся, построил селектов: (${selectItems.length})`);
-            } else {
-                this.setLogging("Сплю, нет ни одного select zzZZZzZZz");
             }
         }
     }
