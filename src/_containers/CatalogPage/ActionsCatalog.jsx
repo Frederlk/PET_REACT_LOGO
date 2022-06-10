@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import { images } from "../../constants";
 import { CustomSelect } from "../../_components";
 
-const ActionsCatalog = ({ viewType, setViewType }) => {
-    const [sortType, setSortType] = useState("");
-
+const ActionsCatalog = ({ passedState, setPassedState, viewType, setViewType }) => {
     return (
         <div className="catalog__actions actions-catalog">
             <div className="actions-catalog__order">
                 <div className="actions-catalog__label">Сортировать по:</div>
-                <CustomSelect sortType={sortType} setSortType={setSortType} name="sort" className="actions-catalog__select">
+                <CustomSelect
+                    passedState={passedState}
+                    setPassedState={setPassedState}
+                    name="sort"
+                    className="actions-catalog__select">
                     <option value="default">По умолчанию</option>
                     <option value="name">По названию</option>
                     <option value="price">По цене</option>

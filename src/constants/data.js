@@ -287,7 +287,7 @@ const homeMainSlides = [
 const { productImages } = images;
 const productsItems = [
     {
-        id: "aab5d2d6-5769-4f79-9baa-2469d676321f",
+        id: "aab5d2d6-51769-4f79-9baa-2469d676321f",
         title: "Fitness S3000",
         previewImg: productImages.productImage01,
         productImages: [
@@ -345,7 +345,7 @@ const productsItems = [
         `,
     },
     {
-        id: "aab5d2d6-5769-4f79-9baa-2469d676321f",
+        id: "aab5d2d6-2145769-4f79-9baa-2469d676321f",
         title: "Alpin Marathon T-180",
         label: "Товар дня",
         previewImg: productImages.productImage01,
@@ -404,7 +404,7 @@ const productsItems = [
         `,
     },
     {
-        id: "aab5d2d6-5769-4f79-9baa-2469d676321f",
+        id: "aab525d2d6-5769-4f79-9baa-2469d676321f",
         title: "Fitness S3000",
         label: "Товар дня",
         previewImg: productImages.productImage01,
@@ -463,7 +463,7 @@ const productsItems = [
         `,
     },
     {
-        id: "aab5d2d6-5769-4f79-9baa-2676321f",
+        id: "aab5d2d6-625769-4f79-9baa-2676321f",
         title: "Sport Elite TM1556-01",
         previewImg: productImages.productImage01,
         productImages: [
@@ -520,7 +520,7 @@ const productsItems = [
         `,
     },
     {
-        id: "aab5d2d6-5769-4f72469d676321f",
+        id: "aab225d2d6-5769-4f72469d676321f",
         title: "Sundays Fitness ES-T2702",
         label: "Товар дня",
         previewImg: productImages.productImage01,
@@ -579,7 +579,7 @@ const productsItems = [
         `,
     },
     {
-        id: "aab5d2d6-5769-4f79-9baa-2469d676321f",
+        id: "aab5d2d6-5769-4f79-9baa-2469d65276321f",
         title: "Fitness S3000",
         label: "Товар дня",
         previewImg: productImages.productImage01,
@@ -638,7 +638,7 @@ const productsItems = [
         `,
     },
     {
-        id: "aab5d2d6-5769-4f72469d676321f",
+        id: "aab5d2d6-51234769-4f72469d676321f",
         title: "Sundays Fitness ES-T2702",
         label: "Товар дня",
         previewImg: productImages.productImage01,
@@ -697,7 +697,7 @@ const productsItems = [
         `,
     },
     {
-        id: "aab5d2d6-5769-4f79-9baa-2469d676321f",
+        id: "aab4112245d2d6-5769-4f79-9baa-2469d676321f",
         title: "Fitness S3000",
         label: "Товар дня",
         previewImg: productImages.productImage01,

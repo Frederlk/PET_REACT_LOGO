@@ -3,14 +3,19 @@ import { useEvent } from "../hooks/useEvent";
 import { images } from "../constants";
 import { _slideDown, _slideToggle, _slideUp } from "../js/files/functions";
 
-const CustomSelect = ({ sortType, setSortType, children, className, speed = 200, name }) => {
+const CustomSelect = ({ passedState, setPassedState, children, className, speed = 200, name }) => {
     const [activeOption, setActiveOption] = useState("");
+    const [activeValue, setActiveValue] = useState("");
     const [selectOpen, setSelectOpen] = useState(false);
     const [disabled, setDisabled] = useState(false);
 
     useEffect(() => {
         setActiveOption(children[0].props.children);
-        setSortType(children[0].props.value);
+        if (setPassedState) {
+            setPassedState(children[0].props.value);
+        } else {
+            setActiveValue(children[0].props.value);
+        }
     }, []);
 
     const onUserMenuClick = (e) => {
@@ -30,9 +35,13 @@ const CustomSelect = ({ sortType, setSortType, children, className, speed = 200,
 
     const onOptionClicked = (e, value, content) => {
         const target = e.target;
-        setSortType(value);
         setActiveOption(content);
         setSelectOpen(false);
+        if (setPassedState) {
+            setPassedState(value);
+        } else {
+            setActiveValue(value);
+        }
         if (target.classList.contains("select__option")) {
             _slideUp(target.parentElement, speed);
         }
@@ -54,7 +63,7 @@ const CustomSelect = ({ sortType, setSortType, children, className, speed = 200,
 
     return (
         <div className={`${className} select`}>
-            <select value={sortType} name={name} onChange={() => handeChange()} hidden>
+            <select value={passedState || activeValue} name={name} onChange={() => handeChange()} hidden>
                 {children}
             </select>
             <div className={`select__body ${selectOpen ? "_select-active" : ""}`}>

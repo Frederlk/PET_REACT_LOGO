@@ -2,70 +2,47 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    // .pagging__arrow
-    &__arrow {
+    .previous {
+        @include adaptiveValue("margin-right", 20, 15, 767.98, 479.98, 1);
     }
-    // .pagging__list
-    &__list {
-        display: flex;
-        li {
-        }
+    .next {
+        @include adaptiveValue("margin-left", 20, 15, 767.98, 479.98, 1);
     }
-    // .pagging__item
-    &__item {
-        &._active {
-        }
-    }
-}
 
-.pagging {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    // .pagging__arrow
     &__arrow {
-        width: 30px;
-        height: 25px;
+        width: rem(30);
+        height: rem(25);
         cursor: pointer;
-        transition: all 0.3s ease 0s;
-        // background: url("../img/catalog/icons/arrow_nav.png") 0 0 no-repeat;
-        @media (min-width: $tablet) {
-            &:hover {
-                // background: url("../img/catalog/icons/arrow_nav_hv.png") 0 0 no-repeat;
-            }
+        img {
+            max-width: 100%;
         }
-        &:last-child {
+        &_prev {
             transform: rotate(-180deg);
         }
     }
-    // .pagging__list
     &__list {
-        margin: 0px 35px;
+        margin: 0px rem(35);
         display: flex;
         @media (max-width: $mobileSmall) {
-            margin: 0px 7px;
-        }
-        li {
-            &:nth-child(5) {
-                display: none;
-            }
+            margin: 0px rem(7);
         }
     }
-    // .pagging__item
     &__item {
-        width: 33px;
-        height: 33px;
+        cursor: pointer;
+        @include adaptiveValue("width", 33, 25, 767.98, 479.98, 1);
+        @include adaptiveValue("height", 33, 25, 767.98, 479.98, 1);
         display: flex;
         justify-content: center;
         align-items: center;
         border-radius: 50%;
-        font-size: 18px;
-        line-height: 24px;
+        @include adaptiveValue("font-size", 18, 16, 767.98, 479.98, 1);
+        line-height: math.div(24, 18);
         font-weight: 900;
-        color: #333333;
+        color: $gray_01;
+        transition: all 0.3s ease 0s;
         &._active {
-            background-color: #fd8424;
-            color: #ffffff;
+            background-color: $secondary;
+            color: $mainColor;
         }
     }
 }

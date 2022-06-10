@@ -395,7 +395,9 @@
     &__options {
         flex: 1 1 auto;
         .item-product_catalog & {
-            flex: 0 0 auto;
+            @media (min-width: em(650)) {
+                flex: 0 0 auto;
+            }
         }
     }
 
@@ -416,7 +418,9 @@
         align-items: center;
         gap: rem(7);
         .item-product_catalog & {
-            margin-bottom: rem(-7);
+            @media (min-width: em(650)) {
+                margin-bottom: rem(-7);
+            }
         }
     }
 
@@ -428,7 +432,9 @@
         text-decoration: line-through;
         color: $gray_03;
         .item-product_catalog & {
-            margin-bottom: rem(-7);
+            @media (min-width: em(650)) {
+                margin-bottom: rem(-7);
+            }
         }
         &::after {
             font-size: rem(14);
@@ -443,6 +449,9 @@
             }
             color: $black;
             .catalog__products_grid & {
+                display: none;
+            }
+            @media (max-width: em(650)) {
                 display: none;
             }
         }
@@ -465,7 +474,7 @@
                 }
             }
         }
-     
+    }
 
     &__add {
         width: rem(40);
@@ -496,22 +505,26 @@
         }
     }
 }
-
 .options-item-product {
     &_catalog {
         .catalog__products_grid & {
+            display: none;
+        }
+        @media (max-width: em(650)) {
             display: none;
         }
     }
     &__item {
         margin-bottom: rem(10);
         .options-item-product_catalog & {
-            color: $black;
-            display: flex;
-            align-items: center;
-            gap: rem(5);
-            &:not(:last-child) {
-                margin-bottom: rem(15);
+            @media (min-width: em(650)) {
+                color: $black;
+                display: flex;
+                align-items: center;
+                gap: rem(5);
+                &:not(:last-child) {
+                    margin-bottom: rem(15);
+                }
             }
         }
     }
@@ -519,9 +532,11 @@
     &__label {
         margin-bottom: rem(5);
         .options-item-product_catalog & {
-            margin-bottom: 0;
-            &::after {
-                content: ":";
+            @media (min-width: em(650)) {
+                margin-bottom: 0;
+                &::after {
+                    content: ":";
+                }
             }
         }
     }
@@ -564,16 +579,3 @@
         }
     }
 }
-
-// body {
-//     margin: 0;
-//     font-size: rem(20);
-// }
-
-// font {
-//     font-size: 1.25rem;
-// }
-
-// .btn {
-//     width: 18.75rem;
-// }
