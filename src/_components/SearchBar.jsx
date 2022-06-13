@@ -65,12 +65,6 @@ const SearchBar = () => {
         );
     };
 
-    const [sortType, setSortType] = useState("");
-
-    const handleChange = (e) => {
-        setSortType(e.target.value);
-    };
-
     return (
         <Formik
             initialValues={{

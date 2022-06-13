@@ -1,5 +1,6 @@
 import { format } from "date-fns";
 import React from "react";
+import { Link } from "react-router-dom";
 import { images, data } from "../constants";
 import { VkWidget } from "../_components";
 
@@ -14,9 +15,9 @@ const Footer = () => {
                         <div className="footer__block block-footer">
                             <div className="block-footer__column">
                                 <div className="block-footer__contact contact-footer">
-                                    <a href="" className="contact-footer__logo">
+                                    <Link to="/" className="contact-footer__logo">
                                         <img src={defaultImages.logo_footer} alt="Логотип Logo" />
-                                    </a>
+                                    </Link>
                                     <div className="contact-footer__phones">
                                         <div className="contact-footer__icon">
                                             <img src={icons.phone_1} alt="Иконка телефона" />
@@ -63,9 +64,9 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="footer__bottom">
-                    <a href="#" className="footer__copy">
+                    <Link to="/license" className="footer__copy">
                         @{format(new Date(), "yyyy")} Все права защищены.
-                    </a>
+                    </Link>
                     <div className="footer__socials social-footer">
                         {data.socialItems &&
                             data.socialItems.map(({ img, alt, link }, i) => (
