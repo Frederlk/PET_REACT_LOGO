@@ -91,16 +91,14 @@ const Side = ({ catalog }) => {
                     <img src={images.defaultImages.bg_side} alt="Задний Фон" />
                 </div>
             </nav>
-            <div data-da=".page__info,991.98,last" className="side__bottom">
-                {catalog ? (
-                    <SideForm />
-                ) : (
-                    <>
-                        <SideNews />
-                        <SideReviews />
-                    </>
-                )}
-            </div>
+            {catalog ? (
+                <SideForm />
+            ) : (
+                <div data-da=".page__info,991.98,last" className="side__bottom">
+                    <SideNews />
+                    <SideReviews />
+                </div>
+            )}
         </aside>
     );
 };

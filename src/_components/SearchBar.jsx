@@ -80,9 +80,9 @@ const SearchBar = () => {
                 values = {
                     ...values,
                 };
+                console.log(JSON.stringify(values, null, 2));
                 resetForm();
                 setActiveCategories((activeCategories = []));
-                console.log(JSON.stringify(values, null, 2));
             }}>
             <FormikForm data-spollers="" className="page__search searchbar">
                 <button data-spoller type="button" className="searchbar__title">
