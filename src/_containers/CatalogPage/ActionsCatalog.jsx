@@ -15,7 +15,6 @@ const ActionsCatalog = ({ passedState, setPassedState, viewType, setViewType }) 
                     <option value="default">По умолчанию</option>
                     <option value="name">По названию</option>
                     <option value="price">По цене</option>
-                    <option value="date">По дате</option>
                 </CustomSelect>
             </div>
             <div className="actions-catalog__view">
