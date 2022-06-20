@@ -107,6 +107,10 @@ const SideForm = () => {
         }
     };
 
+    const onHandleRemove = (id) => {
+        setCompareList(compareList.filter((item) => item.id !== id));
+    };
+
     const generateFilters = useMemo(() => {
         return (
             <>
@@ -136,6 +140,7 @@ const SideForm = () => {
             }}
             onSubmit={(values) => {
                 values.price = priceArr;
+                values.compare = compareList;
                 values = {
                     ...values,
                 };
@@ -159,12 +164,17 @@ const SideForm = () => {
                                 <div className="section-filter__body">
                                     <div className="compare-filter">
                                         <div className="compare-filter__items">
-                                            {compareList.map(({ title, link }, i) => (
+                                            {compareList.map(({ title, link, id }, i) => (
                                                 <div key={title + link + i} className="compare-filter__item">
                                                     <Link to={link} className="compare-filter__link">
                                                         {title}
                                                     </Link>
-                                                    <button type="button" className="compare-filter__remove">
+                                                    <button
+                                                        onClick={() => {
+                                                            onHandleRemove(id);
+                                                        }}
+                                                        type="button"
+                                                        className="compare-filter__remove">
                                                         <img src={images.icons.remove} alt="Убрать" />
                                                     </button>
                                                 </div>

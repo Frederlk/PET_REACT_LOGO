@@ -59,7 +59,7 @@ const Catalog = () => {
         }
     }, [sortType]);
 
-    console.log(currentItems);
+    console.log(productItems);
 
     useEffect(() => {
         const endOffset = +itemOffset + +itemsPerPage;
