@@ -3,7 +3,7 @@ import { useEvent } from "../hooks/useEvent";
 import { images } from "../constants";
 import { _slideDown, _slideToggle, _slideUp } from "../js/files/functions";
 
-const CustomSelect = ({ passedState, setPassedState, children, className, speed = 200, name }) => {
+export default React.memo(function CustomSelect({ passedState, setPassedState, children, className, speed = 200, name }) {
     const [activeOption, setActiveOption] = useState("");
     const [activeValue, setActiveValue] = useState("");
     const [selectOpen, setSelectOpen] = useState(false);
@@ -91,6 +91,4 @@ const CustomSelect = ({ passedState, setPassedState, children, className, speed 
             </div>
         </div>
     );
-};
-
-export default CustomSelect;
+});

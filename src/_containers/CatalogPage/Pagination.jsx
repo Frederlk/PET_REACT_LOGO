@@ -1,23 +1,25 @@
-import React from "react";
+import React, { useMemo } from "react";
 import ReactPaginate from "react-paginate";
 import { images } from "../../constants";
 import { CustomSelect } from "../../_components";
 
-const Pagination = ({ passedState, setPassedState, pageCount, handlePageClick }) => {
+export default React.memo(function Pagination({ passedState, setPassedState, pageCount, handlePageClick }) {
+    const memoSel = useMemo(() => {
+        return (
+            <CustomSelect passedState={passedState} setPassedState={setPassedState} name="sort" className="show-catalog__select">
+                <option value="9">9</option>
+                <option value="1">1</option>
+                <option value="3">3</option>
+                <option value="6">6</option>
+            </CustomSelect>
+        );
+    }, [passedState]);
+
     return (
         <div className="catalog__navi navi-catalog navi-catalog_top">
             <div className="navi-catalog__show show-catalog">
                 <div className="show-catalog__label">На странице:</div>
-                <CustomSelect
-                    passedState={passedState}
-                    setPassedState={setPassedState}
-                    name="sort"
-                    className="show-catalog__select">
-                    <option value="9">9</option>
-                    <option value="1">1</option>
-                    <option value="3">3</option>
-                    <option value="6">6</option>
-                </CustomSelect>
+                {memoSel}
             </div>
             {pageCount !== 1 && (
                 <div className="navi-catalog__pages">
@@ -50,6 +52,4 @@ const Pagination = ({ passedState, setPassedState, pageCount, handlePageClick })
             )}
         </div>
     );
-};
-
-export default Pagination;
+});

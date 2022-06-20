@@ -2,7 +2,7 @@ import React from "react";
 import { images } from "../../constants";
 import { CustomSelect } from "../../_components";
 
-const ActionsCatalog = ({ passedState, setPassedState, viewType, setViewType }) => {
+export default React.memo(function ActionsCatalog({ passedState, setPassedState, viewType, setViewType }) {
     return (
         <div className="catalog__actions actions-catalog">
             <div className="actions-catalog__order">
@@ -33,6 +33,4 @@ const ActionsCatalog = ({ passedState, setPassedState, viewType, setViewType }) 
             </div>
         </div>
     );
-};
-
-export default ActionsCatalog;
+});

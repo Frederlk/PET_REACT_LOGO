@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { data } from "../../constants";
 import { ProductItem } from "../../_components";
 import ActionsCatalog from "./ActionsCatalog";
@@ -8,39 +8,49 @@ const Catalog = () => {
     const [viewType, setViewType] = useState("grid");
     const [sortType, setSortType] = useState("default");
     const [itemsPerPage, setItemsPerPage] = useState(9);
-
-    const [defaultItems, setDefaultItems] = useState(data.productsItems);
-    const [productItems, setProductItems] = useState(defaultItems.slice());
-    const [currentItems, setCurrentItems] = useState(null);
+    const [productItems, setProductItems] = useState([]);
+    const [currentItems, setCurrentItems] = useState([]);
     const [pageCount, setPageCount] = useState(0);
     const [itemOffset, setItemOffset] = useState(0);
 
-    console.log(data.productsItems);
+    const sortCategory = (a, b) => {
+        let nameA = a.toLowerCase(),
+            nameB = b.toLowerCase();
+        if (nameA < nameB) return -1;
+        if (nameA > nameB) return 1;
+        return 0;
+    };
 
     useEffect(() => {
         switch (sortType) {
             case "default":
-                setProductItems(defaultItems);
+                if (productItems.length === 0) {
+                    setProductItems(
+                        data.productsItems
+                            .map((a) => {
+                                return { ...a };
+                            })
+                            .sort((a, b) => {
+                                return sortCategory(a.id, b.id);
+                            })
+                    );
+                } else {
+                    productItems.sort((a, b) => {
+                        return sortCategory(a.id, b.id);
+                    });
+                }
                 break;
             case "price":
                 setProductItems(
-                    productItems.sort(function (a, b) {
-                        let nameA = a.price.toLowerCase(),
-                            nameB = b.price.toLowerCase();
-                        if (nameA < nameB) return -1;
-                        if (nameA > nameB) return 1;
-                        return 0;
+                    productItems.sort((a, b) => {
+                        return sortCategory(a.price, b.price);
                     })
                 );
                 break;
             case "name":
                 setProductItems(
-                    productItems.sort(function (a, b) {
-                        let nameA = a.title.toLowerCase(),
-                            nameB = b.title.toLowerCase();
-                        if (nameA < nameB) return -1;
-                        if (nameA > nameB) return 1;
-                        return 0;
+                    productItems.sort((a, b) => {
+                        return sortCategory(a.title, b.title);
                     })
                 );
                 break;
@@ -49,9 +59,7 @@ const Catalog = () => {
         }
     }, [sortType]);
 
-    useEffect(() => {
-        setPageCount(Math.ceil(productItems.length / itemsPerPage));
-    }, [itemsPerPage, sortType]);
+    console.log(currentItems);
 
     useEffect(() => {
         const endOffset = +itemOffset + +itemsPerPage;
