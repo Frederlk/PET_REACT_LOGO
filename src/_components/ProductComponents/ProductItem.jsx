@@ -20,11 +20,11 @@ const ProductItem = ({ data, catalog }) => {
                     <div className="item-product__label">{label}</div>
                 </div>
             )}
-            <Link to={link} className="item-product__image">
+            <Link to={"/catalog/" + link} className="item-product__image">
                 <img src={previewImg} alt={title} />
             </Link>
             <div className="item-product__body">
-                <Link to={link} className="item-product__title">
+                <Link to={"/catalog/" + link} className="item-product__title">
                     <h4>{title}</h4>
                     {category && category}
                 </Link>
@@ -60,7 +60,7 @@ const ProductItem = ({ data, catalog }) => {
                 </div>
             </div>
             <div className="item-product__hover hover-item-product">
-                <Link to={link} className="hover-item-product__title">
+                <Link to={"/catalog/" + link} className="hover-item-product__title">
                     <h4>{title}</h4>
                     {category && category}
                 </Link>

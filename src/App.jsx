@@ -34,8 +34,8 @@ const App = () => {
                 <Suspense fallback={<Spinner />}>
                     <Routes>
                         <Route path="/" element={<Home />} />
-                        <Route path="/product/aab5d2d6-51769-4f79-9baa-2469d676321f" element={<Product />} />
                         <Route path="/catalog" element={<Catalog />} />
+                        <Route path="/catalog/:id" element={<Product />} />
                         <Route path="*" element={<Page404 />} />
                     </Routes>
                 </Suspense>

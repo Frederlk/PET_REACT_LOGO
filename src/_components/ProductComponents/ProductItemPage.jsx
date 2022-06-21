@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Thumbs } from "swiper";
@@ -73,7 +73,7 @@ const ProductItemPage = () => {
                         {inStock ? (
                             <div className="body-product__stock">в наличии</div>
                         ) : (
-                            <div className="body-product__stock_no">Нет в наличии</div>
+                            <div className="body-product__stock body-product__stock_no">Нет в наличии</div>
                         )}
                     </div>
 

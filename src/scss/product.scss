@@ -194,8 +194,10 @@
     }
 
     &__column {
-        &:last-child {
-            flex: 1 1 100%;
+        @media (max-width: $mobileSmall) {
+            &:last-child {
+                flex: 1 1 100%;
+            }
         }
     }
 
