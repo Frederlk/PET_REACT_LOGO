@@ -300,7 +300,7 @@ const productsItems = [
         category: "Беговая Дорожка",
         discount: "10",
         price: "64900",
-        link: "aab5d2d6-5769-4f79-9baa-2469d676321f",
+        link: "aab5d2d6-51769-4f79-9baa-2469d676321f",
         options: [
             {
                 label: "Тип беговой дорожки",
@@ -359,7 +359,7 @@ const productsItems = [
         category: "Беговая Дорожка",
         discount: "21",
         price: "70000",
-        link: "aab5d2d6-5769-4f79-9baa-2469d676321f",
+        link: "aab5d2d6-2145769-4f79-9baa-2469d676321f",
         options: [
             {
                 label: "Тип беговой дорожки",
@@ -418,7 +418,7 @@ const productsItems = [
         category: "Беговая Дорожка",
         discount: "10",
         price: "64900",
-        link: "aab5d2d6-5769-4f79-9baa-2469d676321f",
+        link: "aab525d2d6-5769-4f79-9baa-2469d676321f",
         options: [
             {
                 label: "Тип беговой дорожки",
@@ -475,7 +475,7 @@ const productsItems = [
         ],
         category: "Беговая Дорожка",
         price: "70900",
-        link: "aab5d2d6-5769-4f79-9baa-2469d6763f",
+        link: "aab5d2d6-625769-4f79-9baa-2676321f",
         options: [
             {
                 label: "Тип беговой дорожки",
@@ -534,7 +534,7 @@ const productsItems = [
         category: "Беговая Дорожка",
         discount: "10",
         price: "64900",
-        link: "aab5d2d6-5769-4f79-9baa-2469d676321f",
+        link: "aab225d2d6-5769-4f72469d676321f",
         options: [
             {
                 label: "Тип беговой дорожки",
@@ -593,7 +593,7 @@ const productsItems = [
         category: "Беговая Дорожка",
         discount: "21",
         price: "70000",
-        link: "aab5d2d6-5769-4f79-9baa-2469d676321f",
+        link: "aab5d2d6-5769-4f79-9baa-2469d65276321f",
         options: [
             {
                 label: "Тип беговой дорожки",
@@ -652,7 +652,7 @@ const productsItems = [
         category: "Беговая Дорожка",
         discount: "10",
         price: "64900",
-        link: "aab5d2d6-5769-4f79-9baa-2469d676321f",
+        link: "aab5d2d6-51234769-4f72469d676321f",
         options: [
             {
                 label: "Тип беговой дорожки",
@@ -711,7 +711,7 @@ const productsItems = [
         category: "Беговая Дорожка",
         discount: "21",
         price: "70000",
-        link: "aab5d2d6-5769-4f79-9baa-2469d676321f",
+        link: "aab4112245d2d6-5769-4f79-9baa-2469d676321f",
         options: [
             {
                 label: "Тип беговой дорожки",

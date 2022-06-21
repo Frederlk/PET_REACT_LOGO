@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
+import * as flsFunctions from "../../js/files/functions";
+
 import { Link } from "react-router-dom";
 import { images } from "../../constants";
 
 const ProductItem = ({ data, catalog }) => {
+    useEffect(() => {
+        flsFunctions.tabs();
+    }, []);
+
     const { title, label, previewImg, category, price, link, discount, options, inStock } = data;
 
     const formatNum = (number) => number.replace(/(\d{1,3})(?=((\d{3})*([^\d]|$)))/g, " $1 ");

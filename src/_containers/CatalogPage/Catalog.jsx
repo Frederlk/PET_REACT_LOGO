@@ -59,8 +59,6 @@ const Catalog = () => {
         }
     }, [sortType]);
 
-    console.log(productItems);
-
     useEffect(() => {
         const endOffset = +itemOffset + +itemsPerPage;
         setCurrentItems(productItems.slice(itemOffset, endOffset));

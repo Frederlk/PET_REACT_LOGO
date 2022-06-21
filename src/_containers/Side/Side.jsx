@@ -48,7 +48,7 @@ const SideMenuItem = ({ dataLi }) => {
     );
 };
 
-const Side = ({ catalog }) => {
+export default React.memo(function Side({ catalog }) {
     const [menuOpen, setMenuOpen] = useState(false);
     const [disabled, setDisabled] = useState(false);
 
@@ -101,6 +101,4 @@ const Side = ({ catalog }) => {
             )}
         </aside>
     );
-};
-
-export default Side;
+});

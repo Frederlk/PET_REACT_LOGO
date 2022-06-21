@@ -3,7 +3,8 @@ export { default as SearchBar } from "./SearchBar";
 export { default as HelpInfo } from "./HelpInfo";
 export { default as Breadcrumbs } from "./Breadcrumbs";
 
-export { default as ProductItem } from "./ProductItem/ProductItem";
+export { default as ProductItem } from "./ProductComponents/ProductItem";
+export { default as ProductItemPage } from "./ProductComponents/ProductItemPage";
 export { default as SliderArrows } from "./SliderArrows/SliderArrows";
 
 export { default as ErrorMessage } from "./ErrorMessage/ErrorMessage";
