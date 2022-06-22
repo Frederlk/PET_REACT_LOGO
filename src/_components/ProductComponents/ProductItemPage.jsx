@@ -3,27 +3,22 @@ import { useLocation } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Thumbs } from "swiper";
 import { data, images } from "../../constants";
-import { ProductItem } from "../../_components";
+import { ProductItem, Quantity } from "../../_components";
 import parse from "html-react-parser";
+import * as flsFunctions from "../../js/files/functions";
 
 const ProductItemPage = () => {
     const { pathname } = useLocation();
     const [productData, setProductData] = useState(data.productsItems.find((a) => a.link === pathname.slice(9, pathname.length)));
-    const [quantity, setQuantity] = useState(1);
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
     const { title, category, desription, inStock, options, price, discount, productImages } = productData;
+
     const formatNum = (number) => number.replace(/(\d{1,3})(?=((\d{3})*([^\d]|$)))/g, " $1 ");
 
-    const handleQuantityChange = (e) => {
-        const value = e.target.value.replace(/\D/g, "");
-        if (quantity > 100 || value > 100) return;
-        if (quantity < 1 || value < 1) {
-            setQuantity(1);
-        } else {
-            setQuantity(value);
-        }
-    };
+    useEffect(() => {
+        flsFunctions.tabs();
+    }, []);
 
     const slides = productImages.map((item, i) => (
         <SwiperSlide className="images-product__mainslide" key={i}>
@@ -90,31 +85,7 @@ const ProductItemPage = () => {
                                 </div>
                             </div>
                             <div className="actions-product__column">
-                                <div className="actions-product__quantity quantity">
-                                    <button
-                                        type="button"
-                                        onClick={() =>
-                                            setQuantity(() => (quantity <= 1 ? setQuantity(1) : setQuantity(+quantity - 1)))
-                                        }
-                                        className="quantity__button quantity__button_minus">
-                                        <img src={images.icons.arrow_nav_hv} alt="-" />
-                                    </button>
-                                    <div className="quantity__input">
-                                        <input
-                                            autoComplete="off"
-                                            onChange={(e) => handleQuantityChange(e)}
-                                            type="text"
-                                            name="quantity"
-                                            value={quantity}
-                                        />
-                                    </div>
-                                    <button
-                                        type="button"
-                                        onClick={() => setQuantity(() => setQuantity(+quantity + 1))}
-                                        className="quantity__button quantity__button_plus">
-                                        <img src={images.icons.arrow_nav_hv} alt="+" />
-                                    </button>
-                                </div>
+                                <Quantity className="actions-product__quantity" />
                             </div>
                             <div className="actions-product__column">
                                 <button className="actions-product__cart">В корзину</button>

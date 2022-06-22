@@ -1,4 +1,4 @@
-import { useHttp } from "../hooks/http.hook";
+import { useHttp } from "../helpers/http.hook";
 
 const useVkInfo = () => {
     const { request, clearError, process, setProcess } = useHttp();

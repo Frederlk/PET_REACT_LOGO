@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useEvent } from "../hooks/useEvent";
+import { useEvent } from "../helpers/useEvent";
 import { images } from "../constants";
 import { _slideDown, _slideToggle, _slideUp } from "../js/files/functions";
 

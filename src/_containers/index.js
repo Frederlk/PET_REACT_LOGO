@@ -9,4 +9,6 @@ export { default as ProductSlider } from "./HomePage/ProductSlider";
 export { default as BrandsSlider } from "./HomePage/BrandsSlider";
 
 export { default as Catalog } from "./CatalogPage/Catalog";
+export { default as Form } from "./CartPage/Form";
+export { default as YourOrder } from "./CartPage/YourOrder";
 export { default as ActionsCatalog } from "./CatalogPage/ActionsCatalog";
