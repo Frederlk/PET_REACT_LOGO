@@ -11,7 +11,7 @@ export default React.memo(function Quantity({ className, setPassedState }) {
     }, [quantity]);
 
     const handleQuantityChange = (e) => {
-        const value = e.target.value.replace(/\D/g, "");
+        const value = +e.target.value.replace(/\D/g, "");
         if (quantity > 100 || value > 100) return;
         if (quantity < 1 || value < 1) {
             setQuantity(1);
@@ -24,7 +24,11 @@ export default React.memo(function Quantity({ className, setPassedState }) {
         <div className={`${className || ""} quantity`}>
             <button
                 type="button"
-                onClick={() => setQuantity(() => (quantity <= 1 ? setQuantity(1) : setQuantity(+quantity - 1)))}
+                onClick={() =>
+                    quantity >= 1 && quantity < 100
+                        ? setQuantity(() => (quantity <= 1 ? setQuantity(1) : setQuantity(+quantity - 1)))
+                        : null
+                }
                 className="quantity__button quantity__button_minus">
                 <img src={images.icons.arrow_nav_hv} alt="-" />
             </button>
@@ -39,7 +43,7 @@ export default React.memo(function Quantity({ className, setPassedState }) {
             </div>
             <button
                 type="button"
-                onClick={() => setQuantity(() => setQuantity(+quantity + 1))}
+                onClick={() => (quantity >= 1 && quantity < 100 ? setQuantity(() => setQuantity(+quantity + 1)) : null)}
                 className="quantity__button quantity__button_plus">
                 <img src={images.icons.arrow_nav_hv} alt="+" />
             </button>

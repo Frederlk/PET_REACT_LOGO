@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { data } from "../../constants";
 import { ProductItem } from "../../_components";
 import ActionsCatalog from "./ActionsCatalog";

@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { Breadcrumbs, HelpInfo, SearchBar } from "../_components";
 import { Form, Side } from "../_containers";
 
-const CartPage = ({ passedState, setPassedState }) => {
+const CartPage = () => {
     return (
         <>
             <Helmet>
@@ -17,7 +17,7 @@ const CartPage = ({ passedState, setPassedState }) => {
                     <div className="page__content">
                         <SearchBar />
                         <Breadcrumbs />
-                        <Form passedState={passedState} setPassedState={setPassedState} />
+                        <Form />
                         <div className="page__info"></div>
                     </div>
                 </div>

@@ -4,6 +4,7 @@ import { Formik, Form as FormikForm, useField } from "formik";
 import * as Yup from "yup";
 import * as flsFunctions from "../../js/files/functions";
 import YourOrder from "./YourOrder";
+import { context } from "../../constants";
 
 const FormCheckoutInput = ({ label, ...props }) => {
     const [field, meta] = useField(props);
@@ -51,9 +52,10 @@ const FormCheckoutTextarea = ({ label, ...props }) => {
     );
 };
 
-const Form = ({ passedState, setPassedState }) => {
+const Form = () => {
+    const { CartListContext } = context;
+
     const [total, setTotal] = useState([]);
-    const [currentCartList, setCurrentCartList] = useState([]);
     const [fastOrder, setFastOrder] = useState(true);
     const [paymentType, setPaymentType] = useState("Сбербанк");
 
@@ -61,9 +63,7 @@ const Form = ({ passedState, setPassedState }) => {
         flsFunctions.tabs();
     }, []);
 
-    useEffect(() => {
-        setCurrentCartList(passedState);
-    }, [passedState]);
+    const formatNum = (number) => number.replace(/(\d{1,3})(?=((\d{3})*([^\d]|$)))/g, " $1 ");
 
     const fastValidate = {
         firstName: Yup.string().min(2, "Минимум 2 символа").required("Обязательное поле!"),
@@ -219,12 +219,26 @@ const Form = ({ passedState, setPassedState }) => {
                         </div>
                     </div>
                 </div>
-
                 <div className="checkout__order order-checkout">
                     <h2 className="order-checkout__title">Ваш заказ</h2>
-                    <YourOrder cartList={passedState} setCartList={setPassedState} total={total} setTotal={setTotal} />
+                    <CartListContext.Consumer>
+                        {(contextProp) => <YourOrder contextProp={contextProp} />}
+                    </CartListContext.Consumer>
                     <div className="order-checkout__footer">
-                        <div className="order-checkout__total">{/* Итого: <span className="rub">{total}</span> */}</div>
+                        <div className="order-checkout__total">
+                            Итого:
+                            <span className="rub">
+                                {total.length
+                                    ? formatNum(
+                                          total
+                                              .reduce((a, b) => {
+                                                  return (parseFloat(a) || 0) + (parseFloat(b) || 0);
+                                              })
+                                              .toString()
+                                      )
+                                    : " 0"}
+                            </span>
+                        </div>
                         <button type="submit" className="order-checkout__btn">
                             Оформить заказ
                         </button>

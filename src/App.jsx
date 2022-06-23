@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Routes, useLocation } from "react-route
 
 import { Header, Footer } from "./_containers";
 import { Spinner } from "./_components";
-import { data } from "./constants";
+import { data, context } from "./constants";
 
 const Page404 = lazy(() => import("./_pages/Page404")),
     Home = lazy(() => import("./_pages/HomePage")),
@@ -25,6 +25,7 @@ const ScrollToTop = () => {
 const App = () => {
     const [cartList, setCartList] = useState([data.productsItems[0], data.productsItems[1]]);
     const [compareList, setCompareList] = useState([]);
+    const { CartListContext, CompareList } = context;
 
     useEffect(() => {
         flsFunctions.menuInit();
@@ -57,7 +58,15 @@ const App = () => {
                                 />
                             }
                         />
-                        <Route path="/cart" element={<Cart passedState={cartList} setPassedState={setCartList} />} />
+                        <Route
+                            path="/cart"
+                            element={
+                                <CartListContext.Provider value={[cartList, setCartList]}>
+                                    <Cart />
+                                </CartListContext.Provider>
+                            }
+                        />
+
                         <Route path="*" element={<Page404 />} />
                     </Routes>
                 </Suspense>
