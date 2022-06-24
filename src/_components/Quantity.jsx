@@ -25,7 +25,7 @@ export default React.memo(function Quantity({ className, setPassedState }) {
             <button
                 type="button"
                 onClick={() =>
-                    quantity >= 1 && quantity < 100
+                    quantity >= 1 && quantity <= 100
                         ? setQuantity(() => (quantity <= 1 ? setQuantity(1) : setQuantity(+quantity - 1)))
                         : null
                 }

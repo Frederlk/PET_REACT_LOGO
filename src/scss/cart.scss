@@ -1,27 +1,20 @@
 .checkout {
-    margin: 0px 0px 60px 0px;
-    @media (max-width: $tablet) {
-        margin: 0px 0px 40px 0px;
-    }
-    @media (max-width: $mobile) {
-        margin: 0px 0px 30px 0px;
-    }
+    @include adaptiveValue("margin-bottom", 60, 30, 1170, 767.98, 1);
     &__title {
         font-family: UniSans;
-        font-size: 36px;
+        font-size: rem(36);
         font-weight: 900;
         text-transform: uppercase;
-        color: #dadada;
-        margin: 0px 0px 20px 0px;
+        color: $gray_04;
+        &:not(:last-child) {
+            margin-bottom: rem(20);
+        }
     }
 
     &__content {
-        margin: 0px 0px 45px 0px;
-        @media (max-width: $tablet) {
-            margin: 0px 0px 30px 0px;
-        }
+        @include adaptiveValue("margin-bottom", 45, 20, 1170, 767.98, 1);
         @media (max-width: $mobile) {
-            margin: 0px -10px 20px -10px;
+            margin: 0px rem(-15) rem(20) rem(-15);
         }
     }
 
@@ -30,26 +23,20 @@
 }
 //========================================================================================================================================================
 .red-star {
-    color: #f68038;
+    color: $secondary;
 }
 .order-checkout {
     &__title {
         font-family: UniSans;
-        font-size: 36px;
+        font-size: rem(36);
         font-weight: 900;
         text-transform: uppercase;
-        color: #dadada;
-        margin: 0px 0px 30px 0px;
-        @media (max-width: $tablet) {
-            margin: 0px 0px 20px 0px;
-        }
+        color: $gray_04;
+        @include adaptiveValue("margin-bottom", 30, 20, 1170, 991.98, 1);
     }
 
     &__items {
-        margin: 0px 0px 25px 0px;
-        @media (max-width: $tablet) {
-            margin: 0px 0px 15px 0px;
-        }
+        @include adaptiveValue("margin-bottom", 25, 15, 1170, 991.98, 1);
     }
 
     &__item {
@@ -63,62 +50,54 @@
     }
 
     &__total {
-        font-size: 24px;
         font-weight: 900;
         text-transform: uppercase;
-        color: #333333;
-        margin: 0px 0px 25px 0px;
+        color: $gray_01;
+        @include adaptiveValue("font-size", 24, 20, 767.98, 479.98, 1);
+        @include adaptiveValue("margin-bottom", 25, 15, 767.98, 479.98, 1);
         span {
             font-family: Roboto;
-            font-size: 36px;
+            font-size: rem(30);
             font-weight: 900;
-            color: #f68038;
+            color: $secondary;
             &::after {
-                font-size: 30px;
-            }
-        }
-        @media (max-width: $mobileSmall) {
-            font-size: 20px;
-            margin: 0px 0px 15px 0px;
-            span {
-                font-size: 30px;
-                &::after {
-                    font-size: 26px;
-                }
+                @include adaptiveValue("font-size", 30, 26, 767.98, 479.98, 1);
             }
         }
     }
 
     &__btn {
         display: inline-flex;
-        border-radius: 15px;
+        border-radius: rem(15);
         align-items: center;
         justify-content: center;
-        color: #fff;
-        height: 33px;
-        padding: 0px 15px;
+        color: $white;
+        height: rem(33);
+        padding: 0px rem(15);
         transition: all 0.3s ease 0s;
-        background-color: #f68038;
+        background-color: $secondary;
         @media (min-width: $tablet) {
             &:hover {
-                background-color: #1ab9ce;
+                background-color: $primary_03;
             }
+        }
+        @media (max-width: $mobileSmall) {
+            width: 100%;
         }
     }
 }
 .item-order {
     display: flex;
-    padding: 15px;
-    border: 1px solid #f5f5f5;
+    padding: rem(15);
+    border: rem(1) solid $gray_05;
     align-items: center;
-    margin: 0px 0px 10px 0px;
     position: relative;
+    justify-content: space-between;
+    &:not(:last-child) {
+        margin-bottom: rem(10);
+    }
     @media (max-width: $mobile) {
         flex-wrap: wrap;
-        justify-content: space-between;
-    }
-    &:last-child {
-        margin: 0px 0px 0px 0px;
     }
     &__content {
         flex: 0 1 50%;
@@ -126,35 +105,40 @@
         align-items: center;
         @media (max-width: $mobile) {
             flex: 1 1 100%;
-            margin: 0px 0px 15px 0px;
-            padding: 0px 20px 10px 0px;
+            margin-bottom: rem(15);
+            padding-right: rem(20);
         }
     }
 
     &__image {
-        flex: 0 0 110px;
+        flex: 0 0 rem(110);
+        display: flex;
+        justify-content: center;
+        align-items: center;
         img {
+            max-height: rem(100);
             max-width: 100%;
         }
         @media (max-width: $mobileSmall) {
-            flex: 0 0 80px;
+            flex: 0 0 rem(80);
         }
     }
 
     &__body {
         flex: 1 1 auto;
-        padding: 0px 0px 0px 25px;
+        padding-left: rem(25);
     }
 
     &__title {
         display: inline-block;
         font-weight: 900;
-        color: #36949f;
-        line-height: 16px;
-        margin: 0px 0px 10px 0px;
-        @media (min-width: $tablet) {
+        color: $primary_01;
+        line-height: math.div(16, 14);
+        margin-bottom: rem(10);
+        transition: all 0.3s ease 0s;
+        @media (any-hover: hover) {
             &:hover {
-                text-decoration: underline;
+                color: $primary_03;
             }
         }
         span {
@@ -164,94 +148,92 @@
 
     &__price {
         white-space: nowrap;
-        font-size: 24px;
+        @include adaptiveValue("font-size", 24, 20, 767.98, 479.98, 1);
         font-weight: 900;
-        color: #333333;
+        color: $gray_01;
         &::after {
-            font-size: 20px;
-        }
-        @media (max-width: $mobileSmall) {
-            font-size: 20px;
-            &::after {
-                font-size: 16px;
-            }
+            @include adaptiveValue("font-size", 20, 16, 767.98, 479.98, 1);
         }
     }
 
     &__quantity {
-        flex: 1 1 auto;
-        padding: 0px 30px;
+        @media (min-width: $mobile) {
+            flex: 0 1 rem(220);
+            padding: 0px rem(30);
+        }
         @media (max-width: $mobile) {
-            padding: 0px 15px;
-
-            flex: 0 0 auto;
+            flex: 0 1 50%;
+            padding-right: rem(20);
         }
     }
 
     &__total {
+        flex: 0 1 50%;
         @media (min-width: $mobile) {
-            flex: 1 1 auto;
+            flex: 0 1 rem(192);
         }
     }
 
     &__label {
-        margin: 0px 0px 10px 0px;
-        font-size: 16px;
+        margin-bottom: rem(10);
+        font-size: rem(16);
         font-weight: 300;
-        color: #999999;
+        color: $gray_03;
     }
 
     &__delete {
-        // background: url("../img/icons/cross.png") 0 0 no-repeat;
         position: absolute;
-        width: 16px;
-        height: 16px;
-        top: 15px;
-        right: 15px;
-        transition: all 0.3s ease 0s;
-        @media (min-width: $tablet) {
-            &:hover {
-                // background: url("../img/icons/cross_hv.png") 0 0 no-repeat;
-            }
+        height: rem(16);
+        width: rem(16);
+        top: rem(15);
+        right: rem(15);
+        img {
+            max-width: 100%;
         }
     }
 }
 //========================================================================================================================================================
 
 .content-checkout {
-    padding: 20px;
-    background-color: #fafafa;
+    padding: rem(20);
+    background-color: $gray_05;
+    @media (max-width: $mobile) {
+        padding: rem(20) rem(15);
+    }
     &__nav {
-        padding: 0px 0px 15px 0;
+        padding-bottom: rem(15);
         @media (min-width: $pc) {
-            padding: 20px 30px;
+            padding: rem(20) rem(30);
+        }
+        @media (min-width: $mobileSmall) {
             display: flex;
             align-items: center;
         }
     }
 
     &__item {
-        height: 50px;
-        color: #72c9d4;
+        height: rem(50);
+        color: $primary_03;
         font-weight: 900;
         text-transform: uppercase;
-        padding: 0px 30px;
+        padding: 0px rem(30);
         display: flex;
         justify-content: center;
         align-items: center;
         cursor: pointer;
         @media (max-width: $mobileSmall) {
-            padding: 0px 20px;
+            padding: 0px rem(20);
+            width: 100%;
         }
         span {
-            line-height: 16px;
-            border-bottom: 2px dotted;
+            line-height: math.div(16, 14);
+            border-bottom: rem(2) dotted;
         }
-        &._active {
-            background-color: #72c9d4;
-            color: #fff;
+        &._tab-active {
+            background-color: $primary_03;
+            color: $white;
             span {
-                border-bottom: 2px dotted transparent;
+                border-bottom: rem(2) dotted transparent;
             }
             @media (max-width: $mobile) {
                 flex: 1 1 auto;
@@ -260,9 +242,8 @@
     }
 
     &__body {
-        padding: 0px 30px;
-        @media (max-width: $pc) {
-            padding: 0;
+        @media (min-width: $pc) {
+            padding: 0px rem(30);
         }
     }
 
@@ -275,64 +256,77 @@
 .form-checkout {
     @media (min-width: $pc) {
         display: flex;
-        margin: 0px -15px;
+        margin: 0px rem(-15);
     }
     &__column {
         @media (min-width: $pc) {
             flex: 0 1 50%;
-            padding: 0px 15px;
+            padding: 0px rem(15);
         }
     }
 
     &__line {
-        margin: 0px 0px 10px 0px;
-        &:last-child {
-            margin: 0px 0px 0px 0px;
+        position: relative;
+        &:not(:last-child) {
+            margin-bottom: rem(10);
         }
         @media (min-width: $mobileSmall) {
             display: flex;
+            align-items: center;
         }
     }
 
     &__label {
-        padding: 10px 0px 0px 0px;
-        flex: 0 0 130px;
+        flex: 0 0 rem(130);
         font-weight: 900;
-        color: #333333;
+        color: $gray_01;
         @media (max-width: $mobileSmall) {
-            margin: 0px 0px 10px 0px;
+            margin-bottom: rem(5);
+        }
+    }
+
+    &__error {
+        position: absolute;
+        font-size: rem(10);
+        margin-top: rem(-7);
+        line-height: math.div(14, 10);
+        top: 100%;
+        left: 0;
+        color: red;
+        @media (max-width: $mobileSmall) {
+            top: 0;
+            right: 0;
+            left: auto;
+            margin: 0;
         }
     }
 
     &__input {
         flex: 1 1 auto;
-        padding: 0px 0px 0px 15px;
-        .form__error {
-            margin: 3px 0px 0px 0px;
-            color: red;
-            font-size: 10px;
+        input {
+            height: rem(30);
+            ._error & {
+                border: rem(1) solid red;
+            }
         }
-        @media (max-width: $mobile) {
-            padding: 0px 0px 0px 0px;
+        @media (min-width: $mobile) {
+            padding-left: rem(15);
         }
     }
 
     &__text {
-        font-size: 12px;
-        line-height: 18px;
+        font-size: rem(12);
+        line-height: math.div(18, 12);
         font-weight: 300;
-        color: #666666;
+        color: $gray_02;
         p {
-            margin: 0px 0px 20px 0px;
-            &:last-child {
-                margin: 0px 0px 0px 0px;
-            }
-            @media (max-width: $tablet) {
-                margin: 0px 0px 10px 0px;
+            &:not(:last-child) {
+                margin-bottom: rem(20);
+                @include adaptiveValue("margin-bottom", 20, 10, 1170, 767.98, 1);
             }
         }
         @media (max-width: $pc) {
-            padding: 20px 0px 0px 0px;
+            margin-top: rem(20);
         }
     }
 }
