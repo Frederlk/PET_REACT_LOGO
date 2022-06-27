@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Routes, useLocation } from "react-route
 
 import { Header, Footer } from "./_containers";
 import { Spinner } from "./_components";
-import { data, context } from "./constants";
+import { context } from "./constants";
 
 const Page404 = lazy(() => import("./_pages/Page404")),
     Home = lazy(() => import("./_pages/HomePage")),
@@ -23,7 +23,12 @@ const ScrollToTop = () => {
 };
 
 const App = () => {
-    const [cartList, setCartList] = useState([data.productsItems[0], data.productsItems[1]]);
+    const [cartList, setCartList] = useState([
+        { id: "aab525d2d6-5769-4f79-9baa-2469d676321f", quantity: 1, price: 0 },
+        { id: "aab5d2d6-2145769-4f79-9baa-2469d676321f", quantity: 1, price: 0 },
+        { id: "aab225d2d6-5769-4f72469d676321f", quantity: 1, price: 0 },
+    ]);
+
     const [compareList, setCompareList] = useState([]);
     const { CartListContext, CompareList } = context;
 

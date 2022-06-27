@@ -25,7 +25,7 @@ const ActionsHeaderItem = ({ title, link, img, alt }) => {
     );
 };
 
-const Header = () => {
+const Header = ({ passedState }) => {
     const { icons, defaultImages } = images;
 
     return (
@@ -124,7 +124,7 @@ const Header = () => {
                                         <div className="info-header__cart-icon">
                                             <img src={icons.cart_2} alt="Корзина" />
                                         </div>
-                                        <span>12</span>
+                                        <span>{passedState.length}</span>
                                     </Link>
                                 </div>
                             </div>

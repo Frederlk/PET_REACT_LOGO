@@ -54,16 +54,14 @@ const FormCheckoutTextarea = ({ label, ...props }) => {
 
 const Form = () => {
     const { CartListContext } = context;
-
-    const [total, setTotal] = useState([]);
     const [fastOrder, setFastOrder] = useState(true);
     const [paymentType, setPaymentType] = useState("Сбербанк");
+    let [total, setTotal] = useState(0);
+    const formatNum = (number) => number.replace(/(\d{1,3})(?=((\d{3})*([^\d]|$)))/g, " $1 ");
 
     useEffect(() => {
         flsFunctions.tabs();
     }, []);
-
-    const formatNum = (number) => number.replace(/(\d{1,3})(?=((\d{3})*([^\d]|$)))/g, " $1 ");
 
     const fastValidate = {
         firstName: Yup.string().min(2, "Минимум 2 символа").required("Обязательное поле!"),
@@ -226,7 +224,7 @@ const Form = () => {
                 <div className="checkout__order order-checkout">
                     <h2 className="order-checkout__title">Ваш заказ</h2>
                     <CartListContext.Consumer>
-                        {(contextProp) => <YourOrder contextProp={contextProp} />}
+                        {(contextProp) => <YourOrder contextProp={contextProp} setTotal={setTotal} />}
                     </CartListContext.Consumer>
                     <div className="order-checkout__footer">
                         <div className="order-checkout__total">
@@ -236,7 +234,7 @@ const Form = () => {
                                     ? formatNum(
                                           total
                                               .reduce((a, b) => {
-                                                  return (parseFloat(a) || 0) + (parseFloat(b) || 0);
+                                                  return (a || 0) + (b || 0);
                                               })
                                               .toString()
                                       )

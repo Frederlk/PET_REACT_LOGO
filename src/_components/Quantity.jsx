@@ -1,14 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { images } from "../constants";
 
-export default React.memo(function Quantity({ className, setPassedState }) {
+const Quantity = ({ className }) => {
     const [quantity, setQuantity] = useState(1);
-
-    useEffect(() => {
-        if (setPassedState) {
-            setPassedState(quantity);
-        }
-    }, [quantity]);
 
     const handleQuantityChange = (e) => {
         const value = +e.target.value.replace(/\D/g, "");
@@ -49,4 +43,6 @@ export default React.memo(function Quantity({ className, setPassedState }) {
             </button>
         </div>
     );
-});
+};
+
+export default Quantity;
