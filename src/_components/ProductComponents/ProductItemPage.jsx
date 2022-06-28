@@ -7,14 +7,28 @@ import { ProductItem, Quantity } from "../../_components";
 import parse from "html-react-parser";
 import * as flsFunctions from "../../js/files/functions";
 
-const ProductItemPage = () => {
+const ProductItemPage = ({ context }) => {
     const { pathname } = useLocation();
     const [productData, setProductData] = useState(data.productsItems.find((a) => a.link === pathname.slice(9, pathname.length)));
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
-
-    const { title, category, desription, inStock, options, price, discount, productImages } = productData;
+    const [quantity, setQuantity] = useState(1);
+    const { title, category, desription, inStock, options, price, discount, productImages, id } = productData;
 
     const formatNum = (number) => number.replace(/(\d{1,3})(?=((\d{3})*([^\d]|$)))/g, " $1 ");
+    const itemPrice = discount ? (price * (1 - discount / 100)).toFixed(0) : price;
+    const [cartList, setCartList] = context;
+
+    const onAddToCart = () => {
+        if (!cartList.find((item) => item.id == id)) {
+            const item = {
+                id: id,
+                quantity: quantity,
+                price: Number(itemPrice),
+            };
+            cartList.splice(0, 0, item);
+            setCartList(cartList);
+        }
+    };
 
     useEffect(() => {
         flsFunctions.tabs();
@@ -80,15 +94,20 @@ const ProductItemPage = () => {
                                         {formatNum(price)}
                                     </div>
                                 ) : null}
-                                <div className="actions-product__price rub">
-                                    {discount ? formatNum((price * (1 - discount / 100)).toFixed(0)) : formatNum(price)}
-                                </div>
+                                <div className="actions-product__price rub">{formatNum(itemPrice)}</div>
                             </div>
                             <div className="actions-product__column">
-                                <Quantity className="actions-product__quantity" />
+                                <Quantity setPassedState={setQuantity} className="actions-product__quantity" />
                             </div>
                             <div className="actions-product__column">
-                                <button className="actions-product__cart">В корзину</button>
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        onAddToCart();
+                                    }}
+                                    className="actions-product__cart">
+                                    В корзину
+                                </button>
                             </div>
                         </div>
                     </div>

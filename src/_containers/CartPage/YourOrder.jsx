@@ -12,12 +12,13 @@ const OrderItem = ({ itemId, onHandleDelete, localList, setLocalList, cartList }
     const summary = formatNum((quantity * discounted).toString());
 
     useEffect(() => {
-        const cartList = JSON.parse(localStorage.getItem("cartList"));
-        const localQuantity = cartList.find((item) => item.id == id);
+        const localList = JSON.parse(localStorage.getItem("cartList"));
+        const localQuantity = localList.find((item) => item.id == id);
         if (localQuantity) {
             setQuantity(localQuantity.quantity);
         } else {
-            setQuantity(1);
+            const item = cartList.find((item) => item.id == id);
+            item ? setQuantity(item.quantity) : setQuantity(1);
         }
     }, [cartList]);
 

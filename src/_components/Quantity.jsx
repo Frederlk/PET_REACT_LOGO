@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { images } from "../constants";
 
-const Quantity = ({ className }) => {
+const Quantity = ({ setPassedState, className }) => {
     const [quantity, setQuantity] = useState(1);
+
+    useEffect(() => {
+        if (setPassedState) {
+            setPassedState(quantity);
+        }
+    }, [quantity]);
 
     const handleQuantityChange = (e) => {
         const value = +e.target.value.replace(/\D/g, "");

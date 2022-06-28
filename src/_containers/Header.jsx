@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { images } from "../constants";
 import { Link } from "react-router-dom";
 
@@ -25,8 +25,9 @@ const ActionsHeaderItem = ({ title, link, img, alt }) => {
     );
 };
 
-const Header = ({ passedState }) => {
+const Header = ({ cartList }) => {
     const { icons, defaultImages } = images;
+    console.log(cartList);
 
     return (
         <header className="header">
@@ -122,9 +123,9 @@ const Header = ({ passedState }) => {
                                         data-da=".contacts-header__column_forcart,640,last"
                                         className="info-header__cart">
                                         <div className="info-header__cart-icon">
-                                            <img src={icons.cart_2} alt="Корзина" />
+                                            <img src={images.icons.cart_2} alt="Корзина" />
                                         </div>
-                                        <span>{passedState.length}</span>
+                                        <span>{cartList.length ? cartList.length : "0"}</span>
                                     </Link>
                                 </div>
                             </div>

@@ -1,10 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { images } from "../../constants";
+import { context, images } from "../../constants";
 
-const ProductItem = ({ data, catalog }) => {
-    const { title, label, previewImg, category, price, link, discount, options, inStock } = data;
+const ProductItemWrap = ({ data, catalog, context }) => {
+    const { title, label, previewImg, category, price, link, discount, options, inStock, id } = data;
     const formatNum = (number) => number.replace(/(\d{1,3})(?=((\d{3})*([^\d]|$)))/g, " $1 ");
+    const [cartList, setCartList] = context;
+    const itemPrice = discount ? (price * (1 - discount / 100)).toFixed(0) : price;
+
+    const onAddToCart = () => {
+        if (!cartList.find((item) => item.id == id)) {
+            const item = {
+                id: id,
+                quantity: 1,
+                price: Number(itemPrice),
+            };
+            cartList.splice(0, 0, item);
+            setCartList(cartList);
+        }
+    };
 
     return (
         <article className={`item-product ${catalog ? "item-product_catalog" : ""}`}>
@@ -44,12 +58,15 @@ const ProductItem = ({ data, catalog }) => {
                 )}
                 <div className="item-product__footer">
                     {discount && <div className="item-product__old-price rub">{formatNum(price)}</div>}
-                    <button type="button" className="item-product__add">
+                    <button
+                        type="button"
+                        onClick={() => {
+                            onAddToCart();
+                        }}
+                        className="item-product__add">
                         <img src={images.icons.cart_3} alt="Добавить в корзину" />
                     </button>
-                    <div className="item-product__price rub">
-                        {discount ? formatNum((price * (1 - discount / 100)).toFixed(0)) : formatNum(price)}
-                    </div>
+                    <div className="item-product__price rub">{formatNum(itemPrice)}</div>
                 </div>
             </div>
             <div className="item-product__hover hover-item-product">
@@ -78,14 +95,24 @@ const ProductItem = ({ data, catalog }) => {
                         <button type="button">Сравнить</button>
                     </div>
                 ) : (
-                    <button type="button" className="hover-item-product__cart">
+                    <button
+                        onClick={() => {
+                            onAddToCart();
+                        }}
+                        type="button"
+                        className="hover-item-product__cart">
                         <img src={images.icons.cart_1} alt="Добавить в корзину" />
                     </button>
                 )}
                 <div className="hover-item-product__footer">
                     {discount && <div className="hover-item-product__old-price rub">{formatNum(price)}</div>}
                     {catalog ? (
-                        <button type="button" className="hover-item-product__add">
+                        <button
+                            onClick={() => {
+                                onAddToCart();
+                            }}
+                            type="button"
+                            className="hover-item-product__add">
                             <img src={images.icons.cart_1} alt="Добавить в корзину" />
                         </button>
                     ) : (
@@ -93,13 +120,17 @@ const ProductItem = ({ data, catalog }) => {
                             {inStock ? "В наличии" : "Нет на складе"}
                         </div>
                     )}
-                    <div className="hover-item-product__price rub">
-                        {discount ? formatNum((price * (1 - discount / 100)).toFixed(0)) : formatNum(price)}
-                    </div>
+                    <div className="hover-item-product__price rub">{formatNum(itemPrice)}</div>
                 </div>
             </div>
         </article>
     );
+};
+
+const ProductItem = (props) => {
+    const { CartListContext } = context;
+
+    return <CartListContext.Consumer>{(context) => <ProductItemWrap {...props} context={context} />}</CartListContext.Consumer>;
 };
 
 export default ProductItem;

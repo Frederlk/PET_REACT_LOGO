@@ -39,44 +39,22 @@ const App = () => {
 
     return (
         <Router>
-            <ScrollToTop />
-            <Header passedState={cartList} />
-            <main className="page">
-                <Suspense fallback={<Spinner />}>
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route
-                            path="/catalog"
-                            element={
-                                <Catalog
-                                    passedState={{ cartList, compareList }}
-                                    setPassedState={{ setCartList, setCompareList }}
-                                />
-                            }
-                        />
-                        <Route
-                            path="/catalog/:id"
-                            element={
-                                <Product
-                                    passedState={{ cartList, compareList }}
-                                    setPassedState={{ setCartList, setCompareList }}
-                                />
-                            }
-                        />
-                        <Route
-                            path="/cart"
-                            element={
-                                <CartListContext.Provider value={[cartList, setCartList]}>
-                                    <Cart />
-                                </CartListContext.Provider>
-                            }
-                        />
-
-                        <Route path="*" element={<Page404 />} />
-                    </Routes>
-                </Suspense>
-            </main>
-            <Footer />
+            <CartListContext.Provider value={[cartList, setCartList]}>
+                <ScrollToTop />
+                <Header cartList={cartList} />
+                <main className="page">
+                    <Suspense fallback={<Spinner />}>
+                        <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route path="/catalog" element={<Catalog />} />
+                            <Route path="/catalog/:id" element={<Product />} />
+                            <Route path="/cart" element={<Cart />} />
+                            <Route path="*" element={<Page404 />} />
+                        </Routes>
+                    </Suspense>
+                </main>
+                <Footer />
+            </CartListContext.Provider>
         </Router>
     );
 };
