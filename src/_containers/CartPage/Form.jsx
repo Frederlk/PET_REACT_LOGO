@@ -4,7 +4,6 @@ import { Formik, Form as FormikForm, useField } from "formik";
 import * as Yup from "yup";
 import * as flsFunctions from "../../js/files/functions";
 import YourOrder from "./YourOrder";
-import { context } from "../../constants";
 
 const FormCheckoutInput = ({ label, ...props }) => {
     const [field, meta] = useField(props);
@@ -52,12 +51,12 @@ const FormCheckoutTextarea = ({ label, ...props }) => {
     );
 };
 
-const Form = () => {
-    const { CartListContext } = context;
+const Form = ({ contextProp }) => {
     const [fastOrder, setFastOrder] = useState(true);
     const [paymentType, setPaymentType] = useState("Сбербанк");
     let [total, setTotal] = useState(0);
     const formatNum = (number) => number.replace(/(\d{1,3})(?=((\d{3})*([^\d]|$)))/g, " $1 ");
+    const [cartList, setCartList] = contextProp;
 
     useEffect(() => {
         flsFunctions.tabs();
@@ -104,6 +103,8 @@ const Form = () => {
                 address: "",
                 comment: "",
                 sign: false,
+                cart: [],
+                total: 0,
             }}
             validationSchema={fastOrder ? Yup.object(fastValidate) : Yup.object(regionValidate)}
             onSubmit={(values, { resetForm }) => {
@@ -111,6 +112,12 @@ const Form = () => {
                     ...values,
                     tel: values.tel.replace(/[-() ]/g, ""),
                     payment: paymentType,
+                    cart: cartList,
+                    total: total.length
+                        ? total.reduce((a, b) => {
+                              return (a || 0) + (b || 0);
+                          })
+                        : 0,
                 };
                 resetForm();
                 console.log(JSON.stringify(values, null, 2));
@@ -223,9 +230,7 @@ const Form = () => {
                 </div>
                 <div className="checkout__order order-checkout">
                     <h2 className="order-checkout__title">Ваш заказ</h2>
-                    <CartListContext.Consumer>
-                        {(contextProp) => <YourOrder contextProp={contextProp} setTotal={setTotal} />}
-                    </CartListContext.Consumer>
+                    <YourOrder contextProp={contextProp} setTotal={setTotal} />
                     <div className="order-checkout__footer">
                         <div className="order-checkout__total">
                             Итого:

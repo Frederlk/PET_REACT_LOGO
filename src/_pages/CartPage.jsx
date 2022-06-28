@@ -2,8 +2,11 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { Breadcrumbs, HelpInfo, SearchBar } from "../_components";
 import { Form, Side } from "../_containers";
+import { context } from "../constants";
 
 const CartPage = () => {
+    const { CartListContext } = context;
+
     return (
         <>
             <Helmet>
@@ -17,7 +20,7 @@ const CartPage = () => {
                     <div className="page__content">
                         <SearchBar />
                         <Breadcrumbs />
-                        <Form />
+                        <CartListContext.Consumer>{(contextProp) => <Form contextProp={contextProp} />}</CartListContext.Consumer>
                         <div className="page__info"></div>
                     </div>
                 </div>
