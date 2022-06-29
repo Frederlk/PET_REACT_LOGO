@@ -26,7 +26,7 @@ const ProductItemPage = ({ context }) => {
                 price: Number(itemPrice),
             };
             cartList.splice(0, 0, item);
-            setCartList(cartList);
+            setCartList(cartList.slice());
         }
     };
 

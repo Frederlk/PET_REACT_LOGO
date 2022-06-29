@@ -348,7 +348,7 @@ const productsItems = [
         id: "aab5d2d6-2145769-4f79-9baa-2469d676321f",
         title: "Alpin Marathon T-180",
         label: "Товар дня",
-        previewImg: productImages.productImage01,
+        previewImg: productImages.productImage02,
         productImages: [
             productImages.productImage01,
             productImages.productImage02,
@@ -407,7 +407,7 @@ const productsItems = [
         id: "aab525d2d6-5769-4f79-9baa-2469d676321f",
         title: "Fitness S3000",
         label: "Товар дня",
-        previewImg: productImages.productImage01,
+        previewImg: productImages.productImage03,
         productImages: [
             productImages.productImage01,
             productImages.productImage02,
@@ -465,7 +465,7 @@ const productsItems = [
     {
         id: "aab5d2d6-625769-4f79-9baa-2676321f",
         title: "Sport Elite TM1556-01",
-        previewImg: productImages.productImage01,
+        previewImg: productImages.productImage04,
         productImages: [
             productImages.productImage01,
             productImages.productImage02,
@@ -523,7 +523,7 @@ const productsItems = [
         id: "aab225d2d6-5769-4f72469d676321f",
         title: "Sundays Fitness ES-T2702",
         label: "Товар дня",
-        previewImg: productImages.productImage01,
+        previewImg: productImages.productImage05,
         productImages: [
             productImages.productImage01,
             productImages.productImage02,
@@ -641,7 +641,7 @@ const productsItems = [
         id: "aab5d2d6-51234769-4f72469d676321f",
         title: "Sundays Fitness ES-T2702",
         label: "Товар дня",
-        previewImg: productImages.productImage01,
+        previewImg: productImages.productImage02,
         productImages: [
             productImages.productImage01,
             productImages.productImage02,
@@ -700,7 +700,7 @@ const productsItems = [
         id: "aab4112245d2d6-5769-4f79-9baa-2469d676321f",
         title: "Fitness S3000",
         label: "Товар дня",
-        previewImg: productImages.productImage01,
+        previewImg: productImages.productImage03,
         productImages: [
             productImages.productImage01,
             productImages.productImage02,
