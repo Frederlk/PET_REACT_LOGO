@@ -7,16 +7,22 @@ import { ProductItem, Quantity } from "../../_components";
 import parse from "html-react-parser";
 import * as flsFunctions from "../../js/files/functions";
 
-const ProductItemPage = ({ context }) => {
+const ProductItemPage = ({ context, compare }) => {
     const { pathname } = useLocation();
     const [productData, setProductData] = useState(data.productsItems.find((a) => a.link === pathname.slice(9, pathname.length)));
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
+
     const [quantity, setQuantity] = useState(1);
     const { title, category, desription, inStock, options, price, discount, productImages, id } = productData;
 
-    const formatNum = (number) => number.replace(/(\d{1,3})(?=((\d{3})*([^\d]|$)))/g, " $1 ");
-    const itemPrice = discount ? (price * (1 - discount / 100)).toFixed(0) : price;
-    const [cartList, setCartList] = context;
+    const formatNum = (number) => number.replace(/(\d{1,3})(?=((\d{3})*([^\d]|$)))/g, " $1 "),
+        itemPrice = discount ? (price * (1 - discount / 100)).toFixed(0) : price;
+
+    const [cartList, setCartList] = context,
+        [compareList, setCompareList] = compare;
+
+    const itemInCompare = compareList.find((item) => item == id),
+        [inCompare, setInCompare] = useState(itemInCompare ? true : false);
 
     const onAddToCart = () => {
         if (!cartList.find((item) => item.id == id)) {
@@ -27,6 +33,25 @@ const ProductItemPage = ({ context }) => {
             };
             cartList.splice(0, 0, item);
             setCartList(cartList.slice());
+        }
+    };
+
+    useEffect(() => {
+        if (itemInCompare) {
+            setInCompare(true);
+        } else {
+            setInCompare(false);
+        }
+    }, [compareList]);
+
+    const onAddToCompare = () => {
+        if (itemInCompare) {
+            setInCompare(false);
+            setCompareList(compareList.filter((item) => item !== id));
+        } else {
+            compareList.splice(0, 0, id);
+            setInCompare(true);
+            setCompareList(compareList.slice());
         }
     };
 
@@ -73,11 +98,11 @@ const ProductItemPage = ({ context }) => {
                 </div>
                 <div className="product__body body-product">
                     <div className="body-product__top">
-                        <button className="body-product__compare">
+                        <button onClick={() => onAddToCompare()} type="button" className="body-product__compare">
                             <span className="body-product__compare-img">
-                                <img src={images.icons.compare_2} alt="Сравнить" />
+                                <img src={images.icons.compare_2} alt={inCompare ? "Убрать" : "Сравнить"} />
                             </span>
-                            Сравнить
+                            {inCompare ? "Убрать" : "Сравнить"}
                         </button>
                         {inStock ? (
                             <div className="body-product__stock">в наличии</div>

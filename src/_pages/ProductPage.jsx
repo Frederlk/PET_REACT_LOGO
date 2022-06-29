@@ -4,7 +4,7 @@ import { context } from "../constants";
 import { Breadcrumbs, HelpInfo, ProductItemPage, SearchBar } from "../_components";
 import { Side } from "../_containers";
 
-const ProductPage = () => {
+const ProductPage = ({ compare }) => {
     const { CartListContext } = context;
 
     return (
@@ -20,7 +20,9 @@ const ProductPage = () => {
                     <div className="page__content">
                         <SearchBar />
                         <Breadcrumbs />
-                        <CartListContext.Consumer>{(context) => <ProductItemPage context={context} />}</CartListContext.Consumer>;
+                        <CartListContext.Consumer>
+                            {(context) => <ProductItemPage context={context} compare={compare} />}
+                        </CartListContext.Consumer>
                         <div className="page__info"></div>
                     </div>
                 </div>

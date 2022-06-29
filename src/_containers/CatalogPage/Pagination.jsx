@@ -28,8 +28,8 @@ export default React.memo(function Pagination({ passedState, setPassedState, pag
                         activeLinkClassName="_active"
                         breakLabel="..."
                         onPageChange={handlePageClick}
-                        pageRangeDisplayed={1}
-                        marginPagesDisplayed={2}
+                        pageRangeDisplayed={2}
+                        marginPagesDisplayed={1}
                         pageCount={pageCount}
                         previousLabel={
                             <img

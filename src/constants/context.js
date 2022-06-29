@@ -1,5 +1,5 @@
 import React from "react";
 const CartListContext = React.createContext([]);
-const CompareList = React.createContext([]);
+const CompareListContext = React.createContext([]);
 
-export default { CartListContext, CompareList };
+export default { CartListContext, CompareListContext };

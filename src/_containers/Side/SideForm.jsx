@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { images, catalogFilter } from "../../constants";
+import { images, catalogFilter, data } from "../../constants";
 import { Formik, Form as FormikForm, Field } from "formik";
 import { Link } from "react-router-dom";
 import Slider from "rc-slider";
@@ -60,17 +60,13 @@ const PriceFilter = ({ min, max, setPriceArr }) => {
     );
 };
 
-const SideForm = () => {
-    const [compareList, setCompareList] = useState([]);
-    const { manufacturer, angle, power, speed, weight, size, compare } = catalogFilter;
+const SideForm = ({ compareContext }) => {
+    const [compareList, setCompareList] = compareContext;
+    const { manufacturer, angle, power, speed, weight, size } = catalogFilter;
     const [priceArr, setPriceArr] = useState([]);
 
     const [menuOpen, setMenuOpen] = useState(true);
     const [disabled, setDisabled] = useState(false);
-
-    useEffect(() => {
-        setCompareList(compare);
-    }, [compare]);
 
     const FilterItem = ({ title, data, name }) => {
         return (
@@ -108,7 +104,7 @@ const SideForm = () => {
     };
 
     const onHandleRemove = (id) => {
-        setCompareList(compareList.filter((item) => item.id !== id));
+        setCompareList(compareList.filter((item) => item !== id));
     };
 
     const generateFilters = useMemo(() => {
@@ -164,21 +160,24 @@ const SideForm = () => {
                                 <div className="section-filter__body">
                                     <div className="compare-filter">
                                         <div className="compare-filter__items">
-                                            {compareList.map(({ title, link, id }, i) => (
-                                                <div key={title + link + i} className="compare-filter__item">
-                                                    <Link to={link} className="compare-filter__link">
-                                                        {title}
-                                                    </Link>
-                                                    <button
-                                                        onClick={() => {
-                                                            onHandleRemove(id);
-                                                        }}
-                                                        type="button"
-                                                        className="compare-filter__remove">
-                                                        <img src={images.icons.remove} alt="Убрать" />
-                                                    </button>
-                                                </div>
-                                            ))}
+                                            {compareList.map((id, i) => {
+                                                const { title, link } = data.productsItems.find((item) => item.id == id);
+                                                return (
+                                                    <div key={title + link + i} className="compare-filter__item">
+                                                        <Link to={link} className="compare-filter__link">
+                                                            {title}
+                                                        </Link>
+                                                        <button
+                                                            onClick={() => {
+                                                                onHandleRemove(id);
+                                                            }}
+                                                            type="button"
+                                                            className="compare-filter__remove">
+                                                            <img src={images.icons.remove} alt="Убрать" />
+                                                        </button>
+                                                    </div>
+                                                );
+                                            })}
                                         </div>
                                         <div className="compare-filter__footer">
                                             <Link to="/compare" className="compare-filter__button">

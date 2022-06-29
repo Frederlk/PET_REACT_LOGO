@@ -1,12 +1,49 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { context, images } from "../../constants";
 
-const ProductItemWrap = ({ data, catalog, context }) => {
+const CompareButton = ({ compare, id }) => {
+    const [compareList, setCompareList] = compare;
+    const itemInCompare = compareList.find((item) => item == id);
+    const [inCompare, setInCompare] = useState(itemInCompare ? true : false);
+
+    useEffect(() => {
+        if (itemInCompare) {
+            setInCompare(true);
+        } else {
+            setInCompare(false);
+        }
+    }, [compareList]);
+
+    const onAddToCompare = () => {
+        if (itemInCompare) {
+            setInCompare(false);
+            setCompareList(compareList.filter((item) => item !== id));
+        } else {
+            compareList.splice(0, 0, id);
+            setInCompare(true);
+            setCompareList(compareList.slice());
+        }
+    };
+
+    return (
+        <div className="hover-item-product__compare">
+            <span>
+                <img src={images.icons.compare_1} alt={inCompare ? "Убрать" : "Сравнить"} />
+            </span>
+            <button onClick={() => onAddToCompare()} type="button">
+                {inCompare ? "Убрать" : "Сравнить"}
+            </button>
+        </div>
+    );
+};
+
+const ProductItemWrap = ({ data, catalog, cartListContext }) => {
     const { title, label, previewImg, category, price, link, discount, options, inStock, id } = data;
     const formatNum = (number) => number.replace(/(\d{1,3})(?=((\d{3})*([^\d]|$)))/g, " $1 ");
-    const [cartList, setCartList] = context;
+    const [cartList, setCartList] = cartListContext;
     const itemPrice = discount ? (price * (1 - discount / 100)).toFixed(0) : price;
+    const { CompareListContext } = context;
 
     const onAddToCart = () => {
         if (!cartList.find((item) => item.id == id)) {
@@ -88,12 +125,9 @@ const ProductItemWrap = ({ data, catalog, context }) => {
                     </div>
                 )}
                 {catalog ? (
-                    <div className="hover-item-product__compare">
-                        <span>
-                            <img src={images.icons.compare_1} alt="Сравнить" />
-                        </span>
-                        <button type="button">Сравнить</button>
-                    </div>
+                    <CompareListContext.Consumer>
+                        {(compare) => <CompareButton id={id} compare={compare} />}
+                    </CompareListContext.Consumer>
                 ) : (
                     <button
                         onClick={() => {
@@ -130,7 +164,11 @@ const ProductItemWrap = ({ data, catalog, context }) => {
 const ProductItem = (props) => {
     const { CartListContext } = context;
 
-    return <CartListContext.Consumer>{(context) => <ProductItemWrap {...props} context={context} />}</CartListContext.Consumer>;
+    return (
+        <CartListContext.Consumer>
+            {(cartListContext) => <ProductItemWrap {...props} cartListContext={cartListContext} />}
+        </CartListContext.Consumer>
+    );
 };
 
 export default ProductItem;

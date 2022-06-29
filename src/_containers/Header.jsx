@@ -27,7 +27,6 @@ const ActionsHeaderItem = ({ title, link, img, alt }) => {
 
 const Header = ({ cartList }) => {
     const { icons, defaultImages } = images;
-    console.log(cartList);
 
     return (
         <header className="header">

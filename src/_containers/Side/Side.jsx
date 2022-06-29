@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { images, data } from "../../constants";
+import { images, data, context } from "../../constants";
 import { isMobile, _slideDown, _slideToggle, _slideUp, spollers } from "../../js/files/functions";
 import { ProductItem } from "../../_components";
 import dynamicAdaptive from "../../js/libs/dynamic_adapt";
@@ -51,6 +51,7 @@ const SideMenuItem = ({ dataLi }) => {
 export default React.memo(function Side({ catalog }) {
     const [menuOpen, setMenuOpen] = useState(false);
     const [disabled, setDisabled] = useState(false);
+    const { CompareListContext } = context;
 
     const sideMenuItems = data.sideMenu.map((item, i) => <SideMenuItem key={item.title + i} dataLi={item} />);
 
@@ -92,7 +93,9 @@ export default React.memo(function Side({ catalog }) {
                 </div>
             </nav>
             {catalog ? (
-                <SideForm />
+                <CompareListContext.Consumer>
+                    {(compareContext) => <SideForm compareContext={compareContext} />}
+                </CompareListContext.Consumer>
             ) : (
                 <div data-da=".page__info,991.98,last" className="side__bottom">
                     <SideNews />

@@ -579,3 +579,43 @@
         }
     }
 }
+
+//=======================================================================================================================================================
+
+.to-top {
+    position: fixed;
+    z-index: 100;
+    width: rem(40);
+    height: rem(40);
+    bottom: rem(20);
+    right: rem(20);
+    background-color: $primary_03;
+    border-radius: 50%;
+    padding: rem(5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease 0s;
+    box-shadow: 0 0 rem(35) rgba(255, 255, 255, 0.7);
+    @media (any-hover: hover) {
+        &:hover {
+            box-shadow: 0 0 rem(35) rgba(255, 255, 255, 1);
+            background-color: $primary_01;
+        }
+    }
+    @media (max-width: em(1350)) {
+        right: 50%;
+        transform: translate(50%, 0px);
+    }
+    @media (max-width: $mobileSmall) {
+        right: rem(20);
+        transform: translate(0px, 0px);
+    }
+    img {
+        max-width: 100%;
+        transform: rotate(-90deg);
+    }
+    &._active {
+        opacity: 1;
+        visibility: visible;
+    }
+}

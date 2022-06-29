@@ -16,11 +16,8 @@ const CatalogPage = () => {
                     <Side catalog />
                     <div className="page__content">
                         <SearchBar />
-
                         <Breadcrumbs />
-
                         <Catalog />
-
                         <div className="page__info"></div>
                     </div>
                 </div>

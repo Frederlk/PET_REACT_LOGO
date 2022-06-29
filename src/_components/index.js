@@ -12,3 +12,4 @@ export { default as ErrorMessage } from "./ErrorMessage/ErrorMessage";
 export { default as Spinner } from "./Spinner";
 export { default as setContent } from "./utils/setContent";
 export { default as CustomSelect } from "./CustomSelect";
+export { default as ToTop } from "./ToTop";
