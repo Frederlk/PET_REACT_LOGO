@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { images, data, context } from "../../constants";
-import { isMobile, _slideDown, _slideToggle, _slideUp, spollers } from "../../js/files/functions";
 import { ProductItem } from "../../_components";
-import dynamicAdaptive from "../../js/libs/dynamic_adapt";
+import { isMobile, _slideDown, _slideToggle, _slideUp, spollers } from "../../js/functions";
+import dynamicAdaptive from "../../js/dynamic_adapt";
 
 import SideReviews from "./SideReviews";
 import SideNews from "./SideNews";

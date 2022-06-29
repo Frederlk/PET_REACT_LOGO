@@ -5,7 +5,7 @@ import { Thumbs } from "swiper";
 import { data, images } from "../../constants";
 import { ProductItem, Quantity } from "../../_components";
 import parse from "html-react-parser";
-import * as flsFunctions from "../../js/files/functions";
+import * as flsFunctions from "../../js/functions";
 
 const ProductItemPage = ({ context, compare }) => {
     const { pathname } = useLocation();

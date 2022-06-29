@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { images, catalogFilter, data } from "../../constants";
 import { Formik, Form as FormikForm, Field } from "formik";
 import { Link } from "react-router-dom";
 import Slider from "rc-slider";
-import { _slideToggle } from "../../js/files/functions";
-import { useMemo } from "react";
+import { _slideToggle } from "../../js/functions";
 
 const PriceFilter = ({ min, max, setPriceArr }) => {
     const [rangeMin, setRangeMin] = useState(min);

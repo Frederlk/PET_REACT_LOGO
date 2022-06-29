@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { CustomSelect } from "../../_components";
 import { Formik, Form as FormikForm, useField } from "formik";
 import * as Yup from "yup";
-import * as flsFunctions from "../../js/files/functions";
+import * as flsFunctions from "../../js/functions";
 import YourOrder from "./YourOrder";
 
 const FormCheckoutInput = ({ label, ...props }) => {

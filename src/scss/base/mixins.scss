@@ -1,5 +1,4 @@
 //Подключение шрифта
-
 @mixin font($font_name, $file_name, $weight, $style) {
     @font-face {
         font-family: $font_name;
@@ -8,11 +7,6 @@
         font-weight: #{$weight};
         font-style: #{$style};
     }
-}
-//Percent
-@function percent($px, $from) {
-    $result: math.div($px, $from) * 100%;
-    @return $result;
 }
 //REM
 @function rem($px) {
@@ -25,20 +19,6 @@
     @return $result;
 }
 //Адаптивное свойство
-
-//Currency
-@mixin currency($sym) {
-    &::after {
-        content: "#{$sym}";
-    }
-}
-
-// Grids
-@mixin gridCards($type: fit, $min: 280px, $max: 1fr, $gap: 30px) {
-    display: grid;
-    gap: $gap;
-    grid-template-columns: repeat(auto-#{$type}, minmax($min, $max));
-}
 
 // Адаптивное свойство (clamp)
 @mixin adaptiveValue($property, $startSize, $minSize, $widthFrom: $containerWidth, $widthTo: $minWidth, $keepSize: 0) {

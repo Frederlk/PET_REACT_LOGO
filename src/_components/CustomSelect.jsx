@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useEvent } from "../helpers/useEvent";
 import { images } from "../constants";
-import { _slideDown, _slideToggle, _slideUp } from "../js/files/functions";
+import { _slideDown, _slideToggle, _slideUp } from "../js/functions";
 
 export default React.memo(function CustomSelect({ passedState, setPassedState, children, className, speed = 200, name }) {
     const [activeOption, setActiveOption] = useState("");

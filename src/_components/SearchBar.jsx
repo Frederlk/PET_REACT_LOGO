@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { images, data } from "../constants";
 import { Formik, Form as FormikForm, useField, Field } from "formik";
 import * as Yup from "yup";
-import * as flsFunctions from "../js/files/functions";
+import * as flsFunctions from "../js/functions";
 
 const FormSearchItem = ({ label, ...props }) => {
     const [field, meta] = useField(props);
