@@ -34,7 +34,13 @@ export let isMobile = {
         return navigator.userAgent.match(/IEMobile/i);
     },
     any: function () {
-        return isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows();
+        return (
+            isMobile.Android() ||
+            isMobile.BlackBerry() ||
+            isMobile.iOS() ||
+            isMobile.Opera() ||
+            isMobile.Windows()
+        );
     },
 };
 /* Добавление класса touch для HTML если браузер мобильный */
@@ -186,10 +192,6 @@ export let bodyLock = (delay = 500) => {
     }
 };
 // Модуль работы со спойлерами =======================================================================================================================================================================================================================
-/*
-Документация по работе в шаблоне: https://template.fls.guru/template-docs/modul-spojlery.html
-Сниппет (HTML): spollers
-*/
 export function spollers() {
     const spollersArray = document.querySelectorAll("[data-spollers]");
     // Инициализация
@@ -211,7 +213,9 @@ export function spollers() {
     function initSpollerBody(spollersBlock, hideSpollerBody = true) {
         let spollerTitles = spollersBlock.querySelectorAll("[data-spoller]");
         if (spollerTitles.length) {
-            spollerTitles = Array.from(spollerTitles).filter((item) => item.closest("[data-spollers]") === spollersBlock);
+            spollerTitles = Array.from(spollerTitles).filter(
+                (item) => item.closest("[data-spollers]") === spollersBlock
+            );
             spollerTitles.forEach((spollerTitle) => {
                 if (hideSpollerBody) {
                     spollerTitle.removeAttribute("tabindex");
@@ -231,7 +235,9 @@ export function spollers() {
             const spollerTitle = el.closest("[data-spoller]");
             const spollersBlock = spollerTitle.closest("[data-spollers]");
             const oneSpoller = spollersBlock.hasAttribute("data-one-spoller");
-            const spollerSpeed = spollersBlock.dataset.spollersSpeed ? parseInt(spollersBlock.dataset.spollersSpeed) : 500;
+            const spollerSpeed = spollersBlock.dataset.spollersSpeed
+                ? parseInt(spollersBlock.dataset.spollersSpeed)
+                : 500;
             if (!spollersBlock.querySelectorAll("._slide").length) {
                 if (oneSpoller && !spollerTitle.classList.contains("_spoller-active")) {
                     hideSpollersBody(spollersBlock);
@@ -244,7 +250,9 @@ export function spollers() {
     }
     function hideSpollersBody(spollersBlock) {
         const spollerActiveTitle = spollersBlock.querySelector("[data-spoller]._spoller-active");
-        const spollerSpeed = spollersBlock.dataset.spollersSpeed ? parseInt(spollersBlock.dataset.spollersSpeed) : 500;
+        const spollerSpeed = spollersBlock.dataset.spollersSpeed
+            ? parseInt(spollersBlock.dataset.spollersSpeed)
+            : 500;
         if (spollerActiveTitle && !spollersBlock.querySelectorAll("._slide").length) {
             spollerActiveTitle.classList.remove("_spoller-active");
             _slideUp(spollerActiveTitle.nextElementSibling, spollerSpeed);
@@ -292,10 +300,6 @@ export function spollers() {
 }
 
 // Модуь работы с табами =======================================================================================================================================================================================================================
-/*
-Документация по работе в шаблоне: https://template.fls.guru/template-docs/modul-taby.html
-Сниппет (HTML): tabs
-*/
 export function tabs() {
     const tabs = document.querySelectorAll("[data-tabs]");
     let tabsActiveHash = [];
@@ -332,8 +336,12 @@ export function tabs() {
             let tabsTitleItems = tabsMediaItem.querySelectorAll("[data-tabs-title]");
             let tabsContent = tabsMediaItem.querySelector("[data-tabs-body]");
             let tabsContentItems = tabsMediaItem.querySelectorAll("[data-tabs-item]");
-            tabsTitleItems = Array.from(tabsTitleItems).filter((item) => item.closest("[data-tabs]") === tabsMediaItem);
-            tabsContentItems = Array.from(tabsContentItems).filter((item) => item.closest("[data-tabs]") === tabsMediaItem);
+            tabsTitleItems = Array.from(tabsTitleItems).filter(
+                (item) => item.closest("[data-tabs]") === tabsMediaItem
+            );
+            tabsContentItems = Array.from(tabsContentItems).filter(
+                (item) => item.closest("[data-tabs]") === tabsMediaItem
+            );
             tabsContentItems.forEach((tabsContentItem, index) => {
                 if (matchMedia.matches) {
                     tabsContent.append(tabsTitleItems[index]);
@@ -413,7 +421,9 @@ export function tabs() {
             if (!tabTitle.classList.contains("_tab-active") && !tabsBlock.querySelector("._slide")) {
                 let tabActiveTitle = tabsBlock.querySelectorAll("[data-tabs-title]._tab-active");
                 tabActiveTitle.length
-                    ? (tabActiveTitle = Array.from(tabActiveTitle).filter((item) => item.closest("[data-tabs]") === tabsBlock))
+                    ? (tabActiveTitle = Array.from(tabActiveTitle).filter(
+                          (item) => item.closest("[data-tabs]") === tabsBlock
+                      ))
                     : null;
                 tabActiveTitle.length ? tabActiveTitle[0].classList.remove("_tab-active") : null;
                 tabTitle.classList.add("_tab-active");
@@ -423,11 +433,8 @@ export function tabs() {
         }
     }
 }
+
 // Модуль работы с меню (бургер) =======================================================================================================================================================================================================================
-/*
-Документация по работе в шаблоне: https://template.fls.guru/template-docs/menu-burger.html
-Сниппет (HTML): menu
-*/
 export function menuInit() {
     if (document.querySelector(".icon-menu")) {
         document.addEventListener("click", function (e) {
