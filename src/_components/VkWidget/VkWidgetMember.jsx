@@ -18,7 +18,8 @@ const VkGroupPerson = ({ groupId }) => {
         setTimeout(() => {
             getMembers(groupId)
                 .then(onMembersLoaded)
-                .then(() => setProcess("confirmed"));
+                .then(() => setProcess("confirmed"))
+                .catch((e) => console.log(e));
         }, 1000);
     };
 

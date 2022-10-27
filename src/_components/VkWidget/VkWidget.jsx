@@ -19,7 +19,10 @@ const VkWidget = ({ className, groupId }) => {
         }
         getGroup(groupId)
             .then(onGroupLoaded)
-            .then(() => setProcess("confirmed"));
+            .then(() => setProcess("confirmed"))
+            .catch((e) => {
+                console.log(e);
+            });
     };
 
     const onGroupLoaded = (group) => {
@@ -36,7 +39,11 @@ const View = ({ data }) => {
         return (
             formatNum(number.toString()) +
             " " +
-            words[number % 100 > 4 && number % 100 < 20 ? 2 : [2, 0, 1, 1, 1, 2][number % 10 < 5 ? Math.abs(number) % 10 : 5]]
+            words[
+                number % 100 > 4 && number % 100 < 20
+                    ? 2
+                    : [2, 0, 1, 1, 1, 2][number % 10 < 5 ? Math.abs(number) % 10 : 5]
+            ]
         );
     }
     const link = `https://vk.com/${screen_name}`;
