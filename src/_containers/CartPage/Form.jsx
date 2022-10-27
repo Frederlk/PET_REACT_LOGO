@@ -8,7 +8,11 @@ import YourOrder from "./YourOrder";
 const FormCheckoutInput = ({ label, ...props }) => {
     const [field, meta] = useField(props);
     return (
-        <div className={`form-checkout__line ${props.className || ""} ${meta.touched && meta.error ? "_error" : ""}`}>
+        <div
+            className={`form-checkout__line ${props.className || ""} ${
+                meta.touched && meta.error ? "_error" : ""
+            }`}
+        >
             <div className="form-checkout__label">
                 {label}: <span className="red-star">*</span>
             </div>
@@ -121,7 +125,8 @@ const Form = ({ contextProp }) => {
                 };
                 resetForm();
                 console.log(JSON.stringify(values, null, 2));
-            }}>
+            }}
+        >
             <FormikForm className="checkout">
                 <h2 className="checkout__title">Оформление заказа</h2>
                 <div data-tabs className="checkout__content content-checkout">
@@ -129,13 +134,15 @@ const Form = ({ contextProp }) => {
                         <button
                             type="button"
                             onClick={() => (fastOrder ? null : setFastOrder(true))}
-                            className="content-checkout__item _tab-active">
+                            className="content-checkout__item _tab-active"
+                        >
                             <span>Быстрый заказ</span>
                         </button>
                         <button
                             type="button"
                             onClick={() => (fastOrder ? setFastOrder(false) : null)}
-                            className="content-checkout__item">
+                            className="content-checkout__item"
+                        >
                             <span>Доставка в регионы</span>
                         </button>
                     </nav>
@@ -151,15 +158,17 @@ const Form = ({ contextProp }) => {
                                 <div className="form-checkout__column">
                                     <div className="form-checkout__text">
                                         <p>
-                                            <span className="red-star">*</span> Поля, обязательные для заполнения
+                                            <span className="red-star">*</span> Поля, обязательные для
+                                            заполнения
                                         </p>
                                         <p>
-                                            Отправка товара производится только после 100% оплаты товара. Стоимость доставки
-                                            возможно оплатить при получении заказа.
+                                            Отправка товара производится только после 100% оплаты товара.
+                                            Стоимость доставки возможно оплатить при получении заказа.
                                         </p>
                                         <p>
-                                            <span className="red-star">*</span> Интернет-магазин не несет ответственности за
-                                            задержку доставки заказа, связанную с работой курьерских служб DPD и EMS Почты России.
+                                            <span className="red-star">*</span> Интернет-магазин не несет
+                                            ответственности за задержку доставки заказа, связанную с работой
+                                            курьерских служб DPD и EMS Почты России.
                                         </p>
                                     </div>
                                 </div>
@@ -182,7 +191,8 @@ const Form = ({ contextProp }) => {
                                             <CustomSelect
                                                 name="payment"
                                                 passedState={paymentType}
-                                                setPassedState={setPaymentType}>
+                                                setPassedState={setPaymentType}
+                                            >
                                                 <option value="Сбербанк">Через Сбербанк</option>
                                                 <option value="Альфабанк">Через Альфабанк</option>
                                                 <option value="МТБанк">Через МТБанк</option>
@@ -205,22 +215,25 @@ const Form = ({ contextProp }) => {
                                 <div className="form-checkout__column">
                                     <div className="form-checkout__text">
                                         <p>
-                                            <span className="red-star">*</span>Поля, обязательные для заполнения
+                                            <span className="red-star">*</span>Поля, обязательные для
+                                            заполнения
                                         </p>
                                         <p>
-                                            Отправка товара производится только после 100% оплаты товара. Стоимость доставки
-                                            возможно оплатить при получении заказа.
+                                            Отправка товара производится только после 100% оплаты товара.
+                                            Стоимость доставки возможно оплатить при получении заказа.
                                         </p>
                                         <p>
-                                            Доставка в регионы осуществляется EMS Почтой России (в течение 5-14 дней) и курьерской
-                                            службой DPD (в течение 3-5 дней) с момента передачи заказа в службу доставки.
-                                            Стоимость зависит от веса заказа и расстояния. В некоторые регионы доставка возможна
-                                            только посредством EMS Почты России, способ доставки уточняйте у оператора при
-                                            оформлении заказа*.
+                                            Доставка в регионы осуществляется EMS Почтой России (в течение
+                                            5-14 дней) и курьерской службой DPD (в течение 3-5 дней) с момента
+                                            передачи заказа в службу доставки. Стоимость зависит от веса
+                                            заказа и расстояния. В некоторые регионы доставка возможна только
+                                            посредством EMS Почты России, способ доставки уточняйте у
+                                            оператора при оформлении заказа*.
                                         </p>
                                         <p>
-                                            * Интернет-магазин не несет ответственности за задержку доставки заказа, связанную с
-                                            работой курьерских служб DPD и EMS Почты России.
+                                            * Интернет-магазин не несет ответственности за задержку доставки
+                                            заказа, связанную с работой курьерских служб DPD и EMS Почты
+                                            России.
                                         </p>
                                     </div>
                                 </div>
@@ -235,7 +248,7 @@ const Form = ({ contextProp }) => {
                         <div className="order-checkout__total">
                             Итого:
                             <span className="rub">
-                                {total.length
+                                {total.length > 0
                                     ? formatNum(
                                           total
                                               .reduce((a, b) => {
