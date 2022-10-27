@@ -11,6 +11,8 @@ const OrderItem = ({ itemId, onHandleDelete, localList, setLocalList, cartList }
     const discounted = discount ? (price * (1 - discount / 100)).toFixed(0) : price;
     const summary = formatNum((quantity * discounted).toString());
 
+    console.log(summary, quantity, discounted);
+
     useEffect(() => {
         const localList = JSON.parse(localStorage.getItem("cartList") || "[]");
         const localQuantity = localList.find((item) => item.id == id);
@@ -58,7 +60,9 @@ const OrderItem = ({ itemId, onHandleDelete, localList, setLocalList, cartList }
                     type="button"
                     onClick={() =>
                         quantity >= 1 && quantity <= 100
-                            ? setQuantity(() => (quantity <= 1 ? setQuantity(1) : setQuantity(+quantity - 1)))
+                            ? quantity <= 1
+                                ? setQuantity(1)
+                                : setQuantity(+quantity - 1)
                             : null
                     }
                     className="quantity__button quantity__button_minus"
@@ -76,9 +80,7 @@ const OrderItem = ({ itemId, onHandleDelete, localList, setLocalList, cartList }
                 </div>
                 <button
                     type="button"
-                    onClick={() =>
-                        quantity >= 1 && quantity < 100 ? setQuantity(() => setQuantity(+quantity + 1)) : null
-                    }
+                    onClick={() => (quantity >= 1 && quantity < 100 ? setQuantity(+quantity + 1) : null)}
                     className="quantity__button quantity__button_plus"
                 >
                     <img src={images.icons.arrow_nav_hv} alt="+" />
